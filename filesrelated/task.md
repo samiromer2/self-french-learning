@@ -43,12 +43,12 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 
 ## Phase 5 — Listening Module
 
-- [ ] Audio player + native audio clips
-- [ ] Dictation exercise
-- [ ] Listen-and-choose exercise
-- [ ] Fill missing words exercise
-- [ ] Story comprehension exercise
-- [ ] Difficulty progression by level (slow speech → native speed)
+- [x] Audio via browser TTS (SpeechSynthesis fr-FR) — native audio clips can replace TTS later using the same Audio model
+- [x] Dictation exercise (punctuation/case-insensitive, accent-sensitive)
+- [x] Listen-and-choose exercise
+- [x] Fill missing words exercise
+- [x] Story comprehension exercise
+- [x] Difficulty progression by level (rate 0.8 slow speech at A1; per-exercise rate field scales to native speed)
 
 ## Phase 6 — Speaking Module
 
