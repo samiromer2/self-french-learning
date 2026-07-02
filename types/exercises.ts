@@ -19,7 +19,24 @@ export type SentenceOrderData = {
   translation?: string;
 };
 
-export type ExerciseData = MultipleChoiceData | FillBlankData | SentenceOrderData;
+// Writing prompts come in three modes:
+// - "copy": type `text` exactly (accent practice)
+// - "complete": finish the sentence starting with `starter`; any answer with
+//   at least `minWords` words counts (no auto-grading until AI phase)
+// - "paragraph": free/guided writing of at least `minWords` words
+export type WritingPromptData = {
+  mode: "copy" | "complete" | "paragraph";
+  text?: string;
+  starter?: string;
+  minWords?: number;
+  guidance?: string[];
+};
+
+export type ExerciseData =
+  | MultipleChoiceData
+  | FillBlankData
+  | SentenceOrderData
+  | WritingPromptData;
 
 // Shape stored in Lesson.content for reading lessons.
 export type LessonContent = {

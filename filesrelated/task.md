@@ -34,11 +34,11 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 
 ## Phase 4 — Writing Module
 
-- [ ] Copy sentence exercise
-- [ ] Complete sentence exercise
-- [ ] Short paragraph writing
-- [ ] Guided composition
-- [ ] Free writing
+- [x] Copy sentence exercise (exact match, accent-sensitive)
+- [x] Complete sentence exercise (starter + min word count)
+- [x] Short paragraph writing
+- [x] Guided composition (guidance bullet points)
+- [x] Free writing (word-count validated; auto-grading deferred to AI phase)
 - [ ] (Later) AI grammar checking / suggestions / CEFR scoring / error explanations
 
 ## Phase 5 — Listening Module

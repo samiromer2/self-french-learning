@@ -10,11 +10,13 @@ import type {
   FillBlankData,
   MultipleChoiceData,
   SentenceOrderData,
+  WritingPromptData,
 } from "@/types/exercises";
 import type { ExerciseType, ProgressStatus } from "@/lib/generated/prisma/client";
 import { MultipleChoice } from "./multiple-choice";
 import { FillBlank, isFillBlankCorrect } from "./fill-blank";
 import { SentenceOrder, isSentenceOrderCorrect } from "./sentence-order";
+import { WritingPrompt, isWritingCorrect } from "@/features/writing/writing-prompt";
 
 export type PlayerExercise = {
   id: string;
@@ -68,6 +70,7 @@ export function ExercisePlayer({
     if (exercise.type === "FILL_BLANK") return blankValue.trim().length > 0;
     if (exercise.type === "SENTENCE_ORDER")
       return picked.length === (exercise.data as SentenceOrderData).words.length;
+    if (exercise.type === "WRITING_PROMPT") return blankValue.trim().length > 0;
     return false;
   }
 
@@ -82,6 +85,8 @@ export function ExercisePlayer({
         exercise.data as SentenceOrderData,
         picked.map((p) => p.word),
       );
+    } else if (exercise.type === "WRITING_PROMPT") {
+      correct = isWritingCorrect(exercise.data as WritingPromptData, blankValue);
     }
     setWasCorrect(correct);
     if (correct) setCorrectCount((c) => c + 1);
@@ -170,6 +175,14 @@ export function ExercisePlayer({
           data={exercise.data as SentenceOrderData}
           picked={picked}
           onPickedChange={setPicked}
+          revealed={revealed}
+        />
+      )}
+      {exercise.type === "WRITING_PROMPT" && (
+        <WritingPrompt
+          data={exercise.data as WritingPromptData}
+          value={blankValue}
+          onChange={setBlankValue}
           revealed={revealed}
         />
       )}
