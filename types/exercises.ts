@@ -48,12 +48,27 @@ export type WritingPromptData = {
   guidance?: string[];
 };
 
+// Speaking prompts:
+// - "repeat": listen to `text` and say it back (repeat-after-speaker,
+//   pronunciation practice, shadowing)
+// - "answer": listen to `question`, answer freely; `text` is a model answer
+//   shown afterwards
+// Scored via SpeechRecognition when available, else self-assessment.
+export type SpeakingPromptData = {
+  mode: "repeat" | "answer";
+  text: string;
+  question?: string;
+  translation?: string;
+  rate?: number;
+};
+
 export type ExerciseData =
   | MultipleChoiceData
   | FillBlankData
   | SentenceOrderData
   | WritingPromptData
-  | DictationData;
+  | DictationData
+  | SpeakingPromptData;
 
 // Shape stored in Lesson.content for reading lessons.
 export type LessonContent = {

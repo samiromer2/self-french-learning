@@ -3,6 +3,7 @@ import { Prisma, PrismaClient, Skill } from "../lib/generated/prisma/client";
 import { a1ReadingContent } from "./seed-data/reading";
 import { a1WritingContent } from "./seed-data/writing";
 import { a1ListeningContent } from "./seed-data/listening";
+import { a1SpeakingContent } from "./seed-data/speaking";
 
 const prisma = new PrismaClient();
 
@@ -119,6 +120,10 @@ async function main() {
         lessonSeed.skill === Skill.LISTENING
           ? a1ListeningContent[unitIndex + 1]
           : undefined;
+      const speaking =
+        lessonSeed.skill === Skill.SPEAKING
+          ? a1SpeakingContent[unitIndex + 1]
+          : undefined;
 
       const content = reading
         ? { intro: lessonSeed.intro, passage: reading.passage }
@@ -150,7 +155,10 @@ async function main() {
       }
 
       const exercises =
-        reading?.exercises ?? writing?.exercises ?? listening?.exercises;
+        reading?.exercises ??
+        writing?.exercises ??
+        listening?.exercises ??
+        speaking?.exercises;
       if (exercises) {
         await prisma.exercise.deleteMany({ where: { lessonId: lesson.id } });
         for (const [exerciseIndex, exercise] of exercises.entries()) {
