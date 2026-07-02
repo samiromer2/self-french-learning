@@ -11,16 +11,16 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 - [x] Auth.js (NextAuth v5) with Credentials provider + Prisma adapter
 - [x] Signup / login / dashboard pages, verified end-to-end in browser
 - [x] Create project folder structure (features/, content/french/a1-c2, public/audio, public/images, docs/, types/)
-- [ ] Commit Phase 1 scaffold to git
-- [ ] Set `nvm alias default` or add `.nvmrc` (repo Node was 18.12.1, too old for Next 16)
+- [x] Commit Phase 1 scaffold to git
+- [x] Set `nvm alias default` or add `.nvmrc` (repo Node was 18.12.1, too old for Next 16)
 - [ ] Deploy skeleton to Vercel + provision hosted Postgres (e.g. Neon/Supabase) for prod `DATABASE_URL`
 
 ## Phase 2 — Course Structure & Lesson System
 
-- [ ] Seed script for Level/Unit/Lesson data (starting with A1, 6 units per master plan)
-- [ ] Course/level/unit/lesson listing pages
-- [ ] Lesson detail page shell (renders content by skill type)
-- [ ] Progress model wiring (mark lesson started/completed)
+- [x] Seed script for Level/Unit/Lesson data (starting with A1, 6 units per master plan)
+- [x] Course/level/unit/lesson listing pages (`/learn`)
+- [x] Lesson detail page shell (renders content by skill type)
+- [x] Progress model wiring (mark lesson started/completed, +10 XP on completion)
 
 ## Phase 3 — Reading Module
 
