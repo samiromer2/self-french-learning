@@ -24,13 +24,13 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 
 ## Phase 3 — Reading Module
 
-- [ ] Reading passage viewer
-- [ ] Vocabulary highlights
-- [ ] Fill-in-the-blanks exercise
-- [ ] Multiple choice questions
-- [ ] Sentence ordering exercise
-- [ ] Reading comprehension exercise
-- [ ] Progress tracking (speed, accuracy, vocab learned)
+- [x] Reading passage viewer
+- [x] Vocabulary highlights (hover tooltips with translation + example)
+- [x] Fill-in-the-blanks exercise
+- [x] Multiple choice questions
+- [x] Sentence ordering exercise
+- [x] Reading comprehension exercise (MC questions about the passage)
+- [x] Progress tracking (accuracy saved as Progress.score; reading pace shown in results; per-user vocab tracking still TODO)
 
 ## Phase 4 — Writing Module
 

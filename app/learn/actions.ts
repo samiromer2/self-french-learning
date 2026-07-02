@@ -31,6 +31,48 @@ export async function startLesson(lessonId: string) {
   revalidatePath(`/learn/lesson/${lessonId}`);
 }
 
+export async function completeLessonWithScore(
+  lessonId: string,
+  correct: number,
+  total: number,
+) {
+  const userId = await requireUserId();
+  const score = total > 0 ? correct / total : 0;
+  const xpAwarded = 10 + correct * 2;
+
+  await prisma.$transaction([
+    prisma.progress.upsert({
+      where: { userId_lessonId: { userId, lessonId } },
+      update: {
+        status: "COMPLETED",
+        score,
+        completedAt: new Date(),
+      },
+      create: {
+        userId,
+        lessonId,
+        status: "COMPLETED",
+        score,
+        attempts: 1,
+        completedAt: new Date(),
+      },
+    }),
+    prisma.user.update({
+      where: { id: userId },
+      data: {
+        xp: { increment: xpAwarded },
+        lastActivityAt: new Date(),
+      },
+    }),
+  ]);
+
+  revalidatePath("/learn");
+  revalidatePath(`/learn/lesson/${lessonId}`);
+  revalidatePath("/dashboard");
+
+  return { xpAwarded };
+}
+
 export async function completeLesson(lessonId: string) {
   const userId = await requireUserId();
 
