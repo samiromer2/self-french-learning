@@ -1,0 +1,88 @@
+# Task Tracker
+
+Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
+
+## Phase 1 — Setup, Auth, Database
+
+- [x] Scaffold Next.js app (TypeScript, Tailwind, App Router)
+- [x] Initialize shadcn/ui + add core components
+- [x] Design Prisma schema (Users, Levels, Units, Lessons, Exercises, Vocabulary, Audio, Progress, Quizzes, Assessments, Achievements)
+- [x] Local Postgres via docker-compose + run initial migration
+- [x] Auth.js (NextAuth v5) with Credentials provider + Prisma adapter
+- [x] Signup / login / dashboard pages, verified end-to-end in browser
+- [x] Create project folder structure (features/, content/french/a1-c2, public/audio, public/images, docs/, types/)
+- [ ] Commit Phase 1 scaffold to git
+- [ ] Set `nvm alias default` or add `.nvmrc` (repo Node was 18.12.1, too old for Next 16)
+- [ ] Deploy skeleton to Vercel + provision hosted Postgres (e.g. Neon/Supabase) for prod `DATABASE_URL`
+
+## Phase 2 — Course Structure & Lesson System
+
+- [ ] Seed script for Level/Unit/Lesson data (starting with A1, 6 units per master plan)
+- [ ] Course/level/unit/lesson listing pages
+- [ ] Lesson detail page shell (renders content by skill type)
+- [ ] Progress model wiring (mark lesson started/completed)
+
+## Phase 3 — Reading Module
+
+- [ ] Reading passage viewer
+- [ ] Vocabulary highlights
+- [ ] Fill-in-the-blanks exercise
+- [ ] Multiple choice questions
+- [ ] Sentence ordering exercise
+- [ ] Reading comprehension exercise
+- [ ] Progress tracking (speed, accuracy, vocab learned)
+
+## Phase 4 — Writing Module
+
+- [ ] Copy sentence exercise
+- [ ] Complete sentence exercise
+- [ ] Short paragraph writing
+- [ ] Guided composition
+- [ ] Free writing
+- [ ] (Later) AI grammar checking / suggestions / CEFR scoring / error explanations
+
+## Phase 5 — Listening Module
+
+- [ ] Audio player + native audio clips
+- [ ] Dictation exercise
+- [ ] Listen-and-choose exercise
+- [ ] Fill missing words exercise
+- [ ] Story comprehension exercise
+- [ ] Difficulty progression by level (slow speech → native speed)
+
+## Phase 6 — Speaking Module
+
+- [ ] Repeat-after-speaker exercise
+- [ ] Pronunciation practice exercise
+- [ ] Shadowing exercises
+- [ ] Question-answer practice
+- [ ] Conversation simulation
+- [ ] (Later) AI pronunciation scoring / accent feedback / fluency score / conversation bot
+
+## Phase 7 — Progress Tracking
+
+- [ ] User dashboard with real progress data (replace placeholder)
+- [ ] Per-skill progress views
+- [ ] Level/unit completion rules
+
+## Phase 8 — Gamification
+
+- [ ] XP system wired to exercise completion
+- [ ] Daily streaks
+- [ ] Achievements/badges (seed Achievement table, award logic)
+- [ ] Leaderboards
+- [ ] Progress bars, weekly goals
+
+## Phase 9 — AI Features
+
+- [ ] Writing feedback / grammar checking
+- [ ] Pronunciation scoring
+- [ ] Conversation practice bot
+
+## Phase 10 — Expand Beyond A1
+
+- [ ] A2 content
+- [ ] B1 content
+- [ ] B2 content
+- [ ] C1 content
+- [ ] C2 content
