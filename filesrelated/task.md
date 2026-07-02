@@ -68,11 +68,12 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 
 ## Phase 8 — Gamification
 
-- [ ] XP system wired to exercise completion
-- [ ] Daily streaks
-- [ ] Achievements/badges (seed Achievement table, award logic)
-- [ ] Leaderboards
-- [ ] Progress bars, weekly goals
+- [x] XP system wired to exercise completion (10 base + 2/correct)
+- [x] Daily streaks (increment on consecutive days, reset on gaps, longest tracked)
+- [x] Achievements/badges (6 seeded, award logic on completion, toasts + dashboard badges)
+- [x] Leaderboards (/leaderboard, top 10 by XP)
+- [x] Progress bars (level, per-skill, per-exercise-session)
+- [ ] Weekly goals (deferred)
 
 ## Phase 9 — AI Features
 

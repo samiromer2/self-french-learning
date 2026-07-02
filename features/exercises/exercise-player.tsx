@@ -124,12 +124,15 @@ export function ExercisePlayer({
     if (!finished || savedRef.current) return;
     savedRef.current = true;
     startTransition(async () => {
-      const { xpAwarded } = await completeLessonWithScore(
+      const { xpAwarded, newAchievements } = await completeLessonWithScore(
         lessonId,
         correctCount,
         total,
       );
       toast.success(`Lesson completed! +${xpAwarded} XP`);
+      for (const a of newAchievements) {
+        toast(`${a.icon ?? "🏅"} Achievement unlocked: ${a.title}`);
+      }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finished]);

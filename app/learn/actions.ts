@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { applyGamification } from "@/lib/gamification";
 
 async function requireUserId() {
   const session = await auth();
@@ -61,16 +62,17 @@ export async function completeLessonWithScore(
       where: { id: userId },
       data: {
         xp: { increment: xpAwarded },
-        lastActivityAt: new Date(),
       },
     }),
   ]);
+
+  const { newAchievements } = await applyGamification(userId, score);
 
   revalidatePath("/learn");
   revalidatePath(`/learn/lesson/${lessonId}`);
   revalidatePath("/dashboard");
 
-  return { xpAwarded };
+  return { xpAwarded, newAchievements };
 }
 
 export async function completeLesson(lessonId: string) {
@@ -95,12 +97,15 @@ export async function completeLesson(lessonId: string) {
       where: { id: userId },
       data: {
         xp: { increment: 10 },
-        lastActivityAt: new Date(),
       },
     }),
   ]);
 
+  const { newAchievements } = await applyGamification(userId, null);
+
   revalidatePath("/learn");
   revalidatePath(`/learn/lesson/${lessonId}`);
   revalidatePath("/dashboard");
+
+  return { newAchievements };
 }
