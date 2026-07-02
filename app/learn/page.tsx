@@ -45,12 +45,21 @@ export default async function LearnPage() {
         ).length;
         const pct = lessons.length ? Math.round((completed / lessons.length) * 100) : 0;
 
+        const completedUnits = level.units.filter(
+          (u) =>
+            u.lessons.length > 0 &&
+            u.lessons.every((l) => l.progress[0]?.status === "COMPLETED"),
+        ).length;
+        const levelComplete =
+          level.units.length > 0 && completedUnits === level.units.length;
+
         return (
           <section key={level.id} className="space-y-6">
             <div className="space-y-2">
               <div className="flex items-center gap-3">
                 <Badge variant="secondary">{level.code}</Badge>
                 <h1 className="text-2xl font-semibold tracking-tight">{level.title}</h1>
+                {levelComplete && <Badge>Level complete 🎉</Badge>}
               </div>
               {level.description && (
                 <p className="text-muted-foreground">{level.description}</p>
@@ -58,17 +67,25 @@ export default async function LearnPage() {
               <div className="flex items-center gap-3">
                 <Progress value={pct} className="max-w-xs" />
                 <span className="text-sm text-muted-foreground">
-                  {completed}/{lessons.length} lessons
+                  {completed}/{lessons.length} lessons · {completedUnits}/
+                  {level.units.length} units
                 </span>
               </div>
             </div>
 
-            {level.units.map((unit) => (
+            {level.units.map((unit) => {
+              const unitComplete =
+                unit.lessons.length > 0 &&
+                unit.lessons.every((l) => l.progress[0]?.status === "COMPLETED");
+              return (
               <Card key={unit.id}>
                 <CardHeader>
-                  <CardTitle>
-                    Unit {unit.order}: {unit.title}
-                  </CardTitle>
+                  <div className="flex items-center justify-between gap-3">
+                    <CardTitle>
+                      Unit {unit.order}: {unit.title}
+                    </CardTitle>
+                    {unitComplete && <Badge>Complete</Badge>}
+                  </div>
                   {unit.description && (
                     <CardDescription>{unit.description}</CardDescription>
                   )}
@@ -103,7 +120,8 @@ export default async function LearnPage() {
                   </ul>
                 </CardContent>
               </Card>
-            ))}
+              );
+            })}
           </section>
         );
       })}
