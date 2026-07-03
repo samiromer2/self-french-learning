@@ -5,13 +5,16 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.join(__dirname),
   },
-  // Next.js's serverless bundler traces imports statically and doesn't
-  // reliably detect Prisma's native query-engine binary (loaded at
-  // runtime, not via a traceable `require()`), especially with a
-  // customized `output` path like ours (lib/generated/prisma instead of
-  // the default node_modules/.prisma/client). Without this, the binary
-  // gets generated at build time but never makes it into the deployed
-  // function bundle.
+  // "standalone" copies each route's actual traced dependencies (including
+  // native binaries like Prisma's query engine) into .next/standalone with
+  // their real relative file layout preserved, instead of relying on the
+  // regular build's bundler to inline everything into shared chunks — which
+  // was severing Prisma's engine binary from the code that loads it
+  // (Prisma resolves the engine path relative to its own module location,
+  // and bundling moved that code into a different chunk file at runtime).
+  output: "standalone",
+  // Belt-and-suspenders: still explicitly include the custom Prisma client
+  // output directory in case standalone's own tracing misses it too.
   outputFileTracingIncludes: {
     "/**/*": ["./lib/generated/prisma/**/*"],
   },
