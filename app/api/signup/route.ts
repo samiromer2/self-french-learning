@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(request: Request) {
@@ -17,36 +18,62 @@ export async function POST(request: Request) {
       );
     }
 
-    const supabase = await createClient();
-    const { data, error } = await supabase.auth.signUp({
+    const existing = await prisma.user.findUnique({ where: { email } });
+    if (existing) {
+      return NextResponse.json(
+        { error: "An account with this email already exists." },
+        { status: 409 },
+      );
+    }
+
+    // Create the account pre-confirmed via the admin API — no confirmation
+    // email is sent, so this doesn't depend on the project's "Confirm
+    // email" setting or its email-sending rate limit.
+    const admin = createAdminClient();
+    const { data: created, error: createError } = await admin.auth.admin.createUser({
       email,
       password,
-      options: { data: { name } },
+      email_confirm: true,
+      user_metadata: { name },
     });
 
-    if (error || !data.user) {
+    if (createError || !created.user) {
+      const isDuplicate = /already.*registered|already exists|email_exists/i.test(
+        createError?.message ?? "",
+      );
       return NextResponse.json(
-        { error: error?.message ?? "Could not create account." },
-        { status: 400 },
+        {
+          error: isDuplicate
+            ? "An account with this email already exists."
+            : (createError?.message ?? "Could not create account."),
+        },
+        { status: isDuplicate ? 409 : 400 },
       );
     }
 
     // Application-level profile row: Supabase owns auth.users, this is our
-    // app-data row keyed to the same id. Created here (not via a DB trigger)
-    // since there's a single signup path — see filesrelated/task.md history.
+    // app-data row keyed to the same id.
     await prisma.user.upsert({
-      where: { id: data.user.id },
+      where: { id: created.user.id },
       update: {},
-      create: { id: data.user.id, name, email },
+      create: { id: created.user.id, name, email },
     });
 
-    if (data.session) {
-      // Email confirmation is off (or auto-confirmed) — the server client
-      // already wrote session cookies onto this response.
-      return NextResponse.json({ status: "confirmed", id: data.user.id });
+    // Sign the new user in immediately, writing session cookies onto this
+    // response via the cookie-aware server client.
+    const supabase = await createClient();
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (signInError) {
+      // Account exists and is confirmed; this would only fail on an
+      // unrelated transient error. Let them log in manually.
+      return NextResponse.json({ status: "created_please_login" });
     }
 
-    return NextResponse.json({ status: "confirm_email" });
+    return NextResponse.json({ status: "confirmed" });
   } catch (error) {
     console.error("Signup failed:", error);
 

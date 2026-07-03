@@ -21,7 +21,6 @@ export default function SignupPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [confirmEmail, setConfirmEmail] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -42,29 +41,13 @@ export default function SignupPage() {
       return;
     }
 
-    if (body.status === "confirm_email") {
-      setConfirmEmail(true);
+    if (body.status === "created_please_login") {
+      router.push("/login");
       return;
     }
 
     router.push("/dashboard");
     router.refresh();
-  }
-
-  if (confirmEmail) {
-    return (
-      <div className="flex flex-1 items-center justify-center px-6">
-        <Card className="w-full max-w-sm">
-          <CardHeader>
-            <CardTitle>Check your email</CardTitle>
-            <CardDescription>
-              We sent a confirmation link to {email}. Click it to activate your
-              account, then log in.
-            </CardDescription>
-          </CardHeader>
-        </Card>
-      </div>
-    );
   }
 
   return (
