@@ -1,5 +1,6 @@
 import "dotenv/config";
-import { PrismaClient, Skill } from "../lib/generated/prisma/client";
+import { Prisma, PrismaClient, Skill } from "../lib/generated/prisma/client";
+import { a1ReadingContent } from "./seed-data/reading";
 
 const prisma = new PrismaClient();
 
@@ -104,27 +105,62 @@ async function main() {
     });
 
     for (const [lessonIndex, lessonSeed] of unitSeed.lessons.entries()) {
-      await prisma.lesson.upsert({
+      const reading =
+        lessonSeed.skill === Skill.READING
+          ? a1ReadingContent[unitIndex + 1]
+          : undefined;
+
+      const content = reading
+        ? { intro: lessonSeed.intro, passage: reading.passage }
+        : { intro: lessonSeed.intro };
+
+      const lesson = await prisma.lesson.upsert({
         where: { unitId_order: { unitId: unit.id, order: lessonIndex + 1 } },
         update: {
           title: lessonSeed.title,
           skill: lessonSeed.skill,
-          content: { intro: lessonSeed.intro },
+          content,
         },
         create: {
           unitId: unit.id,
           order: lessonIndex + 1,
           title: lessonSeed.title,
           skill: lessonSeed.skill,
-          content: { intro: lessonSeed.intro },
+          content,
         },
       });
+
+      if (reading) {
+        // Replace vocabulary and exercises wholesale so re-seeding stays in
+        // sync with the seed data (progress records are untouched).
+        await prisma.vocabulary.deleteMany({ where: { lessonId: lesson.id } });
+        await prisma.vocabulary.createMany({
+          data: reading.vocabulary.map((v) => ({ ...v, lessonId: lesson.id })),
+        });
+
+        await prisma.exercise.deleteMany({ where: { lessonId: lesson.id } });
+        for (const [exerciseIndex, exercise] of reading.exercises.entries()) {
+          await prisma.exercise.create({
+            data: {
+              lessonId: lesson.id,
+              order: exerciseIndex + 1,
+              type: exercise.type,
+              prompt: exercise.prompt,
+              data: exercise.data as Prisma.InputJsonValue,
+            },
+          });
+        }
+      }
     }
   }
 
   const unitCount = await prisma.unit.count({ where: { levelId: level.id } });
   const lessonCount = await prisma.lesson.count({ where: { unit: { levelId: level.id } } });
-  console.log(`Seeded A1: ${unitCount} units, ${lessonCount} lessons.`);
+  const exerciseCount = await prisma.exercise.count();
+  const vocabCount = await prisma.vocabulary.count();
+  console.log(
+    `Seeded A1: ${unitCount} units, ${lessonCount} lessons, ${exerciseCount} exercises, ${vocabCount} vocabulary entries.`,
+  );
 }
 
 main()
