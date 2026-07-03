@@ -1,16 +1,32 @@
 // Shapes stored in Exercise.data (Json column), keyed by Exercise.type.
 
-export type MultipleChoiceData = {
+// Optional TTS audio attached to any exercise: the player shows a speaker
+// button that reads `tts` aloud in French. `rate` slows speech for lower
+// levels (A1 ≈ 0.8).
+export type AudioFields = {
+  tts?: string;
+  rate?: number;
+};
+
+export type MultipleChoiceData = AudioFields & {
   options: string[];
   correctIndex: number;
   explanation?: string;
 };
 
 // `template` contains a single ___ placeholder the learner fills in.
-export type FillBlankData = {
+export type FillBlankData = AudioFields & {
   template: string;
   answer: string;
   hint?: string;
+};
+
+// Dictation: listen to `text` (via TTS) and type it. Compared with
+// punctuation/case-insensitive matching.
+export type DictationData = {
+  text: string;
+  rate?: number;
+  translation?: string;
 };
 
 // `words` is the sentence in correct order; the client shuffles for display.
@@ -36,7 +52,8 @@ export type ExerciseData =
   | MultipleChoiceData
   | FillBlankData
   | SentenceOrderData
-  | WritingPromptData;
+  | WritingPromptData
+  | DictationData;
 
 // Shape stored in Lesson.content for reading lessons.
 export type LessonContent = {

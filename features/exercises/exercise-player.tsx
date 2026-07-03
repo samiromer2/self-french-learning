@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { startLesson, completeLessonWithScore } from "@/app/learn/actions";
 import type {
+  AudioFields,
+  DictationData,
   FillBlankData,
   MultipleChoiceData,
   SentenceOrderData,
@@ -17,6 +19,8 @@ import { MultipleChoice } from "./multiple-choice";
 import { FillBlank, isFillBlankCorrect } from "./fill-blank";
 import { SentenceOrder, isSentenceOrderCorrect } from "./sentence-order";
 import { WritingPrompt, isWritingCorrect } from "@/features/writing/writing-prompt";
+import { Dictation, isDictationCorrect } from "@/features/listening/dictation";
+import { AudioButton } from "@/features/listening/audio-button";
 
 export type PlayerExercise = {
   id: string;
@@ -71,6 +75,7 @@ export function ExercisePlayer({
     if (exercise.type === "SENTENCE_ORDER")
       return picked.length === (exercise.data as SentenceOrderData).words.length;
     if (exercise.type === "WRITING_PROMPT") return blankValue.trim().length > 0;
+    if (exercise.type === "DICTATION") return blankValue.trim().length > 0;
     return false;
   }
 
@@ -87,6 +92,8 @@ export function ExercisePlayer({
       );
     } else if (exercise.type === "WRITING_PROMPT") {
       correct = isWritingCorrect(exercise.data as WritingPromptData, blankValue);
+    } else if (exercise.type === "DICTATION") {
+      correct = isDictationCorrect(exercise.data as DictationData, blankValue);
     }
     setWasCorrect(correct);
     if (correct) setCorrectCount((c) => c + 1);
@@ -154,6 +161,14 @@ export function ExercisePlayer({
 
       <p className="font-medium">{exercise.prompt}</p>
 
+      {(exercise.type === "MULTIPLE_CHOICE" || exercise.type === "FILL_BLANK") &&
+        (exercise.data as AudioFields).tts && (
+          <AudioButton
+            text={(exercise.data as AudioFields).tts!}
+            rate={(exercise.data as AudioFields).rate}
+          />
+        )}
+
       {exercise.type === "MULTIPLE_CHOICE" && (
         <MultipleChoice
           data={exercise.data as MultipleChoiceData}
@@ -181,6 +196,14 @@ export function ExercisePlayer({
       {exercise.type === "WRITING_PROMPT" && (
         <WritingPrompt
           data={exercise.data as WritingPromptData}
+          value={blankValue}
+          onChange={setBlankValue}
+          revealed={revealed}
+        />
+      )}
+      {exercise.type === "DICTATION" && (
+        <Dictation
+          data={exercise.data as DictationData}
           value={blankValue}
           onChange={setBlankValue}
           revealed={revealed}

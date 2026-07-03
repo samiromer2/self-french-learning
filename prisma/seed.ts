@@ -2,6 +2,7 @@ import "dotenv/config";
 import { Prisma, PrismaClient, Skill } from "../lib/generated/prisma/client";
 import { a1ReadingContent } from "./seed-data/reading";
 import { a1WritingContent } from "./seed-data/writing";
+import { a1ListeningContent } from "./seed-data/listening";
 
 const prisma = new PrismaClient();
 
@@ -114,6 +115,10 @@ async function main() {
         lessonSeed.skill === Skill.WRITING
           ? a1WritingContent[unitIndex + 1]
           : undefined;
+      const listening =
+        lessonSeed.skill === Skill.LISTENING
+          ? a1ListeningContent[unitIndex + 1]
+          : undefined;
 
       const content = reading
         ? { intro: lessonSeed.intro, passage: reading.passage }
@@ -144,7 +149,8 @@ async function main() {
         });
       }
 
-      const exercises = reading?.exercises ?? writing?.exercises;
+      const exercises =
+        reading?.exercises ?? writing?.exercises ?? listening?.exercises;
       if (exercises) {
         await prisma.exercise.deleteMany({ where: { lessonId: lesson.id } });
         for (const [exerciseIndex, exercise] of exercises.entries()) {
