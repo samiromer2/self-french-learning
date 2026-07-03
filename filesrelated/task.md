@@ -75,12 +75,6 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 - [x] Progress bars (level, per-skill, per-exercise-session)
 - [ ] Weekly goals (deferred)
 
-## Phase 9 — AI Features
-
-- [ ] Writing feedback / grammar checking
-- [ ] Pronunciation scoring
-- [ ] Conversation practice bot
-
 ## Phase 10 — Expand Beyond A1
 
 - [ ] A2 content
@@ -88,3 +82,13 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 - [ ] B2 content
 - [ ] C1 content
 - [ ] C2 content
+
+## Later — only if this becomes a product
+
+### Phase 9 — AI Features
+
+Needs an Anthropic API key and a decision on billing before building.
+
+- [ ] Writing feedback / grammar checking
+- [ ] Pronunciation scoring
+- [ ] Conversation practice bot
