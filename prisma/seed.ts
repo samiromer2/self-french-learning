@@ -4,6 +4,7 @@ import { a1ReadingContent } from "./seed-data/reading";
 import { a1WritingContent } from "./seed-data/writing";
 import { a1ListeningContent } from "./seed-data/listening";
 import { a1SpeakingContent } from "./seed-data/speaking";
+import { ACHIEVEMENTS } from "../lib/achievements";
 
 const prisma = new PrismaClient();
 
@@ -174,6 +175,18 @@ async function main() {
         }
       }
     }
+  }
+
+  for (const achievement of ACHIEVEMENTS) {
+    await prisma.achievement.upsert({
+      where: { code: achievement.code },
+      update: {
+        title: achievement.title,
+        description: achievement.description,
+        icon: achievement.icon,
+      },
+      create: achievement,
+    });
   }
 
   const unitCount = await prisma.unit.count({ where: { levelId: level.id } });

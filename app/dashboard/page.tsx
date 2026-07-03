@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth } from "@/auth";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -18,28 +18,40 @@ import { SignOutButton } from "./sign-out-button";
 const SKILLS: Skill[] = ["READING", "WRITING", "LISTENING", "SPEAKING"];
 
 export default async function DashboardPage() {
-  const session = await auth();
+  const authUser = await getCurrentUser();
 
-  if (!session?.user) {
+  if (!authUser) {
     redirect("/login");
   }
 
-  const [user, lessonCount, completedCount, inProgressCount, lessonsBySkill, progressRows] =
-    await Promise.all([
-      prisma.user.findUnique({ where: { id: session.user.id } }),
-      prisma.lesson.count(),
-      prisma.progress.count({
-        where: { userId: session.user.id, status: "COMPLETED" },
-      }),
-      prisma.progress.count({
-        where: { userId: session.user.id, status: "IN_PROGRESS" },
-      }),
-      prisma.lesson.groupBy({ by: ["skill"], _count: true }),
-      prisma.progress.findMany({
-        where: { userId: session.user.id, status: "COMPLETED" },
-        select: { score: true, lesson: { select: { skill: true } } },
-      }),
-    ]);
+  const [
+    user,
+    lessonCount,
+    completedCount,
+    inProgressCount,
+    lessonsBySkill,
+    progressRows,
+    earnedAchievements,
+  ] = await Promise.all([
+    prisma.user.findUnique({ where: { id: authUser.id } }),
+    prisma.lesson.count(),
+    prisma.progress.count({
+      where: { userId: authUser.id, status: "COMPLETED" },
+    }),
+    prisma.progress.count({
+      where: { userId: authUser.id, status: "IN_PROGRESS" },
+    }),
+    prisma.lesson.groupBy({ by: ["skill"], _count: true }),
+    prisma.progress.findMany({
+      where: { userId: authUser.id, status: "COMPLETED" },
+      select: { score: true, lesson: { select: { skill: true } } },
+    }),
+    prisma.userAchievement.findMany({
+      where: { userId: authUser.id },
+      include: { achievement: true },
+      orderBy: { earnedAt: "asc" },
+    }),
+  ]);
 
   const pct = lessonCount ? Math.round((completedCount / lessonCount) * 100) : 0;
 
@@ -59,9 +71,14 @@ export default async function DashboardPage() {
     <div className="mx-auto w-full max-w-2xl flex-1 space-y-6 px-6 py-16">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold tracking-tight">
-          Welcome, {session.user.name ?? session.user.email}
+          Welcome, {user?.name ?? authUser.name ?? authUser.email}
         </h1>
-        <SignOutButton />
+        <div className="flex items-center gap-2">
+          <Button asChild variant="outline" size="sm">
+            <Link href="/leaderboard">Leaderboard</Link>
+          </Button>
+          <SignOutButton />
+        </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
@@ -114,6 +131,26 @@ export default async function DashboardPage() {
           </Card>
         ))}
       </div>
+
+      {earnedAchievements.length > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle>Achievements</CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-2">
+            {earnedAchievements.map(({ achievement }) => (
+              <span
+                key={achievement.id}
+                title={achievement.description ?? undefined}
+                className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm"
+              >
+                <span>{achievement.icon ?? "🏅"}</span>
+                {achievement.title}
+              </span>
+            ))}
+          </CardContent>
+        </Card>
+      )}
 
       <Card>
         <CardHeader>

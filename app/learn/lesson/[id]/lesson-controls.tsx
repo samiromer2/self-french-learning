@@ -39,8 +39,11 @@ export function LessonControls({
       disabled={isPending}
       onClick={() =>
         startTransition(async () => {
-          await completeLesson(lessonId);
+          const { newAchievements } = await completeLesson(lessonId);
           toast.success("Lesson completed! +10 XP");
+          for (const a of newAchievements) {
+            toast(`${a.icon ?? "🏅"} Achievement unlocked: ${a.title}`);
+          }
         })
       }
     >

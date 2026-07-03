@@ -1,13 +1,14 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { auth } from "@/auth";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
+import { applyGamification } from "@/lib/gamification";
 
 async function requireUserId() {
-  const session = await auth();
-  if (!session?.user?.id) throw new Error("Not authenticated");
-  return session.user.id;
+  const user = await getCurrentUser();
+  if (!user) throw new Error("Not authenticated");
+  return user.id;
 }
 
 export async function startLesson(lessonId: string) {
@@ -61,16 +62,17 @@ export async function completeLessonWithScore(
       where: { id: userId },
       data: {
         xp: { increment: xpAwarded },
-        lastActivityAt: new Date(),
       },
     }),
   ]);
+
+  const { newAchievements } = await applyGamification(userId, score);
 
   revalidatePath("/learn");
   revalidatePath(`/learn/lesson/${lessonId}`);
   revalidatePath("/dashboard");
 
-  return { xpAwarded };
+  return { xpAwarded, newAchievements };
 }
 
 export async function completeLesson(lessonId: string) {
@@ -95,12 +97,15 @@ export async function completeLesson(lessonId: string) {
       where: { id: userId },
       data: {
         xp: { increment: 10 },
-        lastActivityAt: new Date(),
       },
     }),
   ]);
 
+  const { newAchievements } = await applyGamification(userId, null);
+
   revalidatePath("/learn");
   revalidatePath(`/learn/lesson/${lessonId}`);
   revalidatePath("/dashboard");
+
+  return { newAchievements };
 }

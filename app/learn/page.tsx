@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth } from "@/auth";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -14,8 +14,8 @@ import {
 import { SkillBadge } from "./skill-badge";
 
 export default async function LearnPage() {
-  const session = await auth();
-  if (!session?.user) redirect("/login");
+  const user = await getCurrentUser();
+  if (!user) redirect("/login");
 
   const levels = await prisma.level.findMany({
     orderBy: { order: "asc" },
@@ -27,7 +27,7 @@ export default async function LearnPage() {
             orderBy: { order: "asc" },
             include: {
               progress: {
-                where: { userId: session.user.id },
+                where: { userId: user.id },
               },
             },
           },
