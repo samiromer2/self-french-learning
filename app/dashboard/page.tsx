@@ -11,7 +11,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { SkillBadge } from "@/app/learn/skill-badge";
+import type { Skill } from "@/lib/generated/prisma/client";
 import { SignOutButton } from "./sign-out-button";
+
+const SKILLS: Skill[] = ["READING", "WRITING", "LISTENING", "SPEAKING"];
 
 export default async function DashboardPage() {
   const session = await auth();
@@ -20,18 +24,36 @@ export default async function DashboardPage() {
     redirect("/login");
   }
 
-  const [user, lessonCount, completedCount, inProgressCount] = await Promise.all([
-    prisma.user.findUnique({ where: { id: session.user.id } }),
-    prisma.lesson.count(),
-    prisma.progress.count({
-      where: { userId: session.user.id, status: "COMPLETED" },
-    }),
-    prisma.progress.count({
-      where: { userId: session.user.id, status: "IN_PROGRESS" },
-    }),
-  ]);
+  const [user, lessonCount, completedCount, inProgressCount, lessonsBySkill, progressRows] =
+    await Promise.all([
+      prisma.user.findUnique({ where: { id: session.user.id } }),
+      prisma.lesson.count(),
+      prisma.progress.count({
+        where: { userId: session.user.id, status: "COMPLETED" },
+      }),
+      prisma.progress.count({
+        where: { userId: session.user.id, status: "IN_PROGRESS" },
+      }),
+      prisma.lesson.groupBy({ by: ["skill"], _count: true }),
+      prisma.progress.findMany({
+        where: { userId: session.user.id, status: "COMPLETED" },
+        select: { score: true, lesson: { select: { skill: true } } },
+      }),
+    ]);
 
   const pct = lessonCount ? Math.round((completedCount / lessonCount) * 100) : 0;
+
+  const skillStats = SKILLS.map((skill) => {
+    const total = lessonsBySkill.find((l) => l.skill === skill)?._count ?? 0;
+    const rows = progressRows.filter((p) => p.lesson.skill === skill);
+    const scored = rows.filter((p) => p.score !== null);
+    const avgScore = scored.length
+      ? Math.round(
+          (scored.reduce((sum, p) => sum + (p.score ?? 0), 0) / scored.length) * 100,
+        )
+      : null;
+    return { skill, total, completed: rows.length, avgScore };
+  });
 
   return (
     <div className="mx-auto w-full max-w-2xl flex-1 space-y-6 px-6 py-16">
@@ -68,6 +90,29 @@ export default async function DashboardPage() {
             </CardTitle>
           </CardHeader>
         </Card>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {skillStats.map(({ skill, total, completed, avgScore }) => (
+          <Card key={skill}>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <SkillBadge skill={skill} />
+                <span className="text-sm text-muted-foreground">
+                  {completed}/{total} lessons
+                </span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <Progress value={total ? (completed / total) * 100 : 0} />
+              <p className="text-xs text-muted-foreground">
+                {avgScore !== null
+                  ? `Average score: ${avgScore}%`
+                  : "No scored lessons yet"}
+              </p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
 
       <Card>

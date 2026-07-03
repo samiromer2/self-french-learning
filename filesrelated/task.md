@@ -62,9 +62,9 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 
 ## Phase 7 — Progress Tracking
 
-- [ ] User dashboard with real progress data (replace placeholder)
-- [ ] Per-skill progress views
-- [ ] Level/unit completion rules
+- [x] User dashboard with real progress data (replace placeholder)
+- [x] Per-skill progress views (completed/total + average score per skill)
+- [x] Level/unit completion rules (unit complete = all lessons completed; level complete = all units)
 
 ## Phase 8 — Gamification
 
