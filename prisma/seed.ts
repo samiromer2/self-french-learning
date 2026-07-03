@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { Prisma, PrismaClient, Skill } from "../lib/generated/prisma/client";
 import { a1ReadingContent } from "./seed-data/reading";
+import { a1WritingContent } from "./seed-data/writing";
 
 const prisma = new PrismaClient();
 
@@ -109,6 +110,10 @@ async function main() {
         lessonSeed.skill === Skill.READING
           ? a1ReadingContent[unitIndex + 1]
           : undefined;
+      const writing =
+        lessonSeed.skill === Skill.WRITING
+          ? a1WritingContent[unitIndex + 1]
+          : undefined;
 
       const content = reading
         ? { intro: lessonSeed.intro, passage: reading.passage }
@@ -131,15 +136,18 @@ async function main() {
       });
 
       if (reading) {
-        // Replace vocabulary and exercises wholesale so re-seeding stays in
-        // sync with the seed data (progress records are untouched).
+        // Replace vocabulary wholesale so re-seeding stays in sync with the
+        // seed data (progress records are untouched).
         await prisma.vocabulary.deleteMany({ where: { lessonId: lesson.id } });
         await prisma.vocabulary.createMany({
           data: reading.vocabulary.map((v) => ({ ...v, lessonId: lesson.id })),
         });
+      }
 
+      const exercises = reading?.exercises ?? writing?.exercises;
+      if (exercises) {
         await prisma.exercise.deleteMany({ where: { lessonId: lesson.id } });
-        for (const [exerciseIndex, exercise] of reading.exercises.entries()) {
+        for (const [exerciseIndex, exercise] of exercises.entries()) {
           await prisma.exercise.create({
             data: {
               lessonId: lesson.id,
