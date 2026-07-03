@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,6 +21,7 @@ export default function SignupPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [confirmEmail, setConfirmEmail] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -34,29 +34,37 @@ export default function SignupPage() {
       body: JSON.stringify({ name, email, password }),
     });
 
+    const body = await res.json().catch(() => ({}));
+    setIsSubmitting(false);
+
     if (!res.ok) {
-      const body = await res.json().catch(() => ({}));
       setError(body.error ?? "Something went wrong.");
-      setIsSubmitting(false);
       return;
     }
 
-    const result = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
-
-    setIsSubmitting(false);
-
-    if (result?.error) {
-      setError("Account created — please log in.");
-      router.push("/login");
+    if (body.status === "confirm_email") {
+      setConfirmEmail(true);
       return;
     }
 
     router.push("/dashboard");
     router.refresh();
+  }
+
+  if (confirmEmail) {
+    return (
+      <div className="flex flex-1 items-center justify-center px-6">
+        <Card className="w-full max-w-sm">
+          <CardHeader>
+            <CardTitle>Check your email</CardTitle>
+            <CardDescription>
+              We sent a confirmation link to {email}. Click it to activate your
+              account, then log in.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      </div>
+    );
   }
 
   return (

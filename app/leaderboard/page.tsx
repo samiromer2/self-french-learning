@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { auth } from "@/auth";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { cn } from "@/lib/utils";
 import {
@@ -13,8 +13,8 @@ import {
 } from "@/components/ui/card";
 
 export default async function LeaderboardPage() {
-  const session = await auth();
-  if (!session?.user) redirect("/login");
+  const currentUser = await getCurrentUser();
+  if (!currentUser) redirect("/login");
 
   const top = await prisma.user.findMany({
     orderBy: { xp: "desc" },
@@ -44,7 +44,7 @@ export default async function LeaderboardPage() {
                 key={user.id}
                 className={cn(
                   "flex items-center justify-between gap-4 py-3",
-                  user.id === session.user.id && "font-semibold",
+                  user.id === currentUser.id && "font-semibold",
                 )}
               >
                 <span className="flex items-center gap-3">
@@ -52,7 +52,7 @@ export default async function LeaderboardPage() {
                     {i + 1}.
                   </span>
                   {user.name ?? "Anonymous"}
-                  {user.id === session.user.id && (
+                  {user.id === currentUser.id && (
                     <span className="text-xs text-muted-foreground">(you)</span>
                   )}
                 </span>

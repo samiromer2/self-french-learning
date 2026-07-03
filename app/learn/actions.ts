@@ -1,14 +1,14 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { auth } from "@/auth";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { applyGamification } from "@/lib/gamification";
 
 async function requireUserId() {
-  const session = await auth();
-  if (!session?.user?.id) throw new Error("Not authenticated");
-  return session.user.id;
+  const user = await getCurrentUser();
+  if (!user) throw new Error("Not authenticated");
+  return user.id;
 }
 
 export async function startLesson(lessonId: string) {

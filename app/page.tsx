@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { auth } from "@/auth";
+import { getCurrentUser } from "@/lib/supabase/server";
 
 export default async function Home() {
-  const session = await auth();
+  const user = await getCurrentUser();
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-8 px-6 text-center">
@@ -21,7 +21,7 @@ export default async function Home() {
       </div>
 
       <div className="flex gap-4">
-        {session?.user ? (
+        {user ? (
           <Button asChild size="lg">
             <Link href="/dashboard">Go to dashboard</Link>
           </Button>

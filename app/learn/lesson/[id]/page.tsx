@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { auth } from "@/auth";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -23,8 +23,8 @@ export default async function LessonPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const session = await auth();
-  if (!session?.user) redirect("/login");
+  const user = await getCurrentUser();
+  if (!user) redirect("/login");
 
   const { id } = await params;
 
@@ -34,7 +34,7 @@ export default async function LessonPage({
       unit: { include: { level: true } },
       exercises: { orderBy: { order: "asc" } },
       vocabulary: true,
-      progress: { where: { userId: session.user.id } },
+      progress: { where: { userId: user.id } },
     },
   });
 
