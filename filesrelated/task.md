@@ -52,11 +52,12 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 
 ## Phase 6 — Speaking Module
 
-- [ ] Repeat-after-speaker exercise
-- [ ] Pronunciation practice exercise
-- [ ] Shadowing exercises
-- [ ] Question-answer practice
-- [ ] Conversation simulation
+- [x] Repeat-after-speaker exercise (TTS model + SpeechRecognition scoring, ≥70% word overlap)
+- [x] Pronunciation practice exercise (u, nasals, r, liaison drills)
+- [x] Shadowing exercises (longer sentences)
+- [x] Question-answer practice (hear question, answer aloud, model answer shown)
+- [x] Conversation simulation (basic Q&A form; full conversation bot deferred to AI phase)
+- [x] Self-assessment fallback when speech recognition is unavailable
 - [ ] (Later) AI pronunciation scoring / accent feedback / fluency score / conversation bot
 
 ## Phase 7 — Progress Tracking

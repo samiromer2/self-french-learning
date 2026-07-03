@@ -21,6 +21,8 @@ import { SentenceOrder, isSentenceOrderCorrect } from "./sentence-order";
 import { WritingPrompt, isWritingCorrect } from "@/features/writing/writing-prompt";
 import { Dictation, isDictationCorrect } from "@/features/listening/dictation";
 import { AudioButton } from "@/features/listening/audio-button";
+import { SpeakingPrompt } from "@/features/speaking/speaking-prompt";
+import type { SpeakingPromptData } from "@/types/exercises";
 
 export type PlayerExercise = {
   id: string;
@@ -51,6 +53,7 @@ export function ExercisePlayer({
   const [selected, setSelected] = useState<number | null>(null);
   const [blankValue, setBlankValue] = useState("");
   const [picked, setPicked] = useState<Chip[]>([]);
+  const [speakResult, setSpeakResult] = useState<boolean | null>(null);
 
   const [elapsedMs, setElapsedMs] = useState<number | null>(null);
 
@@ -76,6 +79,7 @@ export function ExercisePlayer({
       return picked.length === (exercise.data as SentenceOrderData).words.length;
     if (exercise.type === "WRITING_PROMPT") return blankValue.trim().length > 0;
     if (exercise.type === "DICTATION") return blankValue.trim().length > 0;
+    if (exercise.type === "SPEAKING_PROMPT") return speakResult !== null;
     return false;
   }
 
@@ -94,6 +98,8 @@ export function ExercisePlayer({
       correct = isWritingCorrect(exercise.data as WritingPromptData, blankValue);
     } else if (exercise.type === "DICTATION") {
       correct = isDictationCorrect(exercise.data as DictationData, blankValue);
+    } else if (exercise.type === "SPEAKING_PROMPT") {
+      correct = speakResult === true;
     }
     setWasCorrect(correct);
     if (correct) setCorrectCount((c) => c + 1);
@@ -111,6 +117,7 @@ export function ExercisePlayer({
     setSelected(null);
     setBlankValue("");
     setPicked([]);
+    setSpeakResult(null);
   }
 
   useEffect(() => {
@@ -206,6 +213,13 @@ export function ExercisePlayer({
           data={exercise.data as DictationData}
           value={blankValue}
           onChange={setBlankValue}
+          revealed={revealed}
+        />
+      )}
+      {exercise.type === "SPEAKING_PROMPT" && (
+        <SpeakingPrompt
+          data={exercise.data as SpeakingPromptData}
+          onResult={setSpeakResult}
           revealed={revealed}
         />
       )}
