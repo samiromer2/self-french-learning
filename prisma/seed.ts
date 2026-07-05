@@ -4,6 +4,7 @@ import { a1ReadingContent } from "./seed-data/reading";
 import { a1WritingContent } from "./seed-data/writing";
 import { a1ListeningContent } from "./seed-data/listening";
 import { a1SpeakingContent } from "./seed-data/speaking";
+import { scenarios } from "./seed-data/scenarios";
 import { ACHIEVEMENTS } from "../lib/achievements";
 
 const prisma = new PrismaClient();
@@ -177,6 +178,57 @@ async function main() {
     }
   }
 
+  for (const [scenarioIndex, scenarioSeed] of scenarios.entries()) {
+    const scenario = await prisma.scenario.upsert({
+      where: { slug: scenarioSeed.slug },
+      update: {
+        title: scenarioSeed.title,
+        emoji: scenarioSeed.emoji,
+        description: scenarioSeed.description,
+        order: scenarioIndex + 1,
+      },
+      create: {
+        slug: scenarioSeed.slug,
+        title: scenarioSeed.title,
+        emoji: scenarioSeed.emoji,
+        description: scenarioSeed.description,
+        order: scenarioIndex + 1,
+      },
+    });
+
+    const lessonSeed = scenarioSeed.lesson;
+    const content = {
+      intro: lessonSeed.intro,
+      pattern: lessonSeed.pattern,
+      dialogue: lessonSeed.dialogue,
+    };
+
+    const lesson = await prisma.lesson.upsert({
+      where: { scenarioId_order: { scenarioId: scenario.id, order: 1 } },
+      update: { title: lessonSeed.title, skill: lessonSeed.skill, content },
+      create: {
+        scenarioId: scenario.id,
+        order: 1,
+        title: lessonSeed.title,
+        skill: lessonSeed.skill,
+        content,
+      },
+    });
+
+    await prisma.exercise.deleteMany({ where: { lessonId: lesson.id } });
+    for (const [exerciseIndex, exercise] of lessonSeed.exercises.entries()) {
+      await prisma.exercise.create({
+        data: {
+          lessonId: lesson.id,
+          order: exerciseIndex + 1,
+          type: exercise.type,
+          prompt: exercise.prompt,
+          data: exercise.data as Prisma.InputJsonValue,
+        },
+      });
+    }
+  }
+
   for (const achievement of ACHIEVEMENTS) {
     await prisma.achievement.upsert({
       where: { code: achievement.code },
@@ -191,10 +243,11 @@ async function main() {
 
   const unitCount = await prisma.unit.count({ where: { levelId: level.id } });
   const lessonCount = await prisma.lesson.count({ where: { unit: { levelId: level.id } } });
+  const scenarioCount = await prisma.scenario.count();
   const exerciseCount = await prisma.exercise.count();
   const vocabCount = await prisma.vocabulary.count();
   console.log(
-    `Seeded A1: ${unitCount} units, ${lessonCount} lessons, ${exerciseCount} exercises, ${vocabCount} vocabulary entries.`,
+    `Seeded A1: ${unitCount} units, ${lessonCount} lessons, ${scenarioCount} scenarios, ${exerciseCount} exercises, ${vocabCount} vocabulary entries.`,
   );
 }
 

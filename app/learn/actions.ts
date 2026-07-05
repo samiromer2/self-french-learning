@@ -29,6 +29,7 @@ export async function startLesson(lessonId: string) {
   });
 
   revalidatePath("/learn");
+  revalidatePath("/scenarios");
   revalidatePath(`/learn/lesson/${lessonId}`);
 }
 
@@ -69,6 +70,7 @@ export async function completeLessonWithScore(
   const { newAchievements } = await applyGamification(userId, score);
 
   revalidatePath("/learn");
+  revalidatePath("/scenarios");
   revalidatePath(`/learn/lesson/${lessonId}`);
   revalidatePath("/dashboard");
 
@@ -104,6 +106,7 @@ export async function completeLesson(lessonId: string) {
   const { newAchievements } = await applyGamification(userId, null);
 
   revalidatePath("/learn");
+  revalidatePath("/scenarios");
   revalidatePath(`/learn/lesson/${lessonId}`);
   revalidatePath("/dashboard");
 

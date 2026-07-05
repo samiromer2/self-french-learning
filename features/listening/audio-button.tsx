@@ -11,10 +11,12 @@ export function AudioButton({
   text,
   rate = 0.85,
   label = "Listen",
+  size = "default",
 }: {
   text: string;
   rate?: number;
   label?: string;
+  size?: "default" | "sm" | "icon";
 }) {
   const [speaking, setSpeaking] = useState(false);
 
@@ -54,9 +56,9 @@ export function AudioButton({
   }, [text, rate, speaking]);
 
   return (
-    <Button type="button" variant="outline" onClick={speak} className="gap-2">
+    <Button type="button" variant="outline" size={size} onClick={speak} className="gap-2">
       {speaking ? <Square className="size-4" /> : <Volume2 className="size-4" />}
-      {speaking ? "Stop" : label}
+      {size === "icon" ? null : speaking ? "Stop" : label}
     </Button>
   );
 }

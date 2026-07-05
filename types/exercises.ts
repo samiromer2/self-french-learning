@@ -70,11 +70,24 @@ export type ExerciseData =
   | DictationData
   | SpeakingPromptData;
 
-// Shape stored in Lesson.content for reading lessons.
+export type DialogueLine = {
+  speaker: string;
+  fr: string;
+  en: string;
+};
+
+// Shape stored in Lesson.content. Reading lessons use `passage`; scenario
+// lessons use `pattern` (the core reusable phrase) and `dialogue`.
 export type LessonContent = {
   intro?: string;
   passage?: {
     title: string;
     text: string;
   };
+  pattern?: {
+    fr: string;
+    en: string;
+    examples: { fr: string; en: string }[];
+  };
+  dialogue?: DialogueLine[];
 };
