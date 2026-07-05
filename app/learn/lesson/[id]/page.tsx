@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { PassageViewer } from "@/features/reading/passage-viewer";
+import { PatternCard } from "@/features/scenarios/pattern-card";
+import { DialogueViewer } from "@/features/scenarios/dialogue-viewer";
 import { ExercisePlayer } from "@/features/exercises/exercise-player";
 import type { LessonContent } from "@/types/exercises";
 import { SkillBadge } from "../../skill-badge";
@@ -32,6 +34,7 @@ export default async function LessonPage({
     where: { id },
     include: {
       unit: { include: { level: true } },
+      scenario: true,
       exercises: { orderBy: { order: "asc" } },
       vocabulary: true,
       progress: { where: { userId: user.id } },
@@ -39,6 +42,8 @@ export default async function LessonPage({
   });
 
   if (!lesson) notFound();
+
+  const backHref = lesson.scenario ? "/scenarios" : "/learn";
 
   const content = (lesson.content ?? {}) as LessonContent;
   const status = lesson.progress[0]?.status ?? "NOT_STARTED";
@@ -54,11 +59,15 @@ export default async function LessonPage({
   return (
     <div className="mx-auto w-full max-w-2xl flex-1 space-y-6 px-6 py-12">
       <Link
-        href="/learn"
+        href={backHref}
         className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="size-4" />
-        {lesson.unit.level.code} · Unit {lesson.unit.order}: {lesson.unit.title}
+        {lesson.unit
+          ? `${lesson.unit.level.code} · Unit ${lesson.unit.order}: ${lesson.unit.title}`
+          : lesson.scenario
+            ? `${lesson.scenario.emoji} ${lesson.scenario.title}`
+            : "Back"}
       </Link>
 
       <Card>
@@ -70,6 +79,14 @@ export default async function LessonPage({
           {content.intro && <CardDescription>{content.intro}</CardDescription>}
         </CardHeader>
         <CardContent className="space-y-6">
+          {content.pattern && <PatternCard pattern={content.pattern} />}
+          {content.dialogue && content.dialogue.length > 0 && (
+            <>
+              <DialogueViewer dialogue={content.dialogue} />
+              <Separator />
+            </>
+          )}
+
           {content.passage && (
             <>
               <PassageViewer
@@ -92,6 +109,7 @@ export default async function LessonPage({
               }))}
               initialStatus={status}
               passageWordCount={content.passage?.text.split(/\s+/).length}
+              backHref={backHref}
             />
           ) : (
             <>

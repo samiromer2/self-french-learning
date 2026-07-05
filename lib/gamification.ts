@@ -62,8 +62,15 @@ export async function applyGamification(userId: string, score: number | null) {
   );
   if (unitDone) earnedCodes.push("first-unit");
 
-  const totalLessons = await prisma.lesson.count();
-  if (totalLessons > 0 && completedCount >= totalLessons) {
+  // A1 Graduate covers curriculum lessons only — scenario-track lessons
+  // (unitId null) are a separate, optional path.
+  const totalCurriculumLessons = await prisma.lesson.count({
+    where: { unitId: { not: null } },
+  });
+  const completedCurriculum = await prisma.progress.count({
+    where: { userId, status: "COMPLETED", lesson: { unitId: { not: null } } },
+  });
+  if (totalCurriculumLessons > 0 && completedCurriculum >= totalCurriculumLessons) {
     earnedCodes.push("a1-graduate");
   }
 

@@ -108,15 +108,34 @@ model Unit {
   @@unique([levelId, order])
 }
 
-model Lesson {
-  id      String @id @default(cuid())
-  unitId  String
-  title   String
-  skill   Skill
-  order   Int
-  content Json? // structured lesson body (passages, prompts, audio refs, etc.)
+// Real-life scenario track (Café, Doctor, Bank…) — level-independent
+// lessons that reuse the same Lesson/Exercise/Progress machinery as the
+// CEFR curriculum. A Lesson belongs to either a Unit or a Scenario.
+model Scenario {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  title       String
+  emoji       String
+  description String?
+  order       Int     @unique
 
-  unit       Unit         @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  lessons Lesson[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Lesson {
+  id         String  @id @default(cuid())
+  unitId     String?
+  scenarioId String?
+  title      String
+  skill      Skill
+  order      Int
+  content    Json? // structured lesson body (passages, prompts, dialogue, pattern, etc.)
+
+  unit       Unit?        @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  scenario   Scenario?    @relation(fields: [scenarioId], references: [id], onDelete: Cascade)
   exercises  Exercise[]
   vocabulary Vocabulary[]
   audio      Audio[]
@@ -126,6 +145,7 @@ model Lesson {
   updatedAt DateTime @updatedAt
 
   @@unique([unitId, order])
+  @@unique([scenarioId, order])
 }
 
 model Exercise {

@@ -24,6 +24,10 @@ export default async function DashboardPage() {
     redirect("/login");
   }
 
+  // Curriculum stats cover unit lessons only; the scenario track (unitId
+  // null) is counted separately below.
+  const curriculumLesson = { unitId: { not: null } } as const;
+
   const [
     user,
     lessonCount,
@@ -32,24 +36,34 @@ export default async function DashboardPage() {
     lessonsBySkill,
     progressRows,
     earnedAchievements,
+    scenarioCount,
+    scenariosCompleted,
   ] = await Promise.all([
     prisma.user.findUnique({ where: { id: authUser.id } }),
-    prisma.lesson.count(),
+    prisma.lesson.count({ where: curriculumLesson }),
     prisma.progress.count({
-      where: { userId: authUser.id, status: "COMPLETED" },
+      where: { userId: authUser.id, status: "COMPLETED", lesson: curriculumLesson },
     }),
     prisma.progress.count({
-      where: { userId: authUser.id, status: "IN_PROGRESS" },
+      where: { userId: authUser.id, status: "IN_PROGRESS", lesson: curriculumLesson },
     }),
-    prisma.lesson.groupBy({ by: ["skill"], _count: true }),
+    prisma.lesson.groupBy({ by: ["skill"], _count: true, where: curriculumLesson }),
     prisma.progress.findMany({
-      where: { userId: authUser.id, status: "COMPLETED" },
+      where: { userId: authUser.id, status: "COMPLETED", lesson: curriculumLesson },
       select: { score: true, lesson: { select: { skill: true } } },
     }),
     prisma.userAchievement.findMany({
       where: { userId: authUser.id },
       include: { achievement: true },
       orderBy: { earnedAt: "asc" },
+    }),
+    prisma.scenario.count(),
+    prisma.progress.count({
+      where: {
+        userId: authUser.id,
+        status: "COMPLETED",
+        lesson: { scenarioId: { not: null } },
+      },
     }),
   ]);
 
@@ -166,6 +180,29 @@ export default async function DashboardPage() {
           <Button asChild>
             <Link href="/learn">Continue learning</Link>
           </Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Real-Life Scenarios</CardTitle>
+          <CardDescription>
+            ☕ Café, 🛒 shopping, 🚌 transport… survival French, one pattern at
+            a time.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <Progress
+            value={scenarioCount ? (scenariosCompleted / scenarioCount) * 100 : 0}
+          />
+          <div className="flex items-center justify-between">
+            <Button asChild variant="outline">
+              <Link href="/scenarios">Explore scenarios</Link>
+            </Button>
+            <span className="text-sm text-muted-foreground">
+              {scenariosCompleted}/{scenarioCount} done
+            </span>
+          </div>
         </CardContent>
       </Card>
     </div>

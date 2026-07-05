@@ -38,11 +38,13 @@ export function ExercisePlayer({
   exercises,
   initialStatus,
   passageWordCount,
+  backHref = "/learn",
 }: {
   lessonId: string;
   exercises: PlayerExercise[];
   initialStatus: ProgressStatus;
   passageWordCount?: number;
+  backHref?: string;
 }) {
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
@@ -154,7 +156,9 @@ export function ExercisePlayer({
           {wpm !== null && <> · reading pace ~{wpm} words/min</>}
         </p>
         <Button asChild>
-          <Link href="/learn">Back to course</Link>
+          <Link href={backHref}>
+            {backHref === "/scenarios" ? "Back to scenarios" : "Back to course"}
+          </Link>
         </Button>
       </div>
     );
