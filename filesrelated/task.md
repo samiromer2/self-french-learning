@@ -83,9 +83,17 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 - [x] /scenarios page + dashboard card; stats kept separate from curriculum
 - [ ] More scenarios someday (post office, pharmacy, restaurant dinner, phone calls…)
 
-## Phase 10 — Expand Beyond A1
+## MVP leftovers (planned in nextplans.md → "Build plans")
 
-- [ ] A2 content
+- [ ] Unit quizzes (Quiz tables exist since day one, unused — 6 quizzes, quiz player, XP + "Quiz Whiz" achievement)
+- [ ] Vocabulary flashcards (/vocabulary page, UserVocabulary table, "words known" stat — closes the Phase 3 vocab-tracking TODO)
+- [ ] MATCHING exercise type (enum exists, no component)
+- [ ] Weekly goals (simple weekly XP ring on dashboard)
+- [ ] Scenarios batch 2 (pharmacy, restaurant, phone, post office, taxi, hotel…)
+
+## Phase 10 — Expand Beyond A1 (A2 plan in nextplans.md)
+
+- [ ] A2 content (6 units planned: Travel, Work, Weather, Hobbies, Directions, Telling Stories — passé composé era)
 - [ ] B1 content
 - [ ] B2 content
 - [ ] C1 content
