@@ -13,7 +13,7 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 - [x] Create project folder structure (features/, content/french/a1-c2, public/audio, public/images, docs/, types/)
 - [x] Commit Phase 1 scaffold to git
 - [x] Set `nvm alias default` or add `.nvmrc` (repo Node was 18.12.1, too old for Next 16)
-- [ ] Deploy skeleton to Vercel + provision hosted Postgres (e.g. Neon/Supabase) for prod `DATABASE_URL`
+- [x] Deploy to Vercel + Supabase Postgres (live at self-french-learning.vercel.app; auth later migrated to Supabase Auth)
 
 ## Phase 2 — Course Structure & Lesson System
 
@@ -74,6 +74,14 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 - [x] Leaderboards (/leaderboard, top 10 by XP)
 - [x] Progress bars (level, per-skill, per-exercise-session)
 - [ ] Weekly goals (deferred)
+
+## Real-Life Scenarios (from nextplans.md)
+
+- [x] Scenario track alongside the CEFR curriculum (own model, reuses lessons/exercises/progress/XP)
+- [x] ☕ Café, 🛒 Grocery Store, 🚌 Transportation, 🏥 Doctor, 💼 Job Interview, 🏦 Bank, 🏠 Renting — all 7 shipped
+- [x] Pattern card + chat-style dialogue with per-line TTS, 4 exercises each
+- [x] /scenarios page + dashboard card; stats kept separate from curriculum
+- [ ] More scenarios someday (post office, pharmacy, restaurant dinner, phone calls…)
 
 ## Phase 10 — Expand Beyond A1
 
