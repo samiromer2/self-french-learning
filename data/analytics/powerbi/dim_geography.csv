@@ -1,0 +1,16 @@
+geo_code,geo_name,geo_type,region
+CA,Canada,country,National
+CA-XQ,Canada outside Quebec,special,National
+NL,Newfoundland and Labrador,province,Atlantic
+PE,Prince Edward Island,province,Atlantic
+NS,Nova Scotia,province,Atlantic
+NB,New Brunswick,province,Atlantic
+QC,Quebec,province,Central
+ON,Ontario,province,Central
+MB,Manitoba,province,Prairies
+SK,Saskatchewan,province,Prairies
+AB,Alberta,province,Prairies
+BC,British Columbia,province,West
+YT,Yukon,territory,North
+NT,Northwest Territories,territory,North
+NU,Nunavut,territory,North

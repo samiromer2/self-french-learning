@@ -33,9 +33,10 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  progress     Progress[]
-  achievements UserAchievement[]
-  quizAttempts QuizAttempt[]
+  progress          Progress[]
+  achievements      UserAchievement[]
+  quizAttempts      QuizAttempt[]
+  learningSessions  LearningSession[]
 }
 
 // ---------- Curriculum ----------
@@ -140,6 +141,7 @@ model Lesson {
   vocabulary Vocabulary[]
   audio      Audio[]
   progress   Progress[]
+  sessions   LearningSession[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -207,6 +209,7 @@ model Progress {
   updatedAt DateTime @updatedAt
 
   @@unique([userId, lessonId])
+  @@index([userId, completedAt])
 }
 
 model Quiz {
@@ -247,6 +250,8 @@ model QuizAttempt {
 
   quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, completedAt])
 }
 
 // ---------- Gamification ----------
@@ -273,4 +278,25 @@ model UserAchievement {
   achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
 
   @@unique([userId, achievementId])
+}
+
+// ---------- Learning analytics ----------
+// One row per practice sitting. Progress remains the source of truth for
+// completion; this table only records when the sitting started/ended.
+
+model LearningSession {
+  id              String    @id @default(cuid())
+  userId          String    @db.Uuid
+  lessonId        String?
+  startedAt       DateTime  @default(now())
+  endedAt         DateTime?
+  durationMinutes Float?
+
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson? @relation(fields: [lessonId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+
+  @@index([userId, startedAt])
+  @@index([userId, lessonId, endedAt])
 }

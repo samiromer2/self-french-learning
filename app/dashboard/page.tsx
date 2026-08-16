@@ -89,6 +89,9 @@ export default async function DashboardPage() {
         </h1>
         <div className="flex items-center gap-2">
           <Button asChild variant="outline" size="sm">
+            <Link href="/analytics">Analytics</Link>
+          </Button>
+          <Button asChild variant="outline" size="sm">
             <Link href="/leaderboard">Leaderboard</Link>
           </Button>
           <SignOutButton />

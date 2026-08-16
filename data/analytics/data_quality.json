@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-08-16T23:38:42.960344+00:00",
+  "records_processed": 10392,
+  "records_rejected": 0,
+  "missing_values": 0,
+  "duplicate_records": 0,
+  "unknown_geo_rows": 0,
+  "issues": [],
+  "rows_by_theme": {
+    "fols": 1016,
+    "home": 1016,
+    "immigrant": 5600,
+    "knowledge": 1530,
+    "mother_tongue": 1104,
+    "work": 126
+  },
+  "ingest": [
+    {
+      "key": "knowledge_official_languages",
+      "table": "15-10-0004-01",
+      "title": "Population by knowledge of official languages and geography, 1951 to 2021",
+      "source_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1510000401",
+      "required": true,
+      "ok": true,
+      "path": "/Users/samir/Sites/Learning/self-french-learning/data/raw/15100004/15100004.csv",
+      "bytes": 228646,
+      "error": null,
+      "downloaded_at": null,
+      "method": "cached"
+    },
+    {
+      "key": "mother_tongue",
+      "table": "15-10-0003-01",
+      "title": "Population by mother tongue and geography, 1951 to 2021",
+      "source_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1510000301",
+      "required": true,
+      "ok": true,
+      "path": "/Users/samir/Sites/Learning/self-french-learning/data/raw/15100003/15100003.csv",
+      "bytes": 157855,
+      "error": null,
+      "downloaded_at": null,
+      "method": "cached"
+    },
+    {
+      "key": "first_official_language",
+      "table": "15-10-0032-01",
+      "title": "Population by first official language spoken and geography, 1971 to 2021",
+      "source_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1510003201",
+      "required": true,
+      "ok": true,
+      "path": "/Users/samir/Sites/Learning/self-french-learning/data/raw/15100032/15100032.csv",
+      "bytes": 372973,
+      "error": null,
+      "downloaded_at": null,
+      "method": "cached"
+    },
+    {
+      "key": "home_language",
+      "table": "15-10-0033-01",
+      "title": "Population by language spoken most often at home and geography, 1971 to 2021",
+      "source_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1510003301",
+      "required": true,
+      "ok": true,
+      "path": "/Users/samir/Sites/Learning/self-french-learning/data/raw/15100033/15100033.csv",
+      "bytes": 437568,
+      "error": null,
+      "downloaded_at": null,
+      "method": "cached"
+    },
+    {
+      "key": "immigrant_official_languages",
+      "table": "15-10-0037-01",
+      "title": "Knowledge of official languages by immigrant status, 1951 to 2021",
+      "source_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1510003701",
+      "required": true,
+      "ok": true,
+      "path": "/Users/samir/Sites/Learning/self-french-learning/data/raw/15100037/15100037.csv",
+      "bytes": 1631595,
+      "error": null,
+      "downloaded_at": null,
+      "method": "cached"
+    },
+    {
+      "key": "language_at_work",
+      "table": "98-10-0533-01",
+      "title": "Languages used at work, 2021 Census",
+      "source_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810053301",
+      "required": false,
+      "ok": true,
+      "path": "/Users/samir/Sites/Learning/self-french-learning/data/processed/work_province_extract.csv",
+      "bytes": 13300,
+      "error": null,
+      "downloaded_at": null,
+      "method": "processed_extract"
+    }
+  ],
+  "last_successful_update": "2026-08-16T23:38:42.967511+00:00",
+  "status": "ok",
+  "licence": "Open Government Licence \u2013 Canada",
+  "organization": "Statistics Canada",
+  "insight_count": 9
+}

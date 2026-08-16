@@ -1,0 +1,561 @@
+year,geo_code,geo_name,geo_type,immigrant_status_key,immigrant_status,english_and_french,english_only,french_only,neither,total,bilingual_rate,french_knowledge_count,french_knowledge_rate,source_table
+1951,AB,Alberta,province,immigrants,Immigrants,6975.0,221920.0,665.0,10456.0,240016.0,2.91,7640.0,3.18,15-10-0037-01
+1951,AB,Alberta,province,non_immigrants,Non-immigrants,33810.0,646776.0,5257.0,13642.0,699485.0,4.83,39067.0,5.59,15-10-0037-01
+1951,AB,Alberta,province,total,"Total, immigrant status and period of immigration",40785.0,868696.0,5922.0,24098.0,939501.0,4.34,46707.0,4.97,15-10-0037-01
+1951,BC,British Columbia,province,immigrants,Immigrants,12074.0,318104.0,322.0,8697.0,339197.0,3.56,12396.0,3.65,15-10-0037-01
+1951,BC,British Columbia,province,non_immigrants,Non-immigrants,27359.0,794833.0,405.0,3416.0,826013.0,3.31,27764.0,3.36,15-10-0037-01
+1951,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",39433.0,1112937.0,727.0,12113.0,1165210.0,3.38,40160.0,3.45,15-10-0037-01
+1951,CA,Canada,country,immigrants,Immigrants,130525.0,1821413.0,26734.0,81239.0,2059911.0,6.34,157259.0,7.63,15-10-0037-01
+1951,CA,Canada,country,non_immigrants,Non-immigrants,1596922.0,7565982.0,2715078.0,71536.0,11949518.0,13.36,4312000.0,36.09,15-10-0037-01
+1951,CA,Canada,country,total,"Total, immigrant status and period of immigration",1727447.0,9387395.0,2741812.0,152775.0,14009429.0,12.33,4469259.0,31.9,15-10-0037-01
+1951,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,63562.0,1691445.0,5987.0,69994.0,1830988.0,3.47,69549.0,3.8,15-10-0037-01
+1951,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,625755.0,7233137.0,201583.0,62285.0,8122760.0,7.7,827338.0,10.19,15-10-0037-01
+1951,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",689317.0,8924582.0,207570.0,132279.0,9953748.0,6.93,896887.0,9.01,15-10-0037-01
+1951,MB,Manitoba,province,immigrants,Immigrants,5936.0,151938.0,951.0,9529.0,168354.0,3.53,6887.0,4.09,15-10-0037-01
+1951,MB,Manitoba,province,non_immigrants,Non-immigrants,52505.0,533976.0,6918.0,14788.0,608187.0,8.63,59423.0,9.77,15-10-0037-01
+1951,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",58441.0,685914.0,7869.0,24317.0,776541.0,7.53,66310.0,8.54,15-10-0037-01
+1951,NB,New Brunswick,province,immigrants,Immigrants,2128.0,16910.0,627.0,210.0,19875.0,10.71,2755.0,13.86,15-10-0037-01
+1951,NB,New Brunswick,province,non_immigrants,Non-immigrants,93967.0,301650.0,100085.0,120.0,495822.0,18.95,194052.0,39.14,15-10-0037-01
+1951,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",96095.0,318560.0,100712.0,330.0,515697.0,18.63,196807.0,38.16,15-10-0037-01
+1951,NL,Newfoundland and Labrador,province,immigrants,Immigrants,262.0,3528.0,5.0,34.0,3829.0,6.84,267.0,6.97,15-10-0037-01
+1951,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,3728.0,352849.0,148.0,862.0,357587.0,1.04,3876.0,1.08,15-10-0037-01
+1951,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",3990.0,356377.0,153.0,896.0,361416.0,1.1,4143.0,1.15,15-10-0037-01
+1951,NS,Nova Scotia,province,immigrants,Immigrants,2061.0,26324.0,64.0,231.0,28680.0,7.19,2125.0,7.41,15-10-0037-01
+1951,NS,Nova Scotia,province,non_immigrants,Non-immigrants,37463.0,568933.0,7398.0,110.0,613904.0,6.1,44861.0,7.31,15-10-0037-01
+1951,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",39524.0,595257.0,7462.0,341.0,642584.0,6.15,46986.0,7.31,15-10-0037-01
+1951,ON,Ontario,province,immigrants,Immigrants,28331.0,785665.0,2622.0,33347.0,849965.0,3.33,30953.0,3.64,15-10-0037-01
+1951,ON,Ontario,province,non_immigrants,Non-immigrants,331634.0,3329919.0,76352.0,9672.0,3747577.0,8.85,407986.0,10.89,15-10-0037-01
+1951,ON,Ontario,province,total,"Total, immigrant status and period of immigration",359965.0,4115584.0,78974.0,43019.0,4597542.0,7.83,438939.0,9.55,15-10-0037-01
+1951,PE,Prince Edward Island,province,immigrants,Immigrants,148.0,2390.0,6.0,27.0,2571.0,5.76,154.0,5.99,15-10-0037-01
+1951,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,8597.0,86353.0,908.0,0.0,95858.0,8.97,9505.0,9.92,15-10-0037-01
+1951,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",8745.0,88743.0,914.0,27.0,98429.0,8.88,9659.0,9.81,15-10-0037-01
+1951,QC,Quebec,province,immigrants,Immigrants,66963.0,129968.0,20747.0,11245.0,228923.0,29.25,87710.0,38.31,15-10-0037-01
+1951,QC,Quebec,province,non_immigrants,Non-immigrants,971167.0,332845.0,2513495.0,9251.0,3826758.0,25.38,3484662.0,91.06,15-10-0037-01
+1951,QC,Quebec,province,total,"Total, immigrant status and period of immigration",1038130.0,462813.0,2534242.0,20496.0,4055681.0,25.6,3572372.0,88.08,15-10-0037-01
+1951,SK,Saskatchewan,province,immigrants,Immigrants,5433.0,162221.0,721.0,7454.0,175829.0,3.09,6154.0,3.5,15-10-0037-01
+1951,SK,Saskatchewan,province,non_immigrants,Non-immigrants,35356.0,605027.0,3935.0,11581.0,655899.0,5.39,39291.0,5.99,15-10-0037-01
+1951,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",40789.0,767248.0,4656.0,19035.0,831728.0,4.9,45445.0,5.46,15-10-0037-01
+1951,YT,Yukon,territory,immigrants,Immigrants,97.0,1528.0,0.0,5.0,1630.0,5.95,97.0,5.95,15-10-0037-01
+1951,YT,Yukon,territory,non_immigrants,Non-immigrants,422.0,6809.0,10.0,225.0,7466.0,5.65,432.0,5.79,15-10-0037-01
+1951,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",519.0,8337.0,10.0,230.0,9096.0,5.71,529.0,5.82,15-10-0037-01
+1961,AB,Alberta,province,immigrants,Immigrants,10571.0,270174.0,481.0,7523.0,288749.0,3.66,11052.0,3.83,15-10-0037-01
+1961,AB,Alberta,province,non_immigrants,Non-immigrants,46349.0,983650.0,5053.0,8143.0,1043195.0,4.44,51402.0,4.93,15-10-0037-01
+1961,AB,Alberta,province,total,"Total, immigrant status and period of immigration",56920.0,1253824.0,5534.0,15666.0,1331944.0,4.27,62454.0,4.69,15-10-0037-01
+1961,BC,British Columbia,province,immigrants,Immigrants,19261.0,392838.0,608.0,10425.0,423132.0,4.55,19869.0,4.7,15-10-0037-01
+1961,BC,British Columbia,province,non_immigrants,Non-immigrants,38243.0,1159722.0,1951.0,6034.0,1205950.0,3.17,40194.0,3.33,15-10-0037-01
+1961,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",57504.0,1552560.0,2559.0,16459.0,1629082.0,3.53,60063.0,3.69,15-10-0037-01
+1961,CA,Canada,country,immigrants,Immigrants,216453.0,2442004.0,61599.0,124207.0,2844263.0,7.61,278052.0,9.78,15-10-0037-01
+1961,CA,Canada,country,non_immigrants,Non-immigrants,2014719.0,9842758.0,3428267.0,108240.0,15393984.0,13.09,5442986.0,35.36,15-10-0037-01
+1961,CA,Canada,country,total,"Total, immigrant status and period of immigration",2231172.0,12284762.0,3489866.0,232447.0,18238247.0,12.23,5721038.0,31.37,15-10-0037-01
+1961,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,105958.0,2250431.0,5895.0,93530.0,2455814.0,4.31,111853.0,4.55,15-10-0037-01
+1961,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,786336.0,9425696.0,229121.0,82069.0,10523222.0,7.47,1015457.0,9.65,15-10-0037-01
+1961,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",892294.0,11676127.0,235016.0,175599.0,12979036.0,6.87,1127310.0,8.69,15-10-0037-01
+1961,MB,Manitoba,province,immigrants,Immigrants,6762.0,155895.0,617.0,6724.0,169998.0,3.98,7379.0,4.34,15-10-0037-01
+1961,MB,Manitoba,province,non_immigrants,Non-immigrants,61606.0,670060.0,7337.0,12685.0,751688.0,8.2,68943.0,9.17,15-10-0037-01
+1961,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",68368.0,825955.0,7954.0,19409.0,921686.0,7.42,76322.0,8.28,15-10-0037-01
+1961,NB,New Brunswick,province,immigrants,Immigrants,2575.0,19662.0,832.0,214.0,23283.0,11.06,3407.0,14.63,15-10-0037-01
+1961,NB,New Brunswick,province,non_immigrants,Non-immigrants,110920.0,351260.0,111222.0,1251.0,574653.0,19.3,222142.0,38.66,15-10-0037-01
+1961,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",113495.0,370922.0,112054.0,1465.0,597936.0,18.98,225549.0,37.72,15-10-0037-01
+1961,NL,Newfoundland and Labrador,province,immigrants,Immigrants,530.0,5618.0,30.0,91.0,6269.0,8.45,560.0,8.93,15-10-0037-01
+1961,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,4769.0,445327.0,492.0,996.0,451584.0,1.06,5261.0,1.17,15-10-0037-01
+1961,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",5299.0,450945.0,522.0,1087.0,457853.0,1.16,5821.0,1.27,15-10-0037-01
+1961,NS,Nova Scotia,province,immigrants,Immigrants,2476.0,31080.0,88.0,524.0,34168.0,7.25,2564.0,7.5,15-10-0037-01
+1961,NS,Nova Scotia,province,non_immigrants,Non-immigrants,42511.0,653725.0,5850.0,753.0,702839.0,6.05,48361.0,6.88,15-10-0037-01
+1961,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",44987.0,684805.0,5938.0,1277.0,737007.0,6.1,50925.0,6.91,15-10-0037-01
+1961,ON,Ontario,province,immigrants,Immigrants,57943.0,1228932.0,2853.0,63429.0,1353157.0,4.28,60796.0,4.49,15-10-0037-01
+1961,ON,Ontario,province,non_immigrants,Non-immigrants,435327.0,4319834.0,92383.0,35391.0,4882935.0,8.92,527710.0,10.81,15-10-0037-01
+1961,ON,Ontario,province,total,"Total, immigrant status and period of immigration",493270.0,5548766.0,95236.0,98820.0,6236092.0,7.91,588506.0,9.44,15-10-0037-01
+1961,PE,Prince Edward Island,province,immigrants,Immigrants,171.0,2782.0,6.0,33.0,2992.0,5.72,177.0,5.92,15-10-0037-01
+1961,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,7767.0,92514.0,1213.0,143.0,101637.0,7.64,8980.0,8.84,15-10-0037-01
+1961,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",7938.0,95296.0,1219.0,176.0,104629.0,7.59,9157.0,8.75,15-10-0037-01
+1961,QC,Quebec,province,immigrants,Immigrants,110495.0,191573.0,55704.0,30677.0,388449.0,28.45,166199.0,42.79,15-10-0037-01
+1961,QC,Quebec,province,non_immigrants,Non-immigrants,1228383.0,417062.0,3199146.0,26171.0,4870762.0,25.22,4427529.0,90.9,15-10-0037-01
+1961,QC,Quebec,province,total,"Total, immigrant status and period of immigration",1338878.0,608635.0,3254850.0,56848.0,5259211.0,25.46,4593728.0,87.35,15-10-0037-01
+1961,SK,Saskatchewan,province,immigrants,Immigrants,5210.0,139302.0,366.0,4511.0,149389.0,3.49,5576.0,3.73,15-10-0037-01
+1961,SK,Saskatchewan,province,non_immigrants,Non-immigrants,36864.0,726519.0,3487.0,8922.0,775792.0,4.75,40351.0,5.2,15-10-0037-01
+1961,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",42074.0,865821.0,3853.0,13433.0,925181.0,4.55,45927.0,4.96,15-10-0037-01
+1961,YT,Yukon,territory,immigrants,Immigrants,224.0,2448.0,6.0,36.0,2714.0,8.25,230.0,8.47,15-10-0037-01
+1961,YT,Yukon,territory,non_immigrants,Non-immigrants,601.0,11231.0,32.0,50.0,11914.0,5.04,633.0,5.31,15-10-0037-01
+1961,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",825.0,13679.0,38.0,86.0,14628.0,5.64,863.0,5.9,15-10-0037-01
+1971,AB,Alberta,province,immigrants,Immigrants,12475.0,259065.0,450.0,10270.0,282260.0,4.42,12925.0,4.58,15-10-0037-01
+1971,AB,Alberta,province,non_immigrants,Non-immigrants,68530.0,1266510.0,2855.0,7720.0,1345615.0,5.09,71385.0,5.31,15-10-0037-01
+1971,AB,Alberta,province,total,"Total, immigrant status and period of immigration",81000.0,1525575.0,3310.0,17990.0,1627875.0,4.98,84310.0,5.18,15-10-0037-01
+1971,BC,British Columbia,province,immigrants,Immigrants,26035.0,450565.0,460.0,19595.0,496660.0,5.24,26495.0,5.33,15-10-0037-01
+1971,BC,British Columbia,province,non_immigrants,Non-immigrants,75395.0,1604120.0,1320.0,7130.0,1687965.0,4.47,76715.0,4.54,15-10-0037-01
+1971,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",101435.0,2054690.0,1775.0,26725.0,2184625.0,4.64,103210.0,4.72,15-10-0037-01
+1971,CA,Canada,country,immigrants,Immigrants,321415.0,2674855.0,90125.0,209140.0,3295530.0,9.75,411540.0,12.49,15-10-0037-01
+1971,CA,Canada,country,non_immigrants,Non-immigrants,2578735.0,11794685.0,3789135.0,110220.0,18272780.0,14.11,6367870.0,34.85,15-10-0037-01
+1971,CA,Canada,country,total,"Total, immigrant status and period of immigration",2900155.0,14469540.0,3879255.0,319360.0,21568310.0,13.45,6779410.0,31.43,15-10-0037-01
+1971,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,156590.0,2490625.0,7350.0,172040.0,2826605.0,5.54,163940.0,5.8,15-10-0037-01
+1971,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,1079770.0,11346405.0,203890.0,83880.0,12713940.0,8.49,1283660.0,10.1,15-10-0037-01
+1971,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",1236365.0,13837025.0,211240.0,255915.0,15540545.0,7.96,1447605.0,9.32,15-10-0037-01
+1971,MB,Manitoba,province,immigrants,Immigrants,7180.0,135080.0,620.0,8370.0,151245.0,4.75,7800.0,5.16,15-10-0037-01
+1971,MB,Manitoba,province,non_immigrants,Non-immigrants,73755.0,746630.0,4400.0,12215.0,837000.0,8.81,78155.0,9.34,15-10-0037-01
+1971,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",80935.0,881715.0,5020.0,20585.0,988255.0,8.19,85955.0,8.7,15-10-0037-01
+1971,NB,New Brunswick,province,immigrants,Immigrants,3020.0,19640.0,855.0,220.0,23730.0,12.73,3875.0,16.33,15-10-0037-01
+1971,NB,New Brunswick,province,non_immigrants,Non-immigrants,133095.0,377215.0,100135.0,380.0,610825.0,21.79,233230.0,38.18,15-10-0037-01
+1971,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",136115.0,396855.0,100985.0,600.0,634555.0,21.45,237100.0,37.36,15-10-0037-01
+1971,NL,Newfoundland and Labrador,province,immigrants,Immigrants,1020.0,7775.0,40.0,100.0,8945.0,11.4,1060.0,11.85,15-10-0037-01
+1971,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,8330.0,503845.0,470.0,520.0,513165.0,1.62,8800.0,1.71,15-10-0037-01
+1971,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",9350.0,511620.0,510.0,625.0,522105.0,1.79,9860.0,1.89,15-10-0037-01
+1971,NS,Nova Scotia,province,immigrants,Immigrants,3160.0,33410.0,135.0,485.0,37190.0,8.5,3295.0,8.86,15-10-0037-01
+1971,NS,Nova Scotia,province,non_immigrants,Non-immigrants,49875.0,697290.0,4050.0,550.0,751775.0,6.63,53925.0,7.17,15-10-0037-01
+1971,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",53035.0,730700.0,4185.0,1035.0,788955.0,6.72,57220.0,7.25,15-10-0037-01
+1971,ON,Ontario,province,immigrants,Immigrants,98440.0,1475310.0,4575.0,129075.0,1707395.0,5.77,103015.0,6.03,15-10-0037-01
+1971,ON,Ontario,province,non_immigrants,Non-immigrants,617625.0,5248795.0,88270.0,41020.0,5995710.0,10.3,705895.0,11.77,15-10-0037-01
+1971,ON,Ontario,province,total,"Total, immigrant status and period of immigration",716065.0,6724100.0,92845.0,170090.0,7703100.0,9.3,808910.0,10.5,15-10-0037-01
+1971,PE,Prince Edward Island,province,immigrants,Immigrants,265.0,3420.0,10.0,10.0,3705.0,7.15,275.0,7.42,15-10-0037-01
+1971,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,8845.0,98410.0,670.0,15.0,107935.0,8.19,9515.0,8.82,15-10-0037-01
+1971,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",9110.0,101820.0,680.0,30.0,111640.0,8.16,9790.0,8.77,15-10-0037-01
+1971,QC,Quebec,province,immigrants,Immigrants,164825.0,184230.0,82770.0,37100.0,468925.0,35.15,247595.0,52.8,15-10-0037-01
+1971,QC,Quebec,province,non_immigrants,Non-immigrants,1498970.0,448280.0,3585250.0,26340.0,5558840.0,26.97,5084220.0,91.46,15-10-0037-01
+1971,QC,Quebec,province,total,"Total, immigrant status and period of immigration",1663790.0,632515.0,3668015.0,63445.0,6027765.0,27.6,5331805.0,88.45,15-10-0037-01
+1971,SK,Saskatchewan,province,immigrants,Immigrants,4450.0,102180.0,205.0,3855.0,110690.0,4.02,4655.0,4.21,15-10-0037-01
+1971,SK,Saskatchewan,province,non_immigrants,Non-immigrants,41535.0,765135.0,1625.0,7255.0,815550.0,5.09,43160.0,5.29,15-10-0037-01
+1971,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",45985.0,867315.0,1825.0,11110.0,926235.0,4.96,47810.0,5.16,15-10-0037-01
+1971,YT,Yukon,territory,immigrants,Immigrants,250.0,2275.0,0.0,15.0,2540.0,9.84,250.0,9.84,15-10-0037-01
+1971,YT,Yukon,territory,non_immigrants,Non-immigrants,960.0,14860.0,0.0,20.0,15845.0,6.06,960.0,6.06,15-10-0037-01
+1971,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",1210.0,17130.0,10.0,40.0,18390.0,6.58,1220.0,6.63,15-10-0037-01
+1981,AB,Alberta,province,immigrants,Immigrants,22080.0,322560.0,480.0,16050.0,361170.0,6.11,22560.0,6.25,15-10-0037-01
+1981,AB,Alberta,province,non_immigrants,Non-immigrants,120380.0,1722505.0,3225.0,6370.0,1852485.0,6.5,123605.0,6.67,15-10-0037-01
+1981,AB,Alberta,province,total,"Total, immigrant status and period of immigration",142465.0,2045060.0,3700.0,22425.0,2213650.0,6.44,146165.0,6.6,15-10-0037-01
+1981,BC,British Columbia,province,immigrants,Immigrants,39070.0,556660.0,470.0,31360.0,627560.0,6.23,39540.0,6.3,15-10-0037-01
+1981,BC,British Columbia,province,non_immigrants,Non-immigrants,115095.0,1962310.0,975.0,7675.0,2086055.0,5.52,116070.0,5.56,15-10-0037-01
+1981,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",154170.0,2518965.0,1445.0,39035.0,2713615.0,5.68,155615.0,5.73,15-10-0037-01
+1981,CA,Canada,country,immigrants,Immigrants,443910.0,3058050.0,125560.0,215820.0,3843340.0,11.55,569470.0,14.82,15-10-0037-01
+1981,CA,Canada,country,non_immigrants,Non-immigrants,3238050.0,13064850.0,3861680.0,75580.0,20240160.0,16.0,7099730.0,35.08,15-10-0037-01
+1981,CA,Canada,country,total,"Total, immigrant status and period of immigration",3681960.0,16122895.0,3987245.0,291395.0,24083495.0,15.29,7669205.0,31.84,15-10-0037-01
+1981,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,220590.0,2911770.0,5805.0,183020.0,3321185.0,6.64,226395.0,6.82,15-10-0037-01
+1981,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,1396265.0,12784890.0,154830.0,57260.0,14393245.0,9.7,1551095.0,10.78,15-10-0037-01
+1981,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",1616855.0,15696655.0,160640.0,240280.0,17714430.0,9.13,1777495.0,10.03,15-10-0037-01
+1981,MB,Manitoba,province,immigrants,Immigrants,6965.0,129185.0,290.0,7780.0,144220.0,4.83,7255.0,5.03,15-10-0037-01
+1981,MB,Manitoba,province,non_immigrants,Non-immigrants,73025.0,786575.0,2325.0,7560.0,869485.0,8.4,75350.0,8.67,15-10-0037-01
+1981,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",79990.0,915760.0,2620.0,15340.0,1013710.0,7.89,82610.0,8.15,15-10-0037-01
+1981,NB,New Brunswick,province,immigrants,Immigrants,5830.0,20290.0,650.0,320.0,27090.0,21.52,6480.0,23.92,15-10-0037-01
+1981,NB,New Brunswick,province,non_immigrants,Non-immigrants,176725.0,396740.0,88685.0,135.0,662285.0,26.68,265410.0,40.07,15-10-0037-01
+1981,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",182550.0,417025.0,89340.0,455.0,689370.0,26.48,271890.0,39.44,15-10-0037-01
+1981,NL,Newfoundland and Labrador,province,immigrants,Immigrants,1230.0,9445.0,15.0,165.0,10850.0,11.34,1245.0,11.47,15-10-0037-01
+1981,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,11615.0,540890.0,130.0,260.0,552895.0,2.1,11745.0,2.12,15-10-0037-01
+1981,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",12840.0,550335.0,145.0,430.0,563750.0,2.28,12985.0,2.3,15-10-0037-01
+1981,NS,Nova Scotia,province,immigrants,Immigrants,4840.0,36365.0,55.0,455.0,41715.0,11.6,4895.0,11.73,15-10-0037-01
+1981,NS,Nova Scotia,province,non_immigrants,Non-immigrants,57510.0,738400.0,1825.0,355.0,798085.0,7.21,59335.0,7.43,15-10-0037-01
+1981,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",62350.0,774760.0,1880.0,805.0,839795.0,7.42,64230.0,7.65,15-10-0037-01
+1981,ON,Ontario,province,immigrants,Immigrants,135760.0,1752370.0,3735.0,123830.0,2015695.0,6.74,139495.0,6.92,15-10-0037-01
+1981,ON,Ontario,province,non_immigrants,Non-immigrants,788720.0,5648700.0,56800.0,24355.0,6518570.0,12.1,845520.0,12.97,15-10-0037-01
+1981,ON,Ontario,province,total,"Total, immigrant status and period of immigration",924475.0,7401070.0,60535.0,148185.0,8534265.0,10.83,985010.0,11.54,15-10-0037-01
+1981,PE,Prince Edward Island,province,immigrants,Immigrants,410.0,4030.0,0.0,40.0,4470.0,9.17,410.0,9.17,15-10-0037-01
+1981,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,9375.0,107175.0,200.0,0.0,116750.0,8.03,9575.0,8.2,15-10-0037-01
+1981,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",9780.0,111200.0,205.0,40.0,121225.0,8.07,9985.0,8.24,15-10-0037-01
+1981,QC,Quebec,province,immigrants,Immigrants,223320.0,146275.0,119755.0,32800.0,522150.0,42.77,343075.0,65.7,15-10-0037-01
+1981,QC,Quebec,province,non_immigrants,Non-immigrants,1841785.0,279960.0,3706850.0,18315.0,5846920.0,31.5,5548635.0,94.9,15-10-0037-01
+1981,QC,Quebec,province,total,"Total, immigrant status and period of immigration",2065105.0,426240.0,3826605.0,51115.0,6369065.0,32.42,5891710.0,92.51,15-10-0037-01
+1981,SK,Saskatchewan,province,immigrants,Immigrants,3810.0,75995.0,115.0,2925.0,82845.0,4.6,3925.0,4.74,15-10-0037-01
+1981,SK,Saskatchewan,province,non_immigrants,Non-immigrants,39845.0,828910.0,595.0,4255.0,873595.0,4.56,40440.0,4.63,15-10-0037-01
+1981,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",43650.0,904900.0,705.0,7180.0,956435.0,4.56,44355.0,4.64,15-10-0037-01
+1981,YT,Yukon,territory,immigrants,Immigrants,270.0,2555.0,0.0,25.0,2855.0,9.46,270.0,9.46,15-10-0037-01
+1981,YT,Yukon,territory,non_immigrants,Non-immigrants,1550.0,18645.0,10.0,20.0,20220.0,7.67,1560.0,7.72,15-10-0037-01
+1981,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",1820.0,21200.0,10.0,45.0,23075.0,7.89,1830.0,7.93,15-10-0037-01
+1991,AB,Alberta,province,immigrants,Immigrants,20885.0,338080.0,290.0,22260.0,381515.0,5.47,21175.0,5.55,15-10-0037-01
+1991,AB,Alberta,province,non_immigrants,Non-immigrants,145585.0,1968900.0,1610.0,7490.0,2123585.0,6.86,147195.0,6.93,15-10-0037-01
+1991,AB,Alberta,province,non_permanent_residents,Non-permanent residents,685.0,11960.0,40.0,1400.0,14085.0,4.86,725.0,5.15,15-10-0037-01
+1991,AB,Alberta,province,total,"Total, immigrant status and period of immigration",167155.0,2318935.0,1940.0,31150.0,2519180.0,6.64,169095.0,6.71,15-10-0037-01
+1991,BC,British Columbia,province,immigrants,Immigrants,42085.0,631730.0,345.0,49005.0,723170.0,5.82,42430.0,5.87,15-10-0037-01
+1991,BC,British Columbia,province,non_immigrants,Non-immigrants,163885.0,2321120.0,745.0,10540.0,2496295.0,6.57,164630.0,6.59,15-10-0037-01
+1991,BC,British Columbia,province,non_permanent_residents,Non-permanent residents,1200.0,23475.0,50.0,3320.0,28040.0,4.28,1250.0,4.46,15-10-0037-01
+1991,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",207175.0,2976330.0,1140.0,62865.0,3247510.0,6.38,208315.0,6.41,15-10-0037-01
+1991,CA,Canada,country,immigrants,Immigrants,501585.0,3411510.0,156415.0,273380.0,4342890.0,11.55,658000.0,15.15,15-10-0037-01
+1991,CA,Canada,country,non_immigrants,Non-immigrants,3875355.0,14529845.0,3941825.0,80720.0,22427745.0,17.28,7817180.0,34.85,15-10-0037-01
+1991,CA,Canada,country,non_permanent_residents,Non-permanent residents,21710.0,165410.0,12065.0,24225.0,223410.0,9.72,33775.0,15.12,15-10-0037-01
+1991,CA,Canada,country,total,"Total, immigrant status and period of immigration",4398655.0,18106760.0,4110300.0,378320.0,26994035.0,16.29,8508955.0,31.52,15-10-0037-01
+1991,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,234105.0,3278675.0,5980.0,232920.0,3751680.0,6.24,240085.0,6.4,15-10-0037-01
+1991,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,1742720.0,14303510.0,144645.0,61745.0,16252625.0,10.72,1887365.0,11.61,15-10-0037-01
+1991,CA-XQ,Canada outside Quebec,special,non_permanent_residents,Non-permanent residents,8845.0,150820.0,750.0,19025.0,179440.0,4.93,9595.0,5.35,15-10-0037-01
+1991,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",1985670.0,17733005.0,151370.0,313690.0,20183735.0,9.84,2137040.0,10.59,15-10-0037-01
+1991,MB,Manitoba,province,immigrants,Immigrants,6320.0,124760.0,160.0,7360.0,138595.0,4.56,6480.0,4.68,15-10-0037-01
+1991,MB,Manitoba,province,non_immigrants,Non-immigrants,92285.0,836885.0,1740.0,5860.0,936775.0,9.85,94025.0,10.04,15-10-0037-01
+1991,MB,Manitoba,province,non_permanent_residents,Non-permanent residents,195.0,3460.0,0.0,370.0,4025.0,4.84,195.0,4.84,15-10-0037-01
+1991,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",98800.0,965100.0,1905.0,13585.0,1079390.0,9.15,100705.0,9.33,15-10-0037-01
+1991,NB,New Brunswick,province,immigrants,Immigrants,5335.0,18035.0,380.0,230.0,23975.0,22.25,5715.0,23.84,15-10-0037-01
+1991,NB,New Brunswick,province,non_immigrants,Non-immigrants,205800.0,396065.0,89050.0,245.0,691165.0,29.78,294850.0,42.66,15-10-0037-01
+1991,NB,New Brunswick,province,non_permanent_residents,Non-permanent residents,390.0,855.0,75.0,40.0,1355.0,28.78,465.0,34.32,15-10-0037-01
+1991,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",211525.0,414955.0,89500.0,515.0,716495.0,29.52,301025.0,42.01,15-10-0037-01
+1991,NL,Newfoundland and Labrador,province,immigrants,Immigrants,940.0,7355.0,15.0,155.0,8465.0,11.1,955.0,11.28,15-10-0037-01
+1991,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,17435.0,536410.0,225.0,575.0,554645.0,3.14,17660.0,3.18,15-10-0037-01
+1991,NL,Newfoundland and Labrador,province,non_permanent_residents,Non-permanent residents,120.0,655.0,0.0,50.0,830.0,14.46,120.0,14.46,15-10-0037-01
+1991,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",18495.0,544425.0,240.0,780.0,563940.0,3.28,18735.0,3.32,15-10-0037-01
+1991,NS,Nova Scotia,province,immigrants,Immigrants,4890.0,33510.0,90.0,620.0,39110.0,12.5,4980.0,12.73,15-10-0037-01
+1991,NS,Nova Scotia,province,non_immigrants,Non-immigrants,71440.0,776860.0,1470.0,375.0,850135.0,8.4,72910.0,8.58,15-10-0037-01
+1991,NS,Nova Scotia,province,non_permanent_residents,Non-permanent residents,135.0,1505.0,25.0,35.0,1700.0,7.94,160.0,9.41,15-10-0037-01
+1991,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",76465.0,811870.0,1580.0,1030.0,890945.0,8.58,78045.0,8.76,15-10-0037-01
+1991,ON,Ontario,province,immigrants,Immigrants,149575.0,2063750.0,4670.0,151185.0,2369175.0,6.31,154245.0,6.51,15-10-0037-01
+1991,ON,Ontario,province,non_immigrants,Non-immigrants,980740.0,6423855.0,49040.0,28085.0,7481720.0,13.11,1029780.0,13.76,15-10-0037-01
+1991,ON,Ontario,province,non_permanent_residents,Non-permanent residents,5925.0,106030.0,540.0,13660.0,126160.0,4.7,6465.0,5.12,15-10-0037-01
+1991,ON,Ontario,province,total,"Total, immigrant status and period of immigration",1136245.0,8593635.0,54245.0,192930.0,9977055.0,11.39,1190490.0,11.93,15-10-0037-01
+1991,PE,Prince Edward Island,province,immigrants,Immigrants,375.0,3660.0,0.0,70.0,4105.0,9.14,375.0,9.14,15-10-0037-01
+1991,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,12540.0,111045.0,265.0,15.0,123870.0,10.12,12805.0,10.34,15-10-0037-01
+1991,PE,Prince Edward Island,province,non_permanent_residents,Non-permanent residents,30.0,85.0,0.0,0.0,125.0,24.0,30.0,24.0,15-10-0037-01
+1991,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",12950.0,114795.0,270.0,80.0,128095.0,10.11,13220.0,10.32,15-10-0037-01
+1991,QC,Quebec,province,immigrants,Immigrants,267485.0,132830.0,150435.0,40455.0,591205.0,45.24,417920.0,70.69,15-10-0037-01
+1991,QC,Quebec,province,non_immigrants,Non-immigrants,2132635.0,226335.0,3797180.0,18975.0,6175125.0,34.54,5929815.0,96.03,15-10-0037-01
+1991,QC,Quebec,province,non_permanent_residents,Non-permanent residents,12870.0,14590.0,11315.0,5200.0,43970.0,29.27,24185.0,55.0,15-10-0037-01
+1991,QC,Quebec,province,total,"Total, immigrant status and period of immigration",2412985.0,373755.0,3958930.0,64630.0,6810300.0,35.43,6371915.0,93.56,15-10-0037-01
+1991,SK,Saskatchewan,province,immigrants,Immigrants,3080.0,52700.0,30.0,2000.0,57815.0,5.33,3110.0,5.38,15-10-0037-01
+1991,SK,Saskatchewan,province,non_immigrants,Non-immigrants,47600.0,863775.0,405.0,3570.0,915345.0,5.2,48005.0,5.24,15-10-0037-01
+1991,SK,Saskatchewan,province,non_permanent_residents,Non-permanent residents,115.0,2600.0,15.0,145.0,2880.0,3.99,130.0,4.51,15-10-0037-01
+1991,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",50800.0,919070.0,450.0,5715.0,976035.0,5.2,51250.0,5.25,15-10-0037-01
+1991,YT,Yukon,territory,immigrants,Immigrants,305.0,2640.0,0.0,15.0,2965.0,10.29,305.0,10.29,15-10-0037-01
+1991,YT,Yukon,territory,non_immigrants,Non-immigrants,2235.0,22330.0,20.0,15.0,24605.0,9.08,2255.0,9.16,15-10-0037-01
+1991,YT,Yukon,territory,non_permanent_residents,Non-permanent residents,30.0,65.0,0.0,0.0,90.0,33.33,30.0,33.33,15-10-0037-01
+1991,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",2570.0,25035.0,25.0,25.0,27655.0,9.29,2595.0,9.38,15-10-0037-01
+1996,AB,Alberta,province,immigrants,Immigrants,21310.0,358480.0,345.0,25015.0,405145.0,5.26,21655.0,5.34,15-10-0037-01
+1996,AB,Alberta,province,non_immigrants,Non-immigrants,156570.0,2087095.0,1225.0,8100.0,2252995.0,6.95,157795.0,7.0,15-10-0037-01
+1996,AB,Alberta,province,non_permanent_residents,Non-permanent residents,625.0,9500.0,50.0,885.0,11060.0,5.65,675.0,6.1,15-10-0037-01
+1996,AB,Alberta,province,total,"Total, immigrant status and period of immigration",178505.0,2455075.0,1615.0,34000.0,2669195.0,6.69,180120.0,6.75,15-10-0037-01
+1996,BC,British Columbia,province,immigrants,Immigrants,49760.0,774230.0,755.0,78445.0,903190.0,5.51,50515.0,5.59,15-10-0037-01
+1996,BC,British Columbia,province,non_immigrants,Non-immigrants,197495.0,2543115.0,995.0,14930.0,2756530.0,7.16,198490.0,7.2,15-10-0037-01
+1996,BC,British Columbia,province,non_permanent_residents,Non-permanent residents,1335.0,25005.0,25.0,3670.0,30035.0,4.44,1360.0,4.53,15-10-0037-01
+1996,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",248590.0,3342345.0,1775.0,97040.0,3689750.0,6.74,250365.0,6.79,15-10-0037-01
+1996,CA,Canada,country,immigrants,Immigrants,571785.0,3864015.0,183380.0,351885.0,4971070.0,11.5,755165.0,15.19,15-10-0037-01
+1996,CA,Canada,country,non_immigrants,Non-immigrants,4250290.0,15155835.0,3883690.0,100520.0,23390340.0,18.17,8133980.0,34.77,15-10-0037-01
+1996,CA,Canada,country,non_permanent_residents,Non-permanent residents,19245.0,114400.0,12010.0,21065.0,166715.0,11.54,31255.0,18.75,15-10-0037-01
+1996,CA,Canada,country,total,"Total, immigrant status and period of immigration",4841310.0,19134245.0,4079080.0,473465.0,28528100.0,16.97,8920390.0,31.27,15-10-0037-01
+1996,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,263535.0,3727065.0,7160.0,308820.0,4306575.0,6.12,270695.0,6.29,15-10-0037-01
+1996,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,1909745.0,14946415.0,119420.0,75590.0,17051175.0,11.2,2029165.0,11.9,15-10-0037-01
+1996,CA-XQ,Canada outside Quebec,special,non_permanent_residents,Non-permanent residents,7445.0,102255.0,795.0,14795.0,125295.0,5.94,8240.0,6.58,15-10-0037-01
+1996,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",2180720.0,18775740.0,127370.0,399195.0,21483025.0,10.15,2308090.0,10.74,15-10-0037-01
+1996,MB,Manitoba,province,immigrants,Immigrants,6050.0,122990.0,145.0,6755.0,135940.0,4.45,6195.0,4.56,15-10-0037-01
+1996,MB,Manitoba,province,non_immigrants,Non-immigrants,96940.0,857565.0,1350.0,4840.0,960695.0,10.09,98290.0,10.23,15-10-0037-01
+1996,MB,Manitoba,province,non_permanent_residents,Non-permanent residents,145.0,3270.0,0.0,240.0,3660.0,3.96,145.0,3.96,15-10-0037-01
+1996,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",103140.0,983820.0,1495.0,11840.0,1100295.0,9.37,104635.0,9.51,15-10-0037-01
+1996,NB,New Brunswick,province,immigrants,Immigrants,5820.0,17950.0,335.0,275.0,24385.0,23.87,6155.0,25.24,15-10-0037-01
+1996,NB,New Brunswick,province,non_immigrants,Non-immigrants,231640.0,399345.0,73020.0,195.0,704205.0,32.89,304660.0,43.26,15-10-0037-01
+1996,NB,New Brunswick,province,non_permanent_residents,Non-permanent residents,310.0,675.0,50.0,10.0,1045.0,29.67,360.0,34.45,15-10-0037-01
+1996,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",237765.0,417970.0,73410.0,480.0,729625.0,32.59,311175.0,42.65,15-10-0037-01
+1996,NL,Newfoundland and Labrador,province,immigrants,Immigrants,1070.0,7295.0,0.0,125.0,8490.0,12.6,1070.0,12.6,15-10-0037-01
+1996,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,20060.0,517050.0,150.0,385.0,537655.0,3.73,20210.0,3.76,15-10-0037-01
+1996,NL,Newfoundland and Labrador,province,non_permanent_residents,Non-permanent residents,125.0,850.0,0.0,45.0,1015.0,12.32,125.0,12.32,15-10-0037-01
+1996,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",21260.0,525190.0,155.0,550.0,547155.0,3.89,21415.0,3.91,15-10-0037-01
+1996,NS,Nova Scotia,province,immigrants,Immigrants,4710.0,36515.0,15.0,720.0,41955.0,11.23,4725.0,11.26,15-10-0037-01
+1996,NS,Nova Scotia,province,non_immigrants,Non-immigrants,79070.0,775480.0,1335.0,525.0,856405.0,9.23,80405.0,9.39,15-10-0037-01
+1996,NS,Nova Scotia,province,non_permanent_residents,Non-permanent residents,205.0,1330.0,20.0,50.0,1605.0,12.77,225.0,14.02,15-10-0037-01
+1996,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",83980.0,813320.0,1375.0,1295.0,899970.0,9.33,85355.0,9.48,15-10-0037-01
+1996,ON,Ontario,province,immigrants,Immigrants,170860.0,2352715.0,5525.0,195390.0,2724490.0,6.27,176385.0,6.47,15-10-0037-01
+1996,ON,Ontario,province,non_immigrants,Non-immigrants,1059500.0,6704495.0,40765.0,39610.0,7844375.0,13.51,1100265.0,14.03,15-10-0037-01
+1996,ON,Ontario,province,non_permanent_residents,Non-permanent residents,4535.0,58955.0,650.0,9790.0,73930.0,6.13,5185.0,7.01,15-10-0037-01
+1996,ON,Ontario,province,total,"Total, immigrant status and period of immigration",1234895.0,9116165.0,46940.0,244785.0,10642785.0,11.6,1281835.0,12.04,15-10-0037-01
+1996,PE,Prince Edward Island,province,immigrants,Immigrants,475.0,3885.0,0.0,30.0,4395.0,10.81,475.0,10.81,15-10-0037-01
+1996,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,14085.0,114060.0,160.0,0.0,128310.0,10.98,14245.0,11.1,15-10-0037-01
+1996,PE,Prince Edward Island,province,non_permanent_residents,Non-permanent residents,15.0,130.0,0.0,0.0,155.0,9.68,15.0,9.68,15-10-0037-01
+1996,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",14570.0,118080.0,170.0,35.0,132855.0,10.97,14740.0,11.09,15-10-0037-01
+1996,QC,Quebec,province,immigrants,Immigrants,308250.0,136950.0,176225.0,43075.0,664500.0,46.39,484475.0,72.91,15-10-0037-01
+1996,QC,Quebec,province,non_immigrants,Non-immigrants,2340545.0,209415.0,3764275.0,24935.0,6339165.0,36.92,6104820.0,96.3,15-10-0037-01
+1996,QC,Quebec,province,non_permanent_residents,Non-permanent residents,11795.0,12145.0,11215.0,6265.0,41420.0,28.48,23010.0,55.55,15-10-0037-01
+1996,QC,Quebec,province,total,"Total, immigrant status and period of immigration",2660590.0,358505.0,3951710.0,74270.0,7045075.0,37.77,6612300.0,93.86,15-10-0037-01
+1996,SK,Saskatchewan,province,immigrants,Immigrants,2795.0,47530.0,25.0,1970.0,52315.0,5.34,2820.0,5.39,15-10-0037-01
+1996,SK,Saskatchewan,province,non_immigrants,Non-immigrants,47845.0,870660.0,315.0,2870.0,921695.0,5.19,48160.0,5.23,15-10-0037-01
+1996,SK,Saskatchewan,province,non_permanent_residents,Non-permanent residents,135.0,2370.0,0.0,105.0,2605.0,5.18,135.0,5.18,15-10-0037-01
+1996,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",50770.0,920555.0,345.0,4945.0,976615.0,5.2,51115.0,5.23,15-10-0037-01
+1996,YT,Yukon,territory,immigrants,Immigrants,335.0,2820.0,0.0,35.0,3195.0,10.49,335.0,10.49,15-10-0037-01
+1996,YT,Yukon,territory,non_immigrants,Non-immigrants,2875.0,24445.0,50.0,15.0,27385.0,10.5,2925.0,10.68,15-10-0037-01
+1996,YT,Yukon,territory,non_permanent_residents,Non-permanent residents,0.0,75.0,0.0,0.0,75.0,0.0,0.0,0.0,15-10-0037-01
+1996,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",3210.0,27340.0,50.0,55.0,30655.0,10.47,3260.0,10.63,15-10-0037-01
+2001,AB,Alberta,province,immigrants,Immigrants,24125.0,389570.0,360.0,24275.0,438335.0,5.5,24485.0,5.59,15-10-0037-01
+2001,AB,Alberta,province,non_immigrants,Non-immigrants,177730.0,2300255.0,1480.0,6070.0,2485540.0,7.15,179210.0,7.21,15-10-0037-01
+2001,AB,Alberta,province,non_permanent_residents,Non-permanent residents,1050.0,15070.0,55.0,1110.0,17275.0,6.08,1105.0,6.4,15-10-0037-01
+2001,AB,Alberta,province,total,"Total, immigrant status and period of immigration",202910.0,2704895.0,1890.0,31455.0,2941150.0,6.9,204800.0,6.96,15-10-0037-01
+2001,BC,British Columbia,province,immigrants,Immigrants,55440.0,866040.0,835.0,87500.0,1009815.0,5.49,56275.0,5.57,15-10-0037-01
+2001,BC,British Columbia,province,non_immigrants,Non-immigrants,212220.0,2595750.0,935.0,12970.0,2821865.0,7.52,213155.0,7.55,15-10-0037-01
+2001,BC,British Columbia,province,non_permanent_residents,Non-permanent residents,1710.0,31890.0,50.0,3550.0,37190.0,4.6,1760.0,4.73,15-10-0037-01
+2001,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",269365.0,3493680.0,1815.0,104020.0,3868875.0,6.96,271180.0,7.01,15-10-0037-01
+2001,CA,Canada,country,immigrants,Immigrants,653620.0,4256240.0,190345.0,348275.0,5448480.0,12.0,843965.0,15.49,15-10-0037-01
+2001,CA,Canada,country,non_immigrants,Non-immigrants,4552225.0,15615445.0,3745700.0,78535.0,23991905.0,18.97,8297925.0,34.59,15-10-0037-01
+2001,CA,Canada,country,non_permanent_residents,Non-permanent residents,25730.0,142960.0,10480.0,19475.0,198640.0,12.95,36210.0,18.23,15-10-0037-01
+2001,CA,Canada,country,total,"Total, immigrant status and period of immigration",5231575.0,20014645.0,3946525.0,446290.0,29639035.0,17.65,9178100.0,30.97,15-10-0037-01
+2001,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,301985.0,4120630.0,8290.0,310610.0,4741515.0,6.37,310275.0,6.54,15-10-0037-01
+2001,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,2011655.0,15436000.0,106090.0,59745.0,17613485.0,11.42,2117745.0,12.02,15-10-0037-01
+2001,CA-XQ,Canada outside Quebec,special,non_permanent_residents,Non-permanent residents,10230.0,130970.0,790.0,16450.0,158445.0,6.46,11020.0,6.96,15-10-0037-01
+2001,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",2323875.0,19687605.0,115175.0,386800.0,22513460.0,10.32,2439050.0,10.83,15-10-0037-01
+2001,MB,Manitoba,province,immigrants,Immigrants,6190.0,121350.0,210.0,5905.0,133660.0,4.63,6400.0,4.79,15-10-0037-01
+2001,MB,Manitoba,province,non_immigrants,Non-immigrants,96440.0,864860.0,1030.0,3185.0,965520.0,9.99,97470.0,10.1,15-10-0037-01
+2001,MB,Manitoba,province,non_permanent_residents,Non-permanent residents,210.0,4065.0,10.0,230.0,4520.0,4.65,220.0,4.87,15-10-0037-01
+2001,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",102840.0,990280.0,1245.0,9330.0,1103695.0,9.32,104085.0,9.43,15-10-0037-01
+2001,NB,New Brunswick,province,immigrants,Immigrants,5335.0,16670.0,275.0,180.0,22470.0,23.74,5610.0,24.97,15-10-0037-01
+2001,NB,New Brunswick,province,non_immigrants,Non-immigrants,240110.0,389145.0,66080.0,225.0,695560.0,34.52,306190.0,44.02,15-10-0037-01
+2001,NB,New Brunswick,province,non_permanent_residents,Non-permanent residents,420.0,1175.0,60.0,30.0,1685.0,24.93,480.0,28.49,15-10-0037-01
+2001,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",245865.0,406995.0,66415.0,430.0,719710.0,34.16,312280.0,43.39,15-10-0037-01
+2001,NL,Newfoundland and Labrador,province,immigrants,Immigrants,955.0,6955.0,10.0,115.0,8030.0,11.89,965.0,12.02,15-10-0037-01
+2001,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,19820.0,478615.0,125.0,520.0,499090.0,3.97,19945.0,4.0,15-10-0037-01
+2001,NL,Newfoundland and Labrador,province,non_permanent_residents,Non-permanent residents,115.0,820.0,0.0,15.0,955.0,12.04,115.0,12.04,15-10-0037-01
+2001,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",20895.0,486390.0,145.0,655.0,508075.0,4.11,21040.0,4.14,15-10-0037-01
+2001,NS,Nova Scotia,province,immigrants,Immigrants,5130.0,35650.0,45.0,490.0,41320.0,12.42,5175.0,12.52,15-10-0037-01
+2001,NS,Nova Scotia,province,non_immigrants,Non-immigrants,84835.0,767670.0,735.0,420.0,853655.0,9.94,85570.0,10.02,15-10-0037-01
+2001,NS,Nova Scotia,province,non_permanent_residents,Non-permanent residents,300.0,2225.0,15.0,55.0,2600.0,11.54,315.0,12.12,15-10-0037-01
+2001,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",90265.0,805545.0,790.0,965.0,897570.0,10.06,91055.0,10.14,15-10-0037-01
+2001,NT,Northwest Territories,territory,immigrants,Immigrants,255.0,2085.0,0.0,40.0,2380.0,10.71,255.0,10.71,15-10-0037-01
+2001,NT,Northwest Territories,territory,non_immigrants,Non-immigrants,2860.0,31355.0,35.0,345.0,34595.0,8.27,2895.0,8.37,15-10-0037-01
+2001,NT,Northwest Territories,territory,non_permanent_residents,Non-permanent residents,10.0,110.0,0.0,0.0,120.0,8.33,10.0,8.33,15-10-0037-01
+2001,NT,Northwest Territories,territory,total,"Total, immigrant status and period of immigration",3130.0,33550.0,40.0,385.0,37100.0,8.44,3170.0,8.54,15-10-0037-01
+2001,NU,Nunavut,territory,immigrants,Immigrants,90.0,360.0,0.0,0.0,445.0,20.22,90.0,20.22,15-10-0037-01
+2001,NU,Nunavut,territory,non_immigrants,Non-immigrants,920.0,21745.0,25.0,3500.0,26195.0,3.51,945.0,3.61,15-10-0037-01
+2001,NU,Nunavut,territory,non_permanent_residents,Non-permanent residents,0.0,20.0,0.0,0.0,25.0,0.0,0.0,0.0,15-10-0037-01
+2001,NU,Nunavut,territory,total,"Total, immigrant status and period of immigration",1010.0,22125.0,25.0,3505.0,26665.0,3.79,1035.0,3.88,15-10-0037-01
+2001,ON,Ontario,province,immigrants,Immigrants,201020.0,2631820.0,6490.0,190750.0,3030075.0,6.63,207510.0,6.85,15-10-0037-01
+2001,ON,Ontario,province,non_immigrants,Non-immigrants,1112540.0,6986415.0,35215.0,30685.0,8164860.0,13.63,1147755.0,14.06,15-10-0037-01
+2001,ON,Ontario,province,non_permanent_residents,Non-permanent residents,6160.0,72510.0,605.0,11345.0,90610.0,6.8,6765.0,7.47,15-10-0037-01
+2001,ON,Ontario,province,total,"Total, immigrant status and period of immigration",1319715.0,9690745.0,42305.0,232780.0,11285550.0,11.69,1362020.0,12.07,15-10-0037-01
+2001,PE,Prince Edward Island,province,immigrants,Immigrants,400.0,3720.0,0.0,20.0,4140.0,9.66,400.0,9.66,15-10-0037-01
+2001,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,15515.0,113290.0,100.0,35.0,128935.0,12.03,15615.0,12.11,15-10-0037-01
+2001,PE,Prince Edward Island,province,non_permanent_residents,Non-permanent residents,75.0,235.0,0.0,0.0,310.0,24.19,75.0,24.19,15-10-0037-01
+2001,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",15990.0,117245.0,95.0,55.0,133385.0,11.99,16085.0,12.06,15-10-0037-01
+2001,QC,Quebec,province,immigrants,Immigrants,351630.0,135605.0,182055.0,37670.0,706965.0,49.74,533685.0,75.49,15-10-0037-01
+2001,QC,Quebec,province,non_immigrants,Non-immigrants,2540570.0,179445.0,3639610.0,18795.0,6378420.0,39.83,6180180.0,96.89,15-10-0037-01
+2001,QC,Quebec,province,non_permanent_residents,Non-permanent residents,15490.0,11990.0,9685.0,3025.0,40190.0,38.54,25175.0,62.64,15-10-0037-01
+2001,QC,Quebec,province,total,"Total, immigrant status and period of immigration",2907700.0,327040.0,3831350.0,59490.0,7125575.0,40.81,6739050.0,94.58,15-10-0037-01
+2001,SK,Saskatchewan,province,immigrants,Immigrants,2705.0,43780.0,55.0,1280.0,47825.0,5.66,2760.0,5.77,15-10-0037-01
+2001,SK,Saskatchewan,province,non_immigrants,Non-immigrants,46120.0,864055.0,300.0,1750.0,912220.0,5.06,46420.0,5.09,15-10-0037-01
+2001,SK,Saskatchewan,province,non_permanent_residents,Non-permanent residents,175.0,2810.0,0.0,115.0,3105.0,5.64,175.0,5.64,15-10-0037-01
+2001,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",49000.0,910645.0,355.0,3150.0,963150.0,5.09,49355.0,5.12,15-10-0037-01
+2001,YT,Yukon,territory,immigrants,Immigrants,345.0,2625.0,10.0,50.0,3025.0,11.4,355.0,11.74,15-10-0037-01
+2001,YT,Yukon,territory,non_immigrants,Non-immigrants,2545.0,22835.0,40.0,25.0,25445.0,10.0,2585.0,10.16,15-10-0037-01
+2001,YT,Yukon,territory,non_permanent_residents,Non-permanent residents,10.0,50.0,0.0,0.0,50.0,20.0,10.0,20.0,15-10-0037-01
+2001,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",2895.0,25510.0,45.0,75.0,28520.0,10.15,2940.0,10.31,15-10-0037-01
+2006,AB,Alberta,province,immigrants,Immigrants,27940.0,468515.0,580.0,30000.0,527030.0,5.3,28520.0,5.41,15-10-0037-01
+2006,AB,Alberta,province,non_immigrants,Non-immigrants,193375.0,2498150.0,1510.0,9185.0,2702225.0,7.16,194885.0,7.21,15-10-0037-01
+2006,AB,Alberta,province,non_permanent_residents,Non-permanent residents,1565.0,24140.0,110.0,1280.0,27100.0,5.77,1675.0,6.18,15-10-0037-01
+2006,AB,Alberta,province,total,"Total, immigrant status and period of immigration",222886.0,2990804.0,2199.0,40467.0,3256360.0,6.84,225085.0,6.91,15-10-0037-01
+2006,BC,British Columbia,province,immigrants,Immigrants,61255.0,953925.0,685.0,103350.0,1119215.0,5.47,61940.0,5.53,15-10-0037-01
+2006,BC,British Columbia,province,non_immigrants,Non-immigrants,231365.0,2654840.0,1370.0,16675.0,2904240.0,7.97,232735.0,8.01,15-10-0037-01
+2006,BC,British Columbia,province,non_permanent_residents,Non-permanent residents,3025.0,44600.0,20.0,3280.0,50930.0,5.94,3045.0,5.98,15-10-0037-01
+2006,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",295643.0,3653366.0,2071.0,123303.0,4074385.0,7.26,297714.0,7.31,15-10-0037-01
+2006,CA,Canada,country,immigrants,Immigrants,762340.0,4784940.0,241495.0,398175.0,6186950.0,12.32,1003835.0,16.23,15-10-0037-01
+2006,CA,Canada,country,non_immigrants,Non-immigrants,4652560.0,16143745.0,3889090.0,103330.0,24788725.0,18.77,8541650.0,34.46,15-10-0037-01
+2006,CA,Canada,country,non_permanent_residents,Non-permanent residents,33950.0,201250.0,11270.0,18880.0,265360.0,12.79,45220.0,17.04,15-10-0037-01
+2006,CA,Canada,country,total,"Total, immigrant status and period of immigration",5448850.0,21129945.0,4141851.0,520384.0,31241030.0,17.44,9590701.0,30.7,15-10-0037-01
+2006,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,334235.0,4636185.0,9200.0,355780.0,5335390.0,6.26,343435.0,6.44,15-10-0037-01
+2006,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,2082980.0,15970820.0,121000.0,78495.0,18253290.0,11.41,2203980.0,12.07,15-10-0037-01
+2006,CA-XQ,Canada outside Quebec,special,non_permanent_residents,Non-permanent residents,13775.0,186160.0,775.0,15740.0,216440.0,6.36,14550.0,6.72,15-10-0037-01
+2006,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",2430985.0,20793160.0,130970.0,450010.0,23805125.0,10.21,2561955.0,10.76,15-10-0037-01
+2006,MB,Manitoba,province,immigrants,Immigrants,6440.0,137995.0,290.0,6510.0,151235.0,4.26,6730.0,4.45,15-10-0037-01
+2006,MB,Manitoba,province,non_immigrants,Non-immigrants,96730.0,872825.0,1640.0,3545.0,974735.0,9.92,98370.0,10.09,15-10-0037-01
+2006,MB,Manitoba,province,non_permanent_residents,Non-permanent residents,355.0,6745.0,0.0,445.0,7550.0,4.7,355.0,4.7,15-10-0037-01
+2006,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",103523.0,1017564.0,1928.0,10499.0,1133510.0,9.13,105451.0,9.3,15-10-0037-01
+2006,NB,New Brunswick,province,immigrants,Immigrants,6560.0,18990.0,555.0,290.0,26395.0,24.85,7115.0,26.96,15-10-0037-01
+2006,NB,New Brunswick,province,non_immigrants,Non-immigrants,232990.0,384155.0,73105.0,440.0,690695.0,33.73,306095.0,44.32,15-10-0037-01
+2006,NB,New Brunswick,province,non_permanent_residents,Non-permanent residents,530.0,1895.0,95.0,30.0,2560.0,20.7,625.0,24.41,15-10-0037-01
+2006,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",240086.0,405045.0,73753.0,766.0,719650.0,33.36,313839.0,43.61,15-10-0037-01
+2006,NL,Newfoundland and Labrador,province,immigrants,Immigrants,1110.0,7115.0,15.0,145.0,8385.0,13.24,1125.0,13.42,15-10-0037-01
+2006,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,22470.0,467640.0,75.0,670.0,490860.0,4.58,22545.0,4.59,15-10-0037-01
+2006,NL,Newfoundland and Labrador,province,non_permanent_residents,Non-permanent residents,95.0,1235.0,0.0,40.0,1365.0,6.96,95.0,6.96,15-10-0037-01
+2006,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",23678.0,475987.0,89.0,854.0,500605.0,4.73,23767.0,4.75,15-10-0037-01
+2006,NS,Nova Scotia,province,immigrants,Immigrants,5665.0,38865.0,60.0,605.0,45195.0,12.53,5725.0,12.67,15-10-0037-01
+2006,NS,Nova Scotia,province,non_immigrants,Non-immigrants,89090.0,763820.0,935.0,650.0,854495.0,10.43,90025.0,10.54,15-10-0037-01
+2006,NS,Nova Scotia,province,non_permanent_residents,Non-permanent residents,255.0,3010.0,10.0,130.0,3405.0,7.49,265.0,7.78,15-10-0037-01
+2006,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",95011.0,805690.0,1004.0,1385.0,903090.0,10.52,96015.0,10.63,15-10-0037-01
+2006,NT,Northwest Territories,territory,immigrants,Immigrants,280.0,2460.0,10.0,60.0,2815.0,9.95,290.0,10.3,15-10-0037-01
+2006,NT,Northwest Territories,territory,non_immigrants,Non-immigrants,3355.0,34325.0,40.0,265.0,37985.0,8.83,3395.0,8.94,15-10-0037-01
+2006,NT,Northwest Territories,territory,non_permanent_residents,Non-permanent residents,35.0,225.0,0.0,0.0,260.0,13.46,35.0,13.46,15-10-0037-01
+2006,NT,Northwest Territories,territory,total,"Total, immigrant status and period of immigration",3667.0,37011.0,52.0,326.0,41055.0,8.93,3719.0,9.06,15-10-0037-01
+2006,NU,Nunavut,territory,immigrants,Immigrants,85.0,360.0,0.0,0.0,450.0,18.89,85.0,18.89,15-10-0037-01
+2006,NU,Nunavut,territory,non_immigrants,Non-immigrants,1075.0,25420.0,20.0,2300.0,28820.0,3.73,1095.0,3.8,15-10-0037-01
+2006,NU,Nunavut,territory,non_permanent_residents,Non-permanent residents,0.0,50.0,0.0,0.0,55.0,0.0,0.0,0.0,15-10-0037-01
+2006,NU,Nunavut,territory,total,"Total, immigrant status and period of immigration",1167.0,25832.0,20.0,2306.0,29325.0,3.98,1187.0,4.05,15-10-0037-01
+2006,ON,Ontario,province,immigrants,Immigrants,221235.0,2956990.0,6945.0,213550.0,3398725.0,6.51,228180.0,6.71,15-10-0037-01
+2006,ON,Ontario,province,non_immigrants,Non-immigrants,1148415.0,7279085.0,41750.0,42770.0,8512020.0,13.49,1190165.0,13.98,15-10-0037-01
+2006,ON,Ontario,province,non_permanent_residents,Non-permanent residents,7680.0,99625.0,520.0,10335.0,118150.0,6.5,8200.0,6.94,15-10-0037-01
+2006,ON,Ontario,province,total,"Total, immigrant status and period of immigration",1377329.0,10335702.0,49209.0,266656.0,12028895.0,11.45,1426538.0,11.86,15-10-0037-01
+2006,PE,Prince Edward Island,province,immigrants,Immigrants,480.0,4285.0,0.0,20.0,4785.0,10.03,480.0,10.03,15-10-0037-01
+2006,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,16595.0,112465.0,55.0,35.0,129150.0,12.85,16650.0,12.89,15-10-0037-01
+2006,PE,Prince Edward Island,province,non_permanent_residents,Non-permanent residents,25.0,245.0,0.0,0.0,270.0,9.26,25.0,9.26,15-10-0037-01
+2006,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",17100.0,116993.0,57.0,55.0,134205.0,12.74,17157.0,12.78,15-10-0037-01
+2006,QC,Quebec,province,immigrants,Immigrants,428105.0,148765.0,232295.0,42400.0,851555.0,50.27,660400.0,77.55,15-10-0037-01
+2006,QC,Quebec,province,non_immigrants,Non-immigrants,2569580.0,172930.0,3768085.0,24835.0,6535435.0,39.32,6337665.0,96.97,15-10-0037-01
+2006,QC,Quebec,province,non_permanent_residents,Non-permanent residents,20175.0,15090.0,10500.0,3145.0,48910.0,41.25,30675.0,62.72,15-10-0037-01
+2006,QC,Quebec,province,total,"Total, immigrant status and period of immigration",3017863.0,336784.0,4010881.0,70375.0,7435900.0,40.59,7028744.0,94.52,15-10-0037-01
+2006,SK,Saskatchewan,province,immigrants,Immigrants,2800.0,44140.0,40.0,1180.0,48160.0,5.81,2840.0,5.9,15-10-0037-01
+2006,SK,Saskatchewan,province,non_immigrants,Non-immigrants,44460.0,854290.0,430.0,1895.0,901080.0,4.93,44890.0,4.98,15-10-0037-01
+2006,SK,Saskatchewan,province,non_permanent_residents,Non-permanent residents,195.0,4225.0,10.0,185.0,4610.0,4.23,205.0,4.45,15-10-0037-01
+2006,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",47451.0,902652.0,484.0,3262.0,953855.0,4.97,47935.0,5.03,15-10-0037-01
+2006,YT,Yukon,territory,immigrants,Immigrants,375.0,2550.0,20.0,60.0,3010.0,12.46,395.0,13.12,15-10-0037-01
+2006,YT,Yukon,territory,non_immigrants,Non-immigrants,3060.0,23805.0,80.0,55.0,26995.0,11.34,3140.0,11.63,15-10-0037-01
+2006,YT,Yukon,territory,non_permanent_residents,Non-permanent residents,10.0,165.0,0.0,20.0,190.0,5.26,10.0,5.26,15-10-0037-01
+2006,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",3444.0,26514.0,104.0,130.0,30190.0,11.41,3548.0,11.75,15-10-0037-01
+2011,AB,Alberta,province,immigrants,Immigrants,35450.0,576075.0,945.0,31650.0,644115.0,5.5,36395.0,5.65,15-10-0037-01
+2011,AB,Alberta,province,non_immigrants,Non-immigrants,196985.0,2656055.0,1735.0,9470.0,2864245.0,6.88,198720.0,6.94,15-10-0037-01
+2011,AB,Alberta,province,non_permanent_residents,Non-permanent residents,2140.0,55430.0,165.0,1885.0,59625.0,3.59,2305.0,3.87,15-10-0037-01
+2011,AB,Alberta,province,total,"Total, immigrant status and period of immigration",234570.0,3287560.0,2845.0,43000.0,3567980.0,6.57,237415.0,6.65,15-10-0037-01
+2011,BC,British Columbia,province,immigrants,Immigrants,60790.0,1013410.0,710.0,116975.0,1191875.0,5.1,61500.0,5.16,15-10-0037-01
+2011,BC,British Columbia,province,non_immigrants,Non-immigrants,232290.0,2819090.0,960.0,15250.0,3067585.0,7.57,233250.0,7.6,15-10-0037-01
+2011,BC,British Columbia,province,non_permanent_residents,Non-permanent residents,3000.0,58190.0,90.0,3715.0,64995.0,4.62,3090.0,4.75,15-10-0037-01
+2011,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",296080.0,3890685.0,1755.0,135940.0,4324460.0,6.85,297835.0,6.89,15-10-0037-01
+2011,CA,Canada,country,immigrants,Immigrants,850140.0,5199475.0,287965.0,438190.0,6775765.0,12.55,1138105.0,16.8,15-10-0037-01
+2011,CA,Canada,country,non_immigrants,Non-immigrants,4877660.0,16940540.0,3803600.0,98370.0,25720170.0,18.96,8681260.0,33.75,15-10-0037-01
+2011,CA,Canada,country,non_permanent_residents,Non-permanent residents,44460.0,275245.0,17320.0,19355.0,356380.0,12.48,61780.0,17.34,15-10-0037-01
+2011,CA,Canada,country,total,"Total, immigrant status and period of immigration",5772255.0,22415255.0,4108885.0,555920.0,32852325.0,17.57,9881140.0,30.08,15-10-0037-01
+2011,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,354855.0,5039900.0,11185.0,394930.0,5800875.0,6.12,366040.0,6.31,15-10-0037-01
+2011,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,2089695.0,16766530.0,99595.0,73820.0,19029640.0,10.98,2189290.0,11.5,15-10-0037-01
+2011,CA-XQ,Canada outside Quebec,special,non_permanent_residents,Non-permanent residents,14490.0,257200.0,1240.0,16355.0,289285.0,5.01,15730.0,5.44,15-10-0037-01
+2011,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",2459040.0,22063630.0,112020.0,485115.0,25119805.0,9.79,2571060.0,10.24,15-10-0037-01
+2011,MB,Manitoba,province,immigrants,Immigrants,7820.0,167395.0,355.0,8935.0,184500.0,4.24,8175.0,4.43,15-10-0037-01
+2011,MB,Manitoba,province,non_immigrants,Non-immigrants,93035.0,883540.0,1135.0,3495.0,981200.0,9.48,94170.0,9.6,15-10-0037-01
+2011,MB,Manitoba,province,non_permanent_residents,Non-permanent residents,340.0,7775.0,25.0,500.0,8635.0,3.94,365.0,4.23,15-10-0037-01
+2011,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",101190.0,1058705.0,1510.0,12935.0,1174345.0,8.62,102700.0,8.75,15-10-0037-01
+2011,NB,New Brunswick,province,immigrants,Immigrants,6325.0,21115.0,670.0,360.0,28470.0,22.22,6995.0,24.57,15-10-0037-01
+2011,NB,New Brunswick,province,non_immigrants,Non-immigrants,238440.0,401310.0,64180.0,310.0,704240.0,33.86,302620.0,42.97,15-10-0037-01
+2011,NB,New Brunswick,province,non_permanent_residents,Non-permanent residents,495.0,2460.0,75.0,105.0,3135.0,15.79,570.0,18.18,15-10-0037-01
+2011,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",245260.0,424875.0,64925.0,770.0,735830.0,33.33,310185.0,42.15,15-10-0037-01
+2011,NL,Newfoundland and Labrador,province,immigrants,Immigrants,985.0,7990.0,10.0,175.0,9160.0,10.75,995.0,10.86,15-10-0037-01
+2011,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,21825.0,474085.0,80.0,415.0,496400.0,4.4,21905.0,4.41,15-10-0037-01
+2011,NL,Newfoundland and Labrador,province,non_permanent_residents,Non-permanent residents,70.0,1620.0,0.0,0.0,1705.0,4.11,70.0,4.11,15-10-0037-01
+2011,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",22880.0,483695.0,90.0,600.0,507270.0,4.51,22970.0,4.53,15-10-0037-01
+2011,NS,Nova Scotia,province,immigrants,Immigrants,5855.0,41665.0,60.0,690.0,48275.0,12.13,5915.0,12.25,15-10-0037-01
+2011,NS,Nova Scotia,province,non_immigrants,Non-immigrants,87830.0,762180.0,670.0,355.0,851035.0,10.32,88500.0,10.4,15-10-0037-01
+2011,NS,Nova Scotia,province,non_permanent_residents,Non-permanent residents,430.0,6310.0,0.0,120.0,6865.0,6.26,430.0,6.26,15-10-0037-01
+2011,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",94110.0,810160.0,735.0,1170.0,906170.0,10.39,94845.0,10.47,15-10-0037-01
+2011,NT,Northwest Territories,territory,immigrants,Immigrants,320.0,2490.0,20.0,45.0,2880.0,11.11,340.0,11.81,15-10-0037-01
+2011,NT,Northwest Territories,territory,non_immigrants,Non-immigrants,3510.0,33855.0,30.0,190.0,37585.0,9.34,3540.0,9.42,15-10-0037-01
+2011,NT,Northwest Territories,territory,non_permanent_residents,Non-permanent residents,0.0,320.0,0.0,0.0,330.0,0.0,0.0,0.0,15-10-0037-01
+2011,NT,Northwest Territories,territory,total,"Total, immigrant status and period of immigration",3845.0,36665.0,50.0,240.0,40800.0,9.42,3895.0,9.55,15-10-0037-01
+2011,NU,Nunavut,territory,immigrants,Immigrants,125.0,485.0,0.0,0.0,610.0,20.49,125.0,20.49,15-10-0037-01
+2011,NU,Nunavut,territory,non_immigrants,Non-immigrants,1065.0,27060.0,30.0,2870.0,31025.0,3.43,1095.0,3.53,15-10-0037-01
+2011,NU,Nunavut,territory,non_permanent_residents,Non-permanent residents,0.0,60.0,0.0,0.0,60.0,0.0,0.0,0.0,15-10-0037-01
+2011,NU,Nunavut,territory,total,"Total, immigrant status and period of immigration",1190.0,27605.0,30.0,2870.0,31695.0,3.75,1220.0,3.85,15-10-0037-01
+2011,ON,Ontario,province,immigrants,Immigrants,232830.0,3137285.0,8345.0,232905.0,3611365.0,6.45,241175.0,6.68,15-10-0037-01
+2011,ON,Ontario,province,non_immigrants,Non-immigrants,1152695.0,7682950.0,30510.0,39845.0,8906005.0,12.94,1183205.0,13.29,15-10-0037-01
+2011,ON,Ontario,province,non_permanent_residents,Non-permanent residents,7630.0,116275.0,840.0,9680.0,134425.0,5.68,8470.0,6.3,15-10-0037-01
+2011,ON,Ontario,province,total,"Total, immigrant status and period of immigration",1393155.0,10936505.0,39695.0,282435.0,12651795.0,11.01,1432850.0,11.33,15-10-0037-01
+2011,PE,Prince Edward Island,province,immigrants,Immigrants,555.0,5850.0,0.0,670.0,7085.0,7.83,555.0,7.83,15-10-0037-01
+2011,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,16525.0,112755.0,45.0,70.0,129390.0,12.77,16570.0,12.81,15-10-0037-01
+2011,PE,Prince Edward Island,province,non_permanent_residents,Non-permanent residents,25.0,860.0,0.0,0.0,905.0,2.76,25.0,2.76,15-10-0037-01
+2011,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",17100.0,119460.0,60.0,755.0,137375.0,12.45,17160.0,12.49,15-10-0037-01
+2011,QC,Quebec,province,immigrants,Immigrants,495280.0,159575.0,276780.0,43255.0,974895.0,50.8,772060.0,79.19,15-10-0037-01
+2011,QC,Quebec,province,non_immigrants,Non-immigrants,2787965.0,174010.0,3704005.0,24550.0,6690535.0,41.67,6491970.0,97.03,15-10-0037-01
+2011,QC,Quebec,province,non_permanent_residents,Non-permanent residents,29970.0,18040.0,16080.0,3000.0,67095.0,44.67,46050.0,68.63,15-10-0037-01
+2011,QC,Quebec,province,total,"Total, immigrant status and period of immigration",3313215.0,351625.0,3996865.0,70810.0,7732520.0,42.85,7310080.0,94.54,15-10-0037-01
+2011,SK,Saskatchewan,province,immigrants,Immigrants,3320.0,62960.0,50.0,2440.0,68775.0,4.83,3370.0,4.9,15-10-0037-01
+2011,SK,Saskatchewan,province,non_immigrants,Non-immigrants,41820.0,888165.0,170.0,1550.0,931715.0,4.49,41990.0,4.51,15-10-0037-01
+2011,SK,Saskatchewan,province,non_permanent_residents,Non-permanent residents,305.0,7620.0,40.0,305.0,8270.0,3.69,345.0,4.17,15-10-0037-01
+2011,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",45450.0,958750.0,265.0,4295.0,1008760.0,4.51,45715.0,4.53,15-10-0037-01
+2011,YT,Yukon,territory,immigrants,Immigrants,490.0,3175.0,0.0,85.0,3755.0,13.05,490.0,13.05,15-10-0037-01
+2011,YT,Yukon,territory,non_immigrants,Non-immigrants,3685.0,25475.0,50.0,15.0,29225.0,12.61,3735.0,12.78,15-10-0037-01
+2011,YT,Yukon,territory,non_permanent_residents,Non-permanent residents,35.0,300.0,0.0,0.0,340.0,10.29,35.0,10.29,15-10-0037-01
+2011,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",4205.0,28955.0,55.0,100.0,33325.0,12.62,4260.0,12.78,15-10-0037-01
+2016,AB,Alberta,province,immigrants,Immigrants,43075.0,757860.0,1595.0,42685.0,845220.0,5.1,44670.0,5.29,15-10-0037-01
+2016,AB,Alberta,province,non_immigrants,Non-immigrants,215225.0,2833350.0,2005.0,12200.0,3062775.0,7.03,217230.0,7.09,15-10-0037-01
+2016,AB,Alberta,province,non_permanent_residents,Non-permanent residents,2570.0,64725.0,125.0,2730.0,70155.0,3.66,2695.0,3.84,15-10-0037-01
+2016,AB,Alberta,province,total,"Total, immigrant status and period of immigration",260875.0,3655935.0,3730.0,57615.0,3978145.0,6.56,264605.0,6.65,15-10-0037-01
+2016,BC,British Columbia,province,immigrants,Immigrants,58515.0,1102675.0,655.0,130820.0,1292675.0,4.53,59170.0,4.58,15-10-0037-01
+2016,BC,British Columbia,province,non_immigrants,Non-immigrants,249760.0,2900375.0,990.0,16025.0,3167160.0,7.89,250750.0,7.92,15-10-0037-01
+2016,BC,British Columbia,province,non_permanent_residents,Non-permanent residents,4200.0,89850.0,105.0,6260.0,100405.0,4.18,4305.0,4.29,15-10-0037-01
+2016,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",312475.0,4092905.0,1745.0,153110.0,4560240.0,6.85,314220.0,6.89,15-10-0037-01
+2016,CA,Canada,country,immigrants,Immigrants,913165.0,5771400.0,343190.0,513065.0,7540830.0,12.11,1256355.0,16.66,15-10-0037-01
+2016,CA,Canada,country,non_immigrants,Non-immigrants,5200600.0,17404520.0,3706895.0,100600.0,26412615.0,19.69,8907495.0,33.72,15-10-0037-01
+2016,CA,Canada,country,non_permanent_residents,Non-permanent residents,59235.0,399345.0,19860.0,28185.0,506625.0,11.69,79095.0,15.61,15-10-0037-01
+2016,CA,Canada,country,total,"Total, immigrant status and period of immigration",6173000.0,23575265.0,4069950.0,641855.0,34460060.0,17.91,10242950.0,29.72,15-10-0037-01
+2016,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,364675.0,5607040.0,13140.0,464665.0,6449520.0,5.65,377815.0,5.86,15-10-0037-01
+2016,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,2227510.0,17223665.0,94920.0,78440.0,19624530.0,11.35,2322430.0,11.83,15-10-0037-01
+2016,CA-XQ,Canada outside Quebec,special,non_permanent_residents,Non-permanent residents,18885.0,375795.0,1470.0,24405.0,420560.0,4.49,20355.0,4.84,15-10-0037-01
+2016,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",2611070.0,23206505.0,109530.0,567505.0,26494610.0,9.86,2720600.0,10.27,15-10-0037-01
+2016,MB,Manitoba,province,immigrants,Immigrants,9065.0,207165.0,415.0,10820.0,227470.0,3.99,9480.0,4.17,15-10-0037-01
+2016,MB,Manitoba,province,non_immigrants,Non-immigrants,97560.0,894365.0,825.0,4110.0,996855.0,9.79,98385.0,9.87,15-10-0037-01
+2016,MB,Manitoba,province,non_permanent_residents,Non-permanent residents,625.0,14885.0,80.0,780.0,16375.0,3.82,705.0,4.31,15-10-0037-01
+2016,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",107245.0,1116420.0,1320.0,15715.0,1240695.0,8.64,108565.0,8.75,15-10-0037-01
+2016,NB,New Brunswick,province,immigrants,Immigrants,7435.0,23620.0,955.0,1800.0,33810.0,21.99,8390.0,24.82,15-10-0037-01
+2016,NB,New Brunswick,province,non_immigrants,Non-immigrants,240270.0,391060.0,60780.0,425.0,692535.0,34.69,301050.0,43.47,15-10-0037-01
+2016,NB,New Brunswick,province,non_permanent_residents,Non-permanent residents,845.0,3080.0,260.0,175.0,4360.0,19.38,1105.0,25.34,15-10-0037-01
+2016,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",248560.0,417755.0,61995.0,2400.0,730710.0,34.02,310555.0,42.5,15-10-0037-01
+2016,NL,Newfoundland and Labrador,province,immigrants,Immigrants,1230.0,10305.0,15.0,525.0,12075.0,10.19,1245.0,10.31,15-10-0037-01
+2016,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,24460.0,471465.0,95.0,390.0,496405.0,4.93,24555.0,4.95,15-10-0037-01
+2016,NL,Newfoundland and Labrador,province,non_permanent_residents,Non-permanent residents,165.0,3480.0,0.0,115.0,3770.0,4.38,165.0,4.38,15-10-0037-01
+2016,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",25850.0,485250.0,120.0,1030.0,512250.0,5.05,25970.0,5.07,15-10-0037-01
+2016,NS,Nova Scotia,province,immigrants,Immigrants,5740.0,47985.0,80.0,1875.0,55675.0,10.31,5820.0,10.45,15-10-0037-01
+2016,NS,Nova Scotia,province,non_immigrants,Non-immigrants,88935.0,752665.0,600.0,555.0,842760.0,10.55,89535.0,10.62,15-10-0037-01
+2016,NS,Nova Scotia,province,non_permanent_residents,Non-permanent residents,380.0,9315.0,0.0,200.0,9900.0,3.84,380.0,3.84,15-10-0037-01
+2016,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",95055.0,809965.0,685.0,2635.0,908340.0,10.46,95740.0,10.54,15-10-0037-01
+2016,NT,Northwest Territories,territory,immigrants,Immigrants,320.0,3245.0,15.0,115.0,3685.0,8.68,335.0,9.09,15-10-0037-01
+2016,NT,Northwest Territories,territory,non_immigrants,Non-immigrants,3880.0,33075.0,40.0,140.0,37140.0,10.45,3920.0,10.55,15-10-0037-01
+2016,NT,Northwest Territories,territory,non_permanent_residents,Non-permanent residents,15.0,280.0,0.0,15.0,310.0,4.84,15.0,4.84,15-10-0037-01
+2016,NT,Northwest Territories,territory,total,"Total, immigrant status and period of immigration",4210.0,36600.0,50.0,270.0,41135.0,10.23,4260.0,10.36,15-10-0037-01
+2016,NU,Nunavut,territory,immigrants,Immigrants,160.0,745.0,10.0,0.0,920.0,17.39,170.0,18.48,15-10-0037-01
+2016,NU,Nunavut,territory,non_immigrants,Non-immigrants,1345.0,31175.0,50.0,2035.0,34600.0,3.89,1395.0,4.03,15-10-0037-01
+2016,NU,Nunavut,territory,non_permanent_residents,Non-permanent residents,0.0,50.0,0.0,0.0,60.0,0.0,0.0,0.0,15-10-0037-01
+2016,NU,Nunavut,territory,total,"Total, immigrant status and period of immigration",1510.0,31970.0,55.0,2045.0,35580.0,4.24,1565.0,4.4,15-10-0037-01
+2016,ON,Ontario,province,immigrants,Immigrants,233305.0,3339920.0,9110.0,269805.0,3852145.0,6.06,242415.0,6.29,15-10-0037-01
+2016,ON,Ontario,province,non_immigrants,Non-immigrants,1239140.0,7880105.0,29025.0,40550.0,9188815.0,13.49,1268165.0,13.8,15-10-0037-01
+2016,ON,Ontario,province,non_permanent_residents,Non-permanent residents,9545.0,177035.0,890.0,13730.0,201195.0,4.74,10435.0,5.19,15-10-0037-01
+2016,ON,Ontario,province,total,"Total, immigrant status and period of immigration",1481995.0,11397055.0,39030.0,324085.0,13242160.0,11.19,1521025.0,11.49,15-10-0037-01
+2016,PE,Prince Edward Island,province,immigrants,Immigrants,705.0,7510.0,20.0,705.0,8940.0,7.89,725.0,8.11,15-10-0037-01
+2016,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,16995.0,112225.0,110.0,80.0,129405.0,13.13,17105.0,13.22,15-10-0037-01
+2016,PE,Prince Edward Island,province,non_permanent_residents,Non-permanent residents,45.0,1245.0,0.0,45.0,1340.0,3.36,45.0,3.36,15-10-0037-01
+2016,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",17745.0,120985.0,125.0,825.0,139685.0,12.7,17870.0,12.79,15-10-0037-01
+2016,QC,Quebec,province,immigrants,Immigrants,548490.0,164360.0,330050.0,48405.0,1091305.0,50.26,878540.0,80.5,15-10-0037-01
+2016,QC,Quebec,province,non_immigrants,Non-immigrants,2973090.0,180850.0,3611975.0,22160.0,6788085.0,43.8,6585065.0,97.01,15-10-0037-01
+2016,QC,Quebec,province,non_permanent_residents,Non-permanent residents,40350.0,23550.0,18385.0,3775.0,86065.0,46.88,58735.0,68.24,15-10-0037-01
+2016,QC,Quebec,province,total,"Total, immigrant status and period of immigration",3561930.0,368760.0,3960415.0,74345.0,7965455.0,44.72,7522345.0,94.44,15-10-0037-01
+2016,SK,Saskatchewan,province,immigrants,Immigrants,4720.0,102105.0,260.0,5410.0,112495.0,4.2,4980.0,4.43,15-10-0037-01
+2016,SK,Saskatchewan,province,non_immigrants,Non-immigrants,45525.0,898040.0,340.0,1905.0,945810.0,4.81,45865.0,4.85,15-10-0037-01
+2016,SK,Saskatchewan,province,non_permanent_residents,Non-permanent residents,470.0,11420.0,10.0,355.0,12255.0,3.84,480.0,3.92,15-10-0037-01
+2016,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",50720.0,1011560.0,610.0,7675.0,1070560.0,4.74,51330.0,4.79,15-10-0037-01
+2016,YT,Yukon,territory,immigrants,Immigrants,410.0,3905.0,10.0,90.0,4410.0,9.3,420.0,9.52,15-10-0037-01
+2016,YT,Yukon,territory,non_immigrants,Non-immigrants,4410.0,25770.0,70.0,10.0,30260.0,14.57,4480.0,14.81,15-10-0037-01
+2016,YT,Yukon,territory,non_permanent_residents,Non-permanent residents,15.0,420.0,0.0,0.0,440.0,3.41,15.0,3.41,15-10-0037-01
+2016,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",4835.0,30095.0,75.0,105.0,35110.0,13.77,4910.0,13.98,15-10-0037-01
+2021,AB,Alberta,province,immigrants,Immigrants,43695.0,876900.0,1625.0,48755.0,970975.0,4.5,45320.0,4.67,15-10-0037-01
+2021,AB,Alberta,province,non_immigrants,Non-immigrants,210890.0,2916630.0,1505.0,12890.0,3141915.0,6.71,212395.0,6.76,15-10-0037-01
+2021,AB,Alberta,province,non_permanent_residents,Non-permanent residents,2515.0,59090.0,185.0,3040.0,64825.0,3.88,2700.0,4.17,15-10-0037-01
+2021,AB,Alberta,province,total,"Total, immigrant status and period of immigration",257100.0,3852615.0,3310.0,64685.0,4177715.0,6.15,260410.0,6.23,15-10-0037-01
+2021,BC,British Columbia,province,immigrants,Immigrants,59485.0,1229565.0,700.0,135970.0,1425715.0,4.17,60185.0,4.22,15-10-0037-01
+2021,BC,British Columbia,province,non_immigrants,Non-immigrants,260755.0,3041480.0,750.0,16245.0,3319230.0,7.86,261505.0,7.88,15-10-0037-01
+2021,BC,British Columbia,province,non_permanent_residents,Non-permanent residents,5520.0,156475.0,145.0,8860.0,171000.0,3.23,5665.0,3.31,15-10-0037-01
+2021,BC,British Columbia,province,total,"Total, immigrant status and period of immigration",325760.0,4427515.0,1590.0,161075.0,4915940.0,6.63,327350.0,6.66,15-10-0037-01
+2021,CA,Canada,country,immigrants,Immigrants,998900.0,6452910.0,371790.0,537910.0,8361505.0,11.95,1370690.0,16.39,15-10-0037-01
+2021,CA,Canada,country,non_immigrants,Non-immigrants,5431720.0,17921250.0,3587340.0,101815.0,27042120.0,20.09,9019060.0,33.35,15-10-0037-01
+2021,CA,Canada,country,non_permanent_residents,Non-permanent residents,116535.0,707270.0,56955.0,44100.0,924850.0,12.6,173490.0,18.76,15-10-0037-01
+2021,CA,Canada,country,total,"Total, immigrant status and period of immigration",6547150.0,25081420.0,4016085.0,683820.0,36328475.0,18.02,10563235.0,29.08,15-10-0037-01
+2021,CA-XQ,Canada outside Quebec,special,immigrants,Immigrants,379985.0,6266120.0,16365.0,488440.0,7150910.0,5.31,396350.0,5.54,15-10-0037-01
+2021,CA-XQ,Canada outside Quebec,special,non_immigrants,Non-immigrants,2260940.0,17722330.0,86400.0,80340.0,20150015.0,11.22,2347340.0,11.65,15-10-0037-01
+2021,CA-XQ,Canada outside Quebec,special,non_permanent_residents,Non-permanent residents,29535.0,652485.0,3275.0,33785.0,719075.0,4.11,32810.0,4.56,15-10-0037-01
+2021,CA-XQ,Canada outside Quebec,special,total,"Total, immigrant status and period of immigration",2670455.0,24640935.0,106045.0,602565.0,28020000.0,9.53,2776500.0,9.91,15-10-0037-01
+2021,MB,Manitoba,province,immigrants,Immigrants,9970.0,236055.0,610.0,10985.0,257620.0,3.87,10580.0,4.11,15-10-0037-01
+2021,MB,Manitoba,province,non_immigrants,Non-immigrants,98790.0,910995.0,1020.0,4475.0,1015285.0,9.73,99810.0,9.83,15-10-0037-01
+2021,MB,Manitoba,province,non_permanent_residents,Non-permanent residents,1310.0,31825.0,90.0,1060.0,34290.0,3.82,1400.0,4.08,15-10-0037-01
+2021,MB,Manitoba,province,total,"Total, immigrant status and period of immigration",110070.0,1178880.0,1720.0,16520.0,1307185.0,8.42,111790.0,8.55,15-10-0037-01
+2021,NB,New Brunswick,province,immigrants,Immigrants,8660.0,32995.0,1420.0,1050.0,44125.0,19.63,10080.0,22.84,15-10-0037-01
+2021,NB,New Brunswick,province,non_immigrants,Non-immigrants,248065.0,398585.0,57040.0,525.0,704220.0,35.23,305105.0,43.33,15-10-0037-01
+2021,NB,New Brunswick,province,non_permanent_residents,Non-permanent residents,1705.0,8020.0,940.0,195.0,10860.0,15.7,2645.0,24.36,15-10-0037-01
+2021,NB,New Brunswick,province,total,"Total, immigrant status and period of immigration",258430.0,439600.0,59395.0,1770.0,759195.0,34.04,317825.0,41.86,15-10-0037-01
+2021,NL,Newfoundland and Labrador,province,immigrants,Immigrants,1230.0,12620.0,35.0,370.0,14255.0,8.63,1265.0,8.87,15-10-0037-01
+2021,NL,Newfoundland and Labrador,province,non_immigrants,Non-immigrants,24475.0,457685.0,125.0,325.0,482615.0,5.07,24600.0,5.1,15-10-0037-01
+2021,NL,Newfoundland and Labrador,province,non_permanent_residents,Non-permanent residents,255.0,4870.0,15.0,105.0,5235.0,4.87,270.0,5.16,15-10-0037-01
+2021,NL,Newfoundland and Labrador,province,total,"Total, immigrant status and period of immigration",25960.0,475175.0,170.0,790.0,502100.0,5.17,26130.0,5.2,15-10-0037-01
+2021,NS,Nova Scotia,province,immigrants,Immigrants,6160.0,63440.0,130.0,1835.0,71565.0,8.61,6290.0,8.79,15-10-0037-01
+2021,NS,Nova Scotia,province,non_immigrants,Non-immigrants,91740.0,768720.0,500.0,985.0,861945.0,10.64,92240.0,10.7,15-10-0037-01
+2021,NS,Nova Scotia,province,non_permanent_residents,Non-permanent residents,745.0,21135.0,20.0,440.0,22345.0,3.33,765.0,3.42,15-10-0037-01
+2021,NS,Nova Scotia,province,total,"Total, immigrant status and period of immigration",98650.0,853295.0,650.0,3265.0,955860.0,10.32,99300.0,10.39,15-10-0037-01
+2021,NT,Northwest Territories,territory,immigrants,Immigrants,335.0,3715.0,20.0,75.0,4145.0,8.08,355.0,8.56,15-10-0037-01
+2021,NT,Northwest Territories,territory,non_immigrants,Non-immigrants,3880.0,31670.0,145.0,130.0,35825.0,10.83,4025.0,11.24,15-10-0037-01
+2021,NT,Northwest Territories,territory,non_permanent_residents,Non-permanent residents,60.0,335.0,0.0,15.0,410.0,14.63,60.0,14.63,15-10-0037-01
+2021,NT,Northwest Territories,territory,total,"Total, immigrant status and period of immigration",4280.0,35720.0,165.0,215.0,40375.0,10.6,4445.0,11.01,15-10-0037-01
+2021,NU,Nunavut,territory,immigrants,Immigrants,185.0,970.0,10.0,0.0,1165.0,15.88,195.0,16.74,15-10-0037-01
+2021,NU,Nunavut,territory,non_immigrants,Non-immigrants,1190.0,32035.0,55.0,2085.0,35360.0,3.37,1245.0,3.52,15-10-0037-01
+2021,NU,Nunavut,territory,non_permanent_residents,Non-permanent residents,10.0,60.0,0.0,0.0,75.0,13.33,10.0,13.33,15-10-0037-01
+2021,NU,Nunavut,territory,total,"Total, immigrant status and period of immigration",1390.0,33065.0,65.0,2080.0,36600.0,3.8,1455.0,3.98,15-10-0037-01
+2021,ON,Ontario,province,immigrants,Immigrants,243385.0,3667850.0,11640.0,283705.0,4206585.0,5.79,255025.0,6.06,15-10-0037-01
+2021,ON,Ontario,province,non_immigrants,Non-immigrants,1252090.0,8119930.0,24895.0,40405.0,9437320.0,13.27,1276985.0,13.53,15-10-0037-01
+2021,ON,Ontario,province,non_permanent_residents,Non-permanent residents,16680.0,350290.0,1845.0,19030.0,387850.0,4.3,18525.0,4.78,15-10-0037-01
+2021,ON,Ontario,province,total,"Total, immigrant status and period of immigration",1512160.0,12138070.0,38385.0,343140.0,14031755.0,10.78,1550545.0,11.05,15-10-0037-01
+2021,PE,Prince Edward Island,province,immigrants,Immigrants,940.0,10325.0,20.0,480.0,11765.0,7.99,960.0,8.16,15-10-0037-01
+2021,PE,Prince Edward Island,province,non_immigrants,Non-immigrants,18135.0,114870.0,95.0,185.0,133285.0,13.61,18230.0,13.68,15-10-0037-01
+2021,PE,Prince Edward Island,province,non_permanent_residents,Non-permanent residents,245.0,5005.0,10.0,175.0,5430.0,4.51,255.0,4.7,15-10-0037-01
+2021,PE,Prince Edward Island,province,total,"Total, immigrant status and period of immigration",19320.0,130200.0,120.0,835.0,150480.0,12.84,19440.0,12.92,15-10-0037-01
+2021,QC,Quebec,province,immigrants,Immigrants,618915.0,186785.0,355430.0,49470.0,1210600.0,51.12,974345.0,80.48,15-10-0037-01
+2021,QC,Quebec,province,non_immigrants,Non-immigrants,3170775.0,198915.0,3500935.0,21470.0,6892110.0,46.01,6671710.0,96.8,15-10-0037-01
+2021,QC,Quebec,province,non_permanent_residents,Non-permanent residents,87000.0,54785.0,53675.0,10310.0,205775.0,42.28,140675.0,68.36,15-10-0037-01
+2021,QC,Quebec,province,total,"Total, immigrant status and period of immigration",3876695.0,440485.0,3910040.0,81255.0,8308480.0,46.66,7786735.0,93.72,15-10-0037-01
+2021,SK,Saskatchewan,province,immigrants,Immigrants,5385.0,126975.0,165.0,5085.0,137620.0,3.91,5550.0,4.03,15-10-0037-01
+2021,SK,Saskatchewan,province,non_immigrants,Non-immigrants,45915.0,901575.0,200.0,2065.0,949755.0,4.83,46115.0,4.86,15-10-0037-01
+2021,SK,Saskatchewan,province,non_permanent_residents,Non-permanent residents,385.0,14550.0,15.0,880.0,15830.0,2.43,400.0,2.53,15-10-0037-01
+2021,SK,Saskatchewan,province,total,"Total, immigrant status and period of immigration",51680.0,1043105.0,385.0,8035.0,1103200.0,4.68,52065.0,4.72,15-10-0037-01
+2021,YT,Yukon,territory,immigrants,Immigrants,545.0,4710.0,0.0,120.0,5385.0,10.12,545.0,10.12,15-10-0037-01
+2021,YT,Yukon,territory,non_immigrants,Non-immigrants,5015.0,28155.0,80.0,30.0,33280.0,15.07,5095.0,15.31,15-10-0037-01
+2021,YT,Yukon,territory,non_permanent_residents,Non-permanent residents,85.0,825.0,10.0,0.0,925.0,9.19,95.0,10.27,15-10-0037-01
+2021,YT,Yukon,territory,total,"Total, immigrant status and period of immigration",5650.0,33695.0,90.0,155.0,39585.0,14.27,5740.0,14.5,15-10-0037-01

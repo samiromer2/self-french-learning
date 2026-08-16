@@ -20,7 +20,10 @@ export default async function Home() {
         </p>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex flex-wrap justify-center gap-3">
+        <Button asChild size="lg" variant="outline">
+          <Link href="/analytics">French in Canada</Link>
+        </Button>
         {user ? (
           <Button asChild size="lg">
             <Link href="/dashboard">Go to dashboard</Link>

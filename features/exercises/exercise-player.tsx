@@ -126,10 +126,13 @@ export function ExercisePlayer({
     if (!finished || savedRef.current) return;
     savedRef.current = true;
     startTransition(async () => {
+      const durationMinutes =
+        (Date.now() - (startTimeRef.current ?? Date.now())) / 60_000;
       const { xpAwarded, newAchievements } = await completeLessonWithScore(
         lessonId,
         correctCount,
         total,
+        durationMinutes,
       );
       toast.success(`Lesson completed! +${xpAwarded} XP`);
       for (const a of newAchievements) {

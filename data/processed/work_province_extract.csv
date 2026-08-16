@@ -1,0 +1,127 @@
+theme,year,geo_code,geo_name,geo_type,category,category_raw,measure,value,immigrant_status_key,immigrant_status
+work,2021,CA,Canada,country,total,Total - Language used most often at work,count,20630520.0,total,Total
+work,2021,CA,Canada,country,english,English,count,15879850.0,total,Total
+work,2021,CA,Canada,country,french,French,count,3986330.0,total,Total
+work,2021,CA,Canada,country,non_official,Non-official language,count,310460.0,total,Total
+work,2021,CA,Canada,country,english_and_french,English and French,count,321980.0,total,Total
+work,2021,CA,Canada,country,english_and_non_official,English and non-official language(s),count,115950.0,total,Total
+work,2021,CA,Canada,country,french_and_non_official,French and non-official language(s),count,6285.0,total,Total
+work,2021,CA,Canada,country,english_french_and_non_official,"English, French and non-official language(s)",count,7400.0,total,Total
+work,2021,CA,Canada,country,multiple_non_official,Multiple non-official languages,count,2265.0,total,Total
+work,2021,NL,Newfoundland and Labrador,province,total,Total - Language used most often at work,count,267970.0,total,Total
+work,2021,NL,Newfoundland and Labrador,province,english,English,count,265980.0,total,Total
+work,2021,NL,Newfoundland and Labrador,province,french,French,count,915.0,total,Total
+work,2021,NL,Newfoundland and Labrador,province,non_official,Non-official language,count,560.0,total,Total
+work,2021,NL,Newfoundland and Labrador,province,english_and_french,English and French,count,275.0,total,Total
+work,2021,NL,Newfoundland and Labrador,province,english_and_non_official,English and non-official language(s),count,245.0,total,Total
+work,2021,NL,Newfoundland and Labrador,province,french_and_non_official,French and non-official language(s),count,0.0,total,Total
+work,2021,NL,Newfoundland and Labrador,province,english_french_and_non_official,"English, French and non-official language(s)",count,0.0,total,Total
+work,2021,NL,Newfoundland and Labrador,province,multiple_non_official,Multiple non-official languages,count,0.0,total,Total
+work,2021,PE,Prince Edward Island,province,total,Total - Language used most often at work,count,90295.0,total,Total
+work,2021,PE,Prince Edward Island,province,english,English,count,87960.0,total,Total
+work,2021,PE,Prince Edward Island,province,french,French,count,1205.0,total,Total
+work,2021,PE,Prince Edward Island,province,non_official,Non-official language,count,620.0,total,Total
+work,2021,PE,Prince Edward Island,province,english_and_french,English and French,count,225.0,total,Total
+work,2021,PE,Prince Edward Island,province,english_and_non_official,English and non-official language(s),count,280.0,total,Total
+work,2021,PE,Prince Edward Island,province,french_and_non_official,French and non-official language(s),count,0.0,total,Total
+work,2021,PE,Prince Edward Island,province,english_french_and_non_official,"English, French and non-official language(s)",count,0.0,total,Total
+work,2021,PE,Prince Edward Island,province,multiple_non_official,Multiple non-official languages,count,10.0,total,Total
+work,2021,NS,Nova Scotia,province,total,Total - Language used most often at work,count,530410.0,total,Total
+work,2021,NS,Nova Scotia,province,english,English,count,519545.0,total,Total
+work,2021,NS,Nova Scotia,province,french,French,count,5825.0,total,Total
+work,2021,NS,Nova Scotia,province,non_official,Non-official language,count,2340.0,total,Total
+work,2021,NS,Nova Scotia,province,english_and_french,English and French,count,1650.0,total,Total
+work,2021,NS,Nova Scotia,province,english_and_non_official,English and non-official language(s),count,1030.0,total,Total
+work,2021,NS,Nova Scotia,province,french_and_non_official,French and non-official language(s),count,0.0,total,Total
+work,2021,NS,Nova Scotia,province,english_french_and_non_official,"English, French and non-official language(s)",count,10.0,total,Total
+work,2021,NS,Nova Scotia,province,multiple_non_official,Multiple non-official languages,count,10.0,total,Total
+work,2021,NB,New Brunswick,province,total,Total - Language used most often at work,count,423250.0,total,Total
+work,2021,NB,New Brunswick,province,english,English,count,317530.0,total,Total
+work,2021,NB,New Brunswick,province,french,French,count,88700.0,total,Total
+work,2021,NB,New Brunswick,province,non_official,Non-official language,count,765.0,total,Total
+work,2021,NB,New Brunswick,province,english_and_french,English and French,count,15610.0,total,Total
+work,2021,NB,New Brunswick,province,english_and_non_official,English and non-official language(s),count,595.0,total,Total
+work,2021,NB,New Brunswick,province,french_and_non_official,French and non-official language(s),count,10.0,total,Total
+work,2021,NB,New Brunswick,province,english_french_and_non_official,"English, French and non-official language(s)",count,35.0,total,Total
+work,2021,NB,New Brunswick,province,multiple_non_official,Multiple non-official languages,count,0.0,total,Total
+work,2021,QC,Quebec,province,total,Total - Language used most often at work,count,4747115.0,total,Total
+work,2021,QC,Quebec,province,english,English,count,668480.0,total,Total
+work,2021,QC,Quebec,province,french,French,count,3773020.0,total,Total
+work,2021,QC,Quebec,province,non_official,Non-official language,count,36250.0,total,Total
+work,2021,QC,Quebec,province,english_and_french,English and French,count,249940.0,total,Total
+work,2021,QC,Quebec,province,english_and_non_official,English and non-official language(s),count,7155.0,total,Total
+work,2021,QC,Quebec,province,french_and_non_official,French and non-official language(s),count,6015.0,total,Total
+work,2021,QC,Quebec,province,english_french_and_non_official,"English, French and non-official language(s)",count,6165.0,total,Total
+work,2021,QC,Quebec,province,multiple_non_official,Multiple non-official languages,count,85.0,total,Total
+work,2021,ON,Ontario,province,total,Total - Language used most often at work,count,7885710.0,total,Total
+work,2021,ON,Ontario,province,english,English,count,7555160.0,total,Total
+work,2021,ON,Ontario,province,french,French,count,93910.0,total,Total
+work,2021,ON,Ontario,province,non_official,Non-official language,count,134690.0,total,Total
+work,2021,ON,Ontario,province,english_and_french,English and French,count,46525.0,total,Total
+work,2021,ON,Ontario,province,english_and_non_official,English and non-official language(s),count,53335.0,total,Total
+work,2021,ON,Ontario,province,french_and_non_official,French and non-official language(s),count,155.0,total,Total
+work,2021,ON,Ontario,province,english_french_and_non_official,"English, French and non-official language(s)",count,880.0,total,Total
+work,2021,ON,Ontario,province,multiple_non_official,Multiple non-official languages,count,1055.0,total,Total
+work,2021,MB,Manitoba,province,total,Total - Language used most often at work,count,727130.0,total,Total
+work,2021,MB,Manitoba,province,english,English,count,705145.0,total,Total
+work,2021,MB,Manitoba,province,french,French,count,6830.0,total,Total
+work,2021,MB,Manitoba,province,non_official,Non-official language,count,7930.0,total,Total
+work,2021,MB,Manitoba,province,english_and_french,English and French,count,2110.0,total,Total
+work,2021,MB,Manitoba,province,english_and_non_official,English and non-official language(s),count,5020.0,total,Total
+work,2021,MB,Manitoba,province,french_and_non_official,French and non-official language(s),count,20.0,total,Total
+work,2021,MB,Manitoba,province,english_french_and_non_official,"English, French and non-official language(s)",count,35.0,total,Total
+work,2021,MB,Manitoba,province,multiple_non_official,Multiple non-official languages,count,50.0,total,Total
+work,2021,SK,Saskatchewan,province,total,Total - Language used most often at work,count,615790.0,total,Total
+work,2021,SK,Saskatchewan,province,english,English,count,606550.0,total,Total
+work,2021,SK,Saskatchewan,province,french,French,count,2035.0,total,Total
+work,2021,SK,Saskatchewan,province,non_official,Non-official language,count,4495.0,total,Total
+work,2021,SK,Saskatchewan,province,english_and_french,English and French,count,395.0,total,Total
+work,2021,SK,Saskatchewan,province,english_and_non_official,English and non-official language(s),count,2290.0,total,Total
+work,2021,SK,Saskatchewan,province,french_and_non_official,French and non-official language(s),count,0.0,total,Total
+work,2021,SK,Saskatchewan,province,english_french_and_non_official,"English, French and non-official language(s)",count,0.0,total,Total
+work,2021,SK,Saskatchewan,province,multiple_non_official,Multiple non-official languages,count,20.0,total,Total
+work,2021,AB,Alberta,province,total,Total - Language used most often at work,count,2422110.0,total,Total
+work,2021,AB,Alberta,province,english,English,count,2374615.0,total,Total
+work,2021,AB,Alberta,province,french,French,count,6900.0,total,Total
+work,2021,AB,Alberta,province,non_official,Non-official language,count,25965.0,total,Total
+work,2021,AB,Alberta,province,english_and_french,English and French,count,2560.0,total,Total
+work,2021,AB,Alberta,province,english_and_non_official,English and non-official language(s),count,11690.0,total,Total
+work,2021,AB,Alberta,province,french_and_non_official,French and non-official language(s),count,45.0,total,Total
+work,2021,AB,Alberta,province,english_french_and_non_official,"English, French and non-official language(s)",count,140.0,total,Total
+work,2021,AB,Alberta,province,multiple_non_official,Multiple non-official languages,count,195.0,total,Total
+work,2021,BC,British Columbia,province,total,Total - Language used most often at work,count,2855890.0,total,Total
+work,2021,BC,British Columbia,province,english,English,count,2720275.0,total,Total
+work,2021,BC,British Columbia,province,french,French,count,6435.0,total,Total
+work,2021,BC,British Columbia,province,non_official,Non-official language,count,93525.0,total,Total
+work,2021,BC,British Columbia,province,english_and_french,English and French,count,2475.0,total,Total
+work,2021,BC,British Columbia,province,english_and_non_official,English and non-official language(s),count,32195.0,total,Total
+work,2021,BC,British Columbia,province,french_and_non_official,French and non-official language(s),count,35.0,total,Total
+work,2021,BC,British Columbia,province,english_french_and_non_official,"English, French and non-official language(s)",count,130.0,total,Total
+work,2021,BC,British Columbia,province,multiple_non_official,Multiple non-official languages,count,830.0,total,Total
+work,2021,YT,Yukon,territory,total,Total - Language used most often at work,count,25515.0,total,Total
+work,2021,YT,Yukon,territory,english,English,count,24970.0,total,Total
+work,2021,YT,Yukon,territory,french,French,count,320.0,total,Total
+work,2021,YT,Yukon,territory,non_official,Non-official language,count,90.0,total,Total
+work,2021,YT,Yukon,territory,english_and_french,English and French,count,90.0,total,Total
+work,2021,YT,Yukon,territory,english_and_non_official,English and non-official language(s),count,50.0,total,Total
+work,2021,YT,Yukon,territory,french_and_non_official,French and non-official language(s),count,0.0,total,Total
+work,2021,YT,Yukon,territory,english_french_and_non_official,"English, French and non-official language(s)",count,0.0,total,Total
+work,2021,YT,Yukon,territory,multiple_non_official,Multiple non-official languages,count,0.0,total,Total
+work,2021,NT,Northwest Territories,territory,total,Total - Language used most often at work,count,24145.0,total,Total
+work,2021,NT,Northwest Territories,territory,english,English,count,23235.0,total,Total
+work,2021,NT,Northwest Territories,territory,french,French,count,195.0,total,Total
+work,2021,NT,Northwest Territories,territory,non_official,Non-official language,count,370.0,total,Total
+work,2021,NT,Northwest Territories,territory,english_and_french,English and French,count,100.0,total,Total
+work,2021,NT,Northwest Territories,territory,english_and_non_official,English and non-official language(s),count,240.0,total,Total
+work,2021,NT,Northwest Territories,territory,french_and_non_official,French and non-official language(s),count,0.0,total,Total
+work,2021,NT,Northwest Territories,territory,english_french_and_non_official,"English, French and non-official language(s)",count,0.0,total,Total
+work,2021,NT,Northwest Territories,territory,multiple_non_official,Multiple non-official languages,count,0.0,total,Total
+work,2021,NU,Nunavut,territory,total,Total - Language used most often at work,count,15185.0,total,Total
+work,2021,NU,Nunavut,territory,english,English,count,10400.0,total,Total
+work,2021,NU,Nunavut,territory,french,French,count,55.0,total,Total
+work,2021,NU,Nunavut,territory,non_official,Non-official language,count,2865.0,total,Total
+work,2021,NU,Nunavut,territory,english_and_french,English and French,count,25.0,total,Total
+work,2021,NU,Nunavut,territory,english_and_non_official,English and non-official language(s),count,1830.0,total,Total
+work,2021,NU,Nunavut,territory,french_and_non_official,French and non-official language(s),count,0.0,total,Total
+work,2021,NU,Nunavut,territory,english_french_and_non_official,"English, French and non-official language(s)",count,0.0,total,Total
+work,2021,NU,Nunavut,territory,multiple_non_official,Multiple non-official languages,count,0.0,total,Total

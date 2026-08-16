@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "analytics:pipeline": "python3 -m analytics.run_pipeline",
+    "analytics:test": "python3 -m unittest analytics.tests.test_clean"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.0",
@@ -20,6 +22,7 @@
     "radix-ui": "^1.6.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "recharts": "^3.10.1",
     "shadcn": "^4.12.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { SiteHeader } from "@/components/site-header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Self French Learning",
   description:
-    "An interactive CEFR-based French learning platform (A1–C2) for Reading, Writing, Listening, and Speaking.",
+    "An interactive CEFR-based French learning platform (A1–C2) with analytics on French in Canada.",
 };
 
 export default function RootLayout({
@@ -30,6 +31,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <SiteHeader />
         {children}
         <Toaster />
       </body>

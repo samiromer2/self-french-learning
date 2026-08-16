@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
   // Belt-and-suspenders: still explicitly include the custom Prisma client
   // output directory in case standalone's own tracing misses it too.
   outputFileTracingIncludes: {
-    "/**/*": ["./lib/generated/prisma/**/*"],
+    "/**/*": ["./lib/generated/prisma/**/*", "./data/analytics/**/*"],
   },
 };
 
