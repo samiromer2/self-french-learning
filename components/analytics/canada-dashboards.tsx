@@ -62,7 +62,7 @@ export function OverviewDashboard({
               unavailable={learning.kpis.averageLessonScore == null}
             />
             <KpiCard
-              label="Vocabulary on completed lessons"
+              label="Words marked known"
               value={formatNumber(learning.kpis.vocabularyLearned)}
             />
           </div>
@@ -136,7 +136,7 @@ export function OverviewDashboard({
               ySuffix="%"
               empty={
                 signedIn
-                  ? "No scored lessons yet. Unit quizzes are not in the product yet, so this uses lesson exercise scores."
+                  ? "No scored lessons yet. Complete a lesson to plot scores here."
                   : "Log in to plot your scores."
               }
             />

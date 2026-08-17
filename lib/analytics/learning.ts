@@ -7,17 +7,29 @@ function isoDay(d: Date) {
   return d.toISOString().slice(0, 10);
 }
 
+async function loadSessions(userId: string) {
+  try {
+    return await prisma.learningSession.findMany({
+      where: { userId },
+      select: { startedAt: true, endedAt: true, durationMinutes: true },
+      orderBy: { startedAt: "asc" },
+    });
+  } catch (error) {
+    const code =
+      typeof error === "object" && error && "code" in error ? String(error.code) : "";
+    // Production may not have the LearningSession migration yet.
+    if (code === "P2021") return [];
+    throw error;
+  }
+}
+
 export async function getLearningAnalytics(userId: string): Promise<LearningAnalytics> {
   const [user, sessions, progress, quizAttempts, completedLessonIds] = await Promise.all([
     prisma.user.findUnique({
       where: { id: userId },
       select: { currentStreak: true, longestStreak: true },
     }),
-    prisma.learningSession.findMany({
-      where: { userId },
-      select: { startedAt: true, endedAt: true, durationMinutes: true },
-      orderBy: { startedAt: "asc" },
-    }),
+    loadSessions(userId),
     prisma.progress.findMany({
       where: { userId },
       select: {
@@ -47,9 +59,19 @@ export async function getLearningAnalytics(userId: string): Promise<LearningAnal
 
   const completed = progress.filter((p) => p.status === "COMPLETED");
   const scored = completed.filter((p) => p.score != null);
-  const vocabularyLearned = await prisma.vocabulary.count({
-    where: { lessonId: { in: completedLessonIds.map((p) => p.lessonId) } },
-  });
+  let vocabularyLearned = 0;
+  try {
+    vocabularyLearned = await prisma.userVocabulary.count({
+      where: { userId, status: "KNOWN" },
+    });
+  } catch (error) {
+    const code =
+      typeof error === "object" && error && "code" in error ? String(error.code) : "";
+    if (code !== "P2021") throw error;
+    vocabularyLearned = await prisma.vocabulary.count({
+      where: { lessonId: { in: completedLessonIds.map((p) => p.lessonId) } },
+    });
+  }
 
   const closed = sessions.filter((s) => s.durationMinutes != null && s.durationMinutes >= 0);
   const totalMinutes = closed.reduce((sum, s) => sum + (s.durationMinutes ?? 0), 0);

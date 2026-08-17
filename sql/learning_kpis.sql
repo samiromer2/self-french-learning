@@ -72,6 +72,19 @@ WHERE p."userId" = :user_id
   AND p."score" IS NOT NULL
 ORDER BY p."completedAt";
 
+-- Words marked known in flashcards
+SELECT COUNT(*) AS words_known
+FROM "UserVocabulary"
+WHERE "userId" = :user_id
+  AND status = 'KNOWN';
+
+-- Unit quiz attempts (score stored as 0–1)
+SELECT
+  COUNT(*) AS quiz_attempts,
+  AVG("score") * 100 AS avg_quiz_percent
+FROM "QuizAttempt"
+WHERE "userId" = :user_id;
+
 -- Current streak is stored on User (maintained at lesson completion).
 SELECT "currentStreak", "longestStreak", "lastActivityAt", xp
 FROM "User"

@@ -62,16 +62,33 @@ export async function applyGamification(userId: string, score: number | null) {
   );
   if (unitDone) earnedCodes.push("first-unit");
 
-  // A1 Graduate covers curriculum lessons only — scenario-track lessons
-  // (unitId null) are a separate, optional path.
-  const totalCurriculumLessons = await prisma.lesson.count({
-    where: { unitId: { not: null } },
+  // A1 Graduate covers A1 curriculum lessons only — not scenarios, not A2.
+  const totalA1Lessons = await prisma.lesson.count({
+    where: { unit: { level: { code: "A1" } } },
   });
-  const completedCurriculum = await prisma.progress.count({
-    where: { userId, status: "COMPLETED", lesson: { unitId: { not: null } } },
+  const completedA1 = await prisma.progress.count({
+    where: {
+      userId,
+      status: "COMPLETED",
+      lesson: { unit: { level: { code: "A1" } } },
+    },
   });
-  if (totalCurriculumLessons > 0 && completedCurriculum >= totalCurriculumLessons) {
+  if (totalA1Lessons > 0 && completedA1 >= totalA1Lessons) {
     earnedCodes.push("a1-graduate");
+  }
+
+  const totalA2Lessons = await prisma.lesson.count({
+    where: { unit: { level: { code: "A2" } } },
+  });
+  const completedA2 = await prisma.progress.count({
+    where: {
+      userId,
+      status: "COMPLETED",
+      lesson: { unit: { level: { code: "A2" } } },
+    },
+  });
+  if (totalA2Lessons > 0 && completedA2 >= totalA2Lessons) {
+    earnedCodes.push("a2-graduate");
   }
 
   if (earnedCodes.length === 0) return { newAchievements: [] };

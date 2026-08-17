@@ -5,6 +5,12 @@ import { a1WritingContent } from "./seed-data/writing";
 import { a1ListeningContent } from "./seed-data/listening";
 import { a1SpeakingContent } from "./seed-data/speaking";
 import { scenarios } from "./seed-data/scenarios";
+import { a1UnitQuizzes } from "./seed-data/quizzes";
+import { a2Units } from "./seed-data/a2/units";
+import { a2ReadingContent } from "./seed-data/a2/reading";
+import { a2WritingContent } from "./seed-data/a2/writing";
+import { a2ListeningContent } from "./seed-data/a2/listening";
+import { a2SpeakingContent } from "./seed-data/a2/speaking";
 import { ACHIEVEMENTS } from "../lib/achievements";
 
 const prisma = new PrismaClient();
@@ -20,6 +26,99 @@ type UnitSeed = {
   description: string;
   lessons: LessonSeed[];
 };
+
+type ExerciseSeed = {
+  type: import("../lib/generated/prisma/client").ExerciseType;
+  prompt: string;
+  data: Record<string, unknown>;
+};
+
+type SkillContent = {
+  reading: Record<
+    number,
+    {
+      passage: { title: string; text: string };
+      vocabulary: { word: string; translation: string; exampleSentence?: string }[];
+      exercises: ExerciseSeed[];
+    }
+  >;
+  writing: Record<number, { exercises: ExerciseSeed[] }>;
+  listening: Record<number, { exercises: ExerciseSeed[] }>;
+  speaking: Record<number, { exercises: ExerciseSeed[] }>;
+};
+
+async function seedUnits(levelId: string, units: UnitSeed[], content: SkillContent) {
+  for (const [unitIndex, unitSeed] of units.entries()) {
+    const unit = await prisma.unit.upsert({
+      where: { levelId_order: { levelId, order: unitIndex + 1 } },
+      update: { title: unitSeed.title, description: unitSeed.description },
+      create: {
+        levelId,
+        order: unitIndex + 1,
+        title: unitSeed.title,
+        description: unitSeed.description,
+      },
+    });
+
+    for (const [lessonIndex, lessonSeed] of unitSeed.lessons.entries()) {
+      const reading =
+        lessonSeed.skill === Skill.READING ? content.reading[unitIndex + 1] : undefined;
+      const writing =
+        lessonSeed.skill === Skill.WRITING ? content.writing[unitIndex + 1] : undefined;
+      const listening =
+        lessonSeed.skill === Skill.LISTENING ? content.listening[unitIndex + 1] : undefined;
+      const speaking =
+        lessonSeed.skill === Skill.SPEAKING ? content.speaking[unitIndex + 1] : undefined;
+
+      const lessonContent = reading
+        ? { intro: lessonSeed.intro, passage: reading.passage }
+        : { intro: lessonSeed.intro };
+
+      const lesson = await prisma.lesson.upsert({
+        where: { unitId_order: { unitId: unit.id, order: lessonIndex + 1 } },
+        update: {
+          title: lessonSeed.title,
+          skill: lessonSeed.skill,
+          content: lessonContent,
+        },
+        create: {
+          unitId: unit.id,
+          order: lessonIndex + 1,
+          title: lessonSeed.title,
+          skill: lessonSeed.skill,
+          content: lessonContent,
+        },
+      });
+
+      if (reading) {
+        await prisma.vocabulary.deleteMany({ where: { lessonId: lesson.id } });
+        await prisma.vocabulary.createMany({
+          data: reading.vocabulary.map((v) => ({ ...v, lessonId: lesson.id })),
+        });
+      }
+
+      const exercises =
+        reading?.exercises ??
+        writing?.exercises ??
+        listening?.exercises ??
+        speaking?.exercises;
+      if (exercises) {
+        await prisma.exercise.deleteMany({ where: { lessonId: lesson.id } });
+        for (const [exerciseIndex, exercise] of exercises.entries()) {
+          await prisma.exercise.create({
+            data: {
+              lessonId: lesson.id,
+              order: exerciseIndex + 1,
+              type: exercise.type,
+              prompt: exercise.prompt,
+              data: exercise.data as Prisma.InputJsonValue,
+            },
+          });
+        }
+      }
+    }
+  }
+}
 
 // A1 curriculum from the master plan, section 9.
 const a1Units: UnitSeed[] = [
@@ -97,84 +196,66 @@ async function main() {
     },
   });
 
-  for (const [unitIndex, unitSeed] of a1Units.entries()) {
-    const unit = await prisma.unit.upsert({
+  await seedUnits(level.id, a1Units, {
+    reading: a1ReadingContent,
+    writing: a1WritingContent,
+    listening: a1ListeningContent,
+    speaking: a1SpeakingContent,
+  });
+
+  const a2Level = await prisma.level.upsert({
+    where: { code: "A2" },
+    update: {
+      title: "Elementary",
+      description: "Talk about trips, work, weather, and stories in the past.",
+    },
+    create: {
+      code: "A2",
+      title: "Elementary",
+      description: "Talk about trips, work, weather, and stories in the past.",
+      order: 2,
+    },
+  });
+
+  await seedUnits(a2Level.id, a2Units, {
+    reading: a2ReadingContent,
+    writing: a2WritingContent,
+    listening: a2ListeningContent,
+    speaking: a2SpeakingContent,
+  });
+
+  for (const [unitIndex, quizSeed] of a1UnitQuizzes.entries()) {
+    const unit = await prisma.unit.findUniqueOrThrow({
       where: { levelId_order: { levelId: level.id, order: unitIndex + 1 } },
-      update: { title: unitSeed.title, description: unitSeed.description },
-      create: {
-        levelId: level.id,
-        order: unitIndex + 1,
-        title: unitSeed.title,
-        description: unitSeed.description,
-      },
     });
-
-    for (const [lessonIndex, lessonSeed] of unitSeed.lessons.entries()) {
-      const reading =
-        lessonSeed.skill === Skill.READING
-          ? a1ReadingContent[unitIndex + 1]
-          : undefined;
-      const writing =
-        lessonSeed.skill === Skill.WRITING
-          ? a1WritingContent[unitIndex + 1]
-          : undefined;
-      const listening =
-        lessonSeed.skill === Skill.LISTENING
-          ? a1ListeningContent[unitIndex + 1]
-          : undefined;
-      const speaking =
-        lessonSeed.skill === Skill.SPEAKING
-          ? a1SpeakingContent[unitIndex + 1]
-          : undefined;
-
-      const content = reading
-        ? { intro: lessonSeed.intro, passage: reading.passage }
-        : { intro: lessonSeed.intro };
-
-      const lesson = await prisma.lesson.upsert({
-        where: { unitId_order: { unitId: unit.id, order: lessonIndex + 1 } },
-        update: {
-          title: lessonSeed.title,
-          skill: lessonSeed.skill,
-          content,
-        },
-        create: {
+    const existing = await prisma.quiz.findFirst({
+      where: { unitId: unit.id, kind: "UNIT_QUIZ" },
+    });
+    const quiz =
+      existing ??
+      (await prisma.quiz.create({
+        data: {
+          kind: "UNIT_QUIZ",
+          title: quizSeed.title,
           unitId: unit.id,
-          order: lessonIndex + 1,
-          title: lessonSeed.title,
-          skill: lessonSeed.skill,
-          content,
+        },
+      }));
+    if (existing) {
+      await prisma.quiz.update({
+        where: { id: quiz.id },
+        data: { title: quizSeed.title },
+      });
+    }
+    await prisma.quizQuestion.deleteMany({ where: { quizId: quiz.id } });
+    for (const [questionIndex, question] of quizSeed.questions.entries()) {
+      await prisma.quizQuestion.create({
+        data: {
+          quizId: quiz.id,
+          order: questionIndex + 1,
+          prompt: question.prompt,
+          data: question.data as Prisma.InputJsonValue,
         },
       });
-
-      if (reading) {
-        // Replace vocabulary wholesale so re-seeding stays in sync with the
-        // seed data (progress records are untouched).
-        await prisma.vocabulary.deleteMany({ where: { lessonId: lesson.id } });
-        await prisma.vocabulary.createMany({
-          data: reading.vocabulary.map((v) => ({ ...v, lessonId: lesson.id })),
-        });
-      }
-
-      const exercises =
-        reading?.exercises ??
-        writing?.exercises ??
-        listening?.exercises ??
-        speaking?.exercises;
-      if (exercises) {
-        await prisma.exercise.deleteMany({ where: { lessonId: lesson.id } });
-        for (const [exerciseIndex, exercise] of exercises.entries()) {
-          await prisma.exercise.create({
-            data: {
-              lessonId: lesson.id,
-              order: exerciseIndex + 1,
-              type: exercise.type,
-              prompt: exercise.prompt,
-              data: exercise.data as Prisma.InputJsonValue,
-            },
-          });
-        }
-      }
     }
   }
 
@@ -241,13 +322,17 @@ async function main() {
     });
   }
 
-  const unitCount = await prisma.unit.count({ where: { levelId: level.id } });
-  const lessonCount = await prisma.lesson.count({ where: { unit: { levelId: level.id } } });
+  const a1UnitCount = await prisma.unit.count({ where: { levelId: level.id } });
+  const a1LessonCount = await prisma.lesson.count({ where: { unit: { levelId: level.id } } });
+  const a2UnitCount = await prisma.unit.count({ where: { levelId: a2Level.id } });
+  const a2LessonCount = await prisma.lesson.count({ where: { unit: { levelId: a2Level.id } } });
   const scenarioCount = await prisma.scenario.count();
   const exerciseCount = await prisma.exercise.count();
   const vocabCount = await prisma.vocabulary.count();
+  const quizCount = await prisma.quiz.count();
+  const questionCount = await prisma.quizQuestion.count();
   console.log(
-    `Seeded A1: ${unitCount} units, ${lessonCount} lessons, ${scenarioCount} scenarios, ${exerciseCount} exercises, ${vocabCount} vocabulary entries.`,
+    `Seeded A1: ${a1UnitCount} units, ${a1LessonCount} lessons; A2: ${a2UnitCount} units, ${a2LessonCount} lessons; ${scenarioCount} scenarios, ${exerciseCount} exercises, ${vocabCount} vocabulary entries, ${quizCount} quizzes (${questionCount} questions).`,
   );
 }
 

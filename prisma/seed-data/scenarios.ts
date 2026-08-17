@@ -444,4 +444,200 @@ export const scenarios: ScenarioSeed[] = [
       ],
     },
   },
+  {
+    slug: "pharmacy",
+    title: "At the Pharmacy",
+    emoji: "💊",
+    description: "Ask for medicine and check if you need a prescription.",
+    lesson: {
+      title: "Buying medicine",
+      skill: Skill.SPEAKING,
+      intro: "Ask for help with one pattern: j'ai besoin de… / vous avez quelque chose contre… ?",
+      pattern: {
+        fr: "Vous avez quelque chose contre + [symptôme] ?",
+        en: "Do you have something for + [symptom]?",
+        examples: [
+          { fr: "Vous avez quelque chose contre le rhume ?", en: "Do you have something for a cold?" },
+          { fr: "J'ai besoin de paracétamol, s'il vous plaît.", en: "I need paracetamol, please." },
+          { fr: "C'est sans ordonnance ?", en: "Is this over the counter?" },
+        ],
+      },
+      dialogue: [
+        { speaker: "Vous", fr: "Bonjour, vous avez quelque chose contre le mal de tête ?", en: "Hello, do you have something for a headache?" },
+        { speaker: "Pharmacien", fr: "Oui. Vous avez une ordonnance ?", en: "Yes. Do you have a prescription?" },
+        { speaker: "Vous", fr: "Non. C'est sans ordonnance ?", en: "No. Is it over the counter?" },
+        { speaker: "Pharmacien", fr: "Oui. Je vous conseille du paracétamol.", en: "Yes. I recommend paracetamol." },
+        { speaker: "Vous", fr: "Parfait. Et c'est combien ?", en: "Perfect. And how much is it?" },
+        { speaker: "Pharmacien", fr: "Six euros. Vous prenez aussi des vitamines ?", en: "Six euros. Would you like vitamins as well?" },
+      ],
+      exercises: [
+        {
+          type: ExerciseType.MULTIPLE_CHOICE,
+          prompt: "« C'est sans ordonnance ? » means…",
+          data: {
+            options: ["Is it on sale?", "Is it over the counter?", "Is it for children?", "Is it in stock?"],
+            correctIndex: 1,
+            explanation: "« une ordonnance » = a prescription. « sans ordonnance » = no prescription needed.",
+          },
+        },
+        {
+          type: ExerciseType.FILL_BLANK,
+          prompt: "Ask for something against a cold.",
+          data: {
+            template: "Vous avez quelque chose ___ le rhume ?",
+            answer: "contre",
+            hint: "The preposition in the pattern: against / for a symptom.",
+          },
+        },
+        {
+          type: ExerciseType.DICTATION,
+          prompt: "Listen and type what the pharmacist asks.",
+          data: { text: "Vous avez une ordonnance ?", rate: RATE, translation: "Do you have a prescription?" },
+        },
+        {
+          type: ExerciseType.SPEAKING_PROMPT,
+          prompt: "Ask for headache medicine out loud.",
+          data: {
+            mode: "repeat",
+            text: "Vous avez quelque chose contre le mal de tête ?",
+            translation: "Do you have something for a headache?",
+            rate: RATE,
+          },
+        },
+      ],
+    },
+  },
+  {
+    slug: "restaurant",
+    title: "At the Restaurant",
+    emoji: "🍽️",
+    description: "Book a table, order dinner, and mention allergies.",
+    lesson: {
+      title: "Dinner out",
+      skill: Skill.SPEAKING,
+      intro: "Reserve, order, and stay safe: une table pour… / je suis allergique à…",
+      pattern: {
+        fr: "Je voudrais une table pour + [nombre] + à + [heure].",
+        en: "I would like a table for + [number] + at + [time].",
+        examples: [
+          { fr: "Je voudrais une table pour deux à vingt heures.", en: "I'd like a table for two at 8 PM." },
+          { fr: "Je suis allergique aux arachides.", en: "I'm allergic to peanuts." },
+          { fr: "L'addition, s'il vous plaît.", en: "The bill, please." },
+        ],
+      },
+      dialogue: [
+        { speaker: "Vous", fr: "Bonsoir, je voudrais une table pour deux, s'il vous plaît.", en: "Good evening, I'd like a table for two, please." },
+        { speaker: "Serveuse", fr: "Bien sûr. Vous avez une réservation ?", en: "Of course. Do you have a reservation?" },
+        { speaker: "Vous", fr: "Oui, au nom de Martin.", en: "Yes, under the name Martin." },
+        { speaker: "Serveuse", fr: "Parfait. Et pour manger ?", en: "Perfect. And to eat?" },
+        { speaker: "Vous", fr: "Le poisson, s'il vous plaît. Attention, je suis allergique aux arachides.", en: "The fish, please. Careful — I'm allergic to peanuts." },
+        { speaker: "Serveuse", fr: "C'est noté. Bon appétit !", en: "Noted. Enjoy your meal!" },
+      ],
+      exercises: [
+        {
+          type: ExerciseType.MULTIPLE_CHOICE,
+          prompt: "« Au nom de Martin » means the reservation is…",
+          data: {
+            options: ["Paid by Martin", "Under the name Martin", "For Martin's birthday", "Next to Martin"],
+            correctIndex: 1,
+            explanation: "« au nom de » = in the name of / under the name.",
+          },
+        },
+        {
+          type: ExerciseType.FILL_BLANK,
+          prompt: "Tell the server about a peanut allergy.",
+          data: {
+            template: "Je suis ___ aux arachides.",
+            answer: "allergique",
+            hint: "The adjective for 'allergic'.",
+          },
+        },
+        {
+          type: ExerciseType.SENTENCE_ORDER,
+          prompt: "Book a table for two.",
+          data: {
+            words: ["Je", "voudrais", "une", "table", "pour", "deux", "s'il", "vous", "plaît"],
+            translation: "I'd like a table for two, please.",
+          },
+        },
+        {
+          type: ExerciseType.SPEAKING_PROMPT,
+          prompt: "Ask for the bill out loud.",
+          data: {
+            mode: "repeat",
+            text: "L'addition, s'il vous plaît.",
+            translation: "The bill, please.",
+            rate: RATE,
+          },
+        },
+      ],
+    },
+  },
+  {
+    slug: "phone-call",
+    title: "On the Phone",
+    emoji: "📞",
+    description: "Answer, say who you are, and leave a message.",
+    lesson: {
+      title: "Making a call",
+      skill: Skill.SPEAKING,
+      intro: "Phone French is short: allô… / c'est de la part de qui ? / je voudrais laisser un message.",
+      pattern: {
+        fr: "Allô, je voudrais parler à + [personne].",
+        en: "Hello, I would like to speak to + [person].",
+        examples: [
+          { fr: "Allô, je voudrais parler à Madame Dupont.", en: "Hello, I'd like to speak to Mrs. Dupont." },
+          { fr: "C'est de la part de qui ?", en: "Who's calling?" },
+          { fr: "Je voudrais laisser un message.", en: "I'd like to leave a message." },
+        ],
+      },
+      dialogue: [
+        { speaker: "Secrétaire", fr: "Allô, cabinet Martin, bonjour.", en: "Hello, Martin office, good morning." },
+        { speaker: "Vous", fr: "Allô, je voudrais parler à Madame Dupont.", en: "Hello, I'd like to speak to Mrs. Dupont." },
+        { speaker: "Secrétaire", fr: "C'est de la part de qui ?", en: "Who's calling?" },
+        { speaker: "Vous", fr: "C'est Thomas. Elle n'est pas là ?", en: "This is Thomas. She's not in?" },
+        { speaker: "Secrétaire", fr: "Non, elle est en réunion. Vous voulez laisser un message ?", en: "No, she's in a meeting. Would you like to leave a message?" },
+        { speaker: "Vous", fr: "Oui. Pouvez-vous lui dire de me rappeler, s'il vous plaît ?", en: "Yes. Could you ask her to call me back, please?" },
+      ],
+      exercises: [
+        {
+          type: ExerciseType.MULTIPLE_CHOICE,
+          prompt: "« C'est de la part de qui ? » means…",
+          data: {
+            options: ["Where are you calling from?", "Who's calling?", "What's the number?", "Can you hold?"],
+            correctIndex: 1,
+            explanation: "The standard way to ask who is on the line.",
+          },
+        },
+        {
+          type: ExerciseType.FILL_BLANK,
+          prompt: "Say you want to leave a message.",
+          data: {
+            template: "Je voudrais laisser un ___.",
+            answer: "message",
+            hint: "Same word in French and English.",
+          },
+        },
+        {
+          type: ExerciseType.DICTATION,
+          prompt: "Listen and type the request.",
+          data: {
+            text: "Pouvez-vous lui dire de me rappeler ?",
+            rate: RATE,
+            translation: "Could you ask her to call me back?",
+          },
+        },
+        {
+          type: ExerciseType.SPEAKING_PROMPT,
+          prompt: "Ask to speak to Mrs. Dupont.",
+          data: {
+            mode: "repeat",
+            text: "Allô, je voudrais parler à Madame Dupont.",
+            translation: "Hello, I'd like to speak to Mrs. Dupont.",
+            rate: RATE,
+          },
+        },
+      ],
+    },
+  },
 ];

@@ -7,4 +7,6 @@ export const ACHIEVEMENTS = [
   { code: "first-unit", title: "Unit Down", description: "Complete every lesson in a unit.", icon: "🏁" },
   { code: "seven-day-streak", title: "7 Day Streak", description: "Practice seven days in a row.", icon: "🔥" },
   { code: "a1-graduate", title: "A1 Graduate", description: "Complete every A1 lesson.", icon: "🎓" },
+  { code: "a2-graduate", title: "A2 Graduate", description: "Complete every A2 lesson.", icon: "📘" },
+  { code: "quiz-perfect", title: "Quiz Whiz", description: "Score 100% on a unit quiz.", icon: "🏆" },
 ] as const;

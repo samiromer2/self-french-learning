@@ -14,13 +14,13 @@ Fields used in analytics extracts and in the application database. Personal lear
 | lesson_status | NOT_STARTED / IN_PROGRESS / COMPLETED | String | `Progress.status` |
 | lesson_score | Share correct on lesson exercises (0–1 in DB, shown as %) | Numeric | `Progress.score` |
 | lessons_completed | Count of COMPLETED progress rows | Numeric | Derived |
-| vocabulary_learned | Count of vocabulary rows on completed lessons | Numeric | Derived from `Vocabulary` + `Progress` |
+| vocabulary_learned | Words marked known on flashcards (falls back to words on completed lessons if the review table is missing) | Numeric | `UserVocabulary` (KNOWN) |
 | current_streak | Consecutive active UTC days | Integer | `User.currentStreak` |
-| quiz_score | Unit/level quiz score if attempts exist | Numeric | `QuizAttempt.score` |
+| quiz_score | Unit quiz score if attempts exist (0–1 in DB, shown as %) | Numeric | `QuizAttempt.score` |
 | skill | READING / WRITING / LISTENING / SPEAKING | String | `Lesson.skill` |
 | category | Unit title or scenario title | String | `Unit.title` / `Scenario.title` |
 
-`QuizAttempt` exists but the quiz UI has not shipped, so quiz fields are usually empty. The dashboard does not invent them.
+`QuizAttempt.score` is stored as 0–1. The dashboard shows a percentage and leaves the field empty until the signed-in user has submitted a unit quiz.
 
 ## Public Canadian extracts
 

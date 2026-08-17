@@ -37,6 +37,7 @@ model User {
   achievements      UserAchievement[]
   quizAttempts      QuizAttempt[]
   learningSessions  LearningSession[]
+  vocabularyReviews UserVocabulary[]
 }
 
 // ---------- Curriculum ----------
@@ -76,6 +77,11 @@ enum ProgressStatus {
 enum QuizKind {
   UNIT_QUIZ
   LEVEL_ASSESSMENT
+}
+
+enum VocabStatus {
+  LEARNING
+  KNOWN
 }
 
 model Level {
@@ -174,7 +180,8 @@ model Vocabulary {
   exampleSentence String?
   audioUrl        String?
 
-  lesson Lesson? @relation(fields: [lessonId], references: [id], onDelete: SetNull)
+  lesson  Lesson?           @relation(fields: [lessonId], references: [id], onDelete: SetNull)
+  reviews UserVocabulary[]
 
   createdAt DateTime @default(now())
 }
@@ -299,4 +306,22 @@ model LearningSession {
 
   @@index([userId, startedAt])
   @@index([userId, lessonId, endedAt])
+}
+
+model UserVocabulary {
+  id             String      @id @default(cuid())
+  userId         String      @db.Uuid
+  vocabularyId   String
+  status         VocabStatus @default(LEARNING)
+  lastReviewedAt DateTime    @default(now())
+  timesReviewed  Int         @default(0)
+
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  vocabulary Vocabulary @relation(fields: [vocabularyId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, vocabularyId])
+  @@index([userId, status])
 }

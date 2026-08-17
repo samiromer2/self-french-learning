@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { Trophy } from "lucide-react";
 import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
@@ -28,6 +29,16 @@ export default async function LearnPage() {
             include: {
               progress: {
                 where: { userId: user.id },
+              },
+            },
+          },
+          quizzes: {
+            where: { kind: "UNIT_QUIZ" },
+            include: {
+              attempts: {
+                where: { userId: user.id },
+                orderBy: { score: "desc" },
+                take: 1,
               },
             },
           },
@@ -111,6 +122,33 @@ export default async function LearnPage() {
                             ) : (
                               <span className="text-sm text-muted-foreground">
                                 Not started
+                              </span>
+                            )}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                    {unit.quizzes.map((quiz) => {
+                      const best = quiz.attempts[0];
+                      const bestPct =
+                        best == null
+                          ? null
+                          : Math.round(best.score <= 1 ? best.score * 100 : best.score);
+                      return (
+                        <li key={quiz.id}>
+                          <Link
+                            href={`/learn/quiz/${quiz.id}`}
+                            className="flex items-center justify-between gap-4 py-3 hover:bg-muted/50"
+                          >
+                            <span className="flex items-center gap-3">
+                              <Trophy className="size-4 text-muted-foreground" />
+                              <span className="font-medium">{quiz.title}</span>
+                            </span>
+                            {bestPct != null ? (
+                              <Badge variant="secondary">Best {bestPct}%</Badge>
+                            ) : (
+                              <span className="text-sm text-muted-foreground">
+                                Quiz
                               </span>
                             )}
                           </Link>

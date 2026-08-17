@@ -26,8 +26,7 @@ export function LearningDashboard({ data }: { data: LearningAnalytics }) {
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">My French learning</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          First-party metrics from your lessons. Unit quizzes are not in the product yet; scores
-          come from lesson exercises.
+          First-party metrics from your lessons, unit quizzes, and flashcards.
         </p>
       </div>
 
@@ -40,16 +39,29 @@ export function LearningDashboard({ data }: { data: LearningAnalytics }) {
         />
         <KpiCard label="Sessions" value={formatNumber(kpis.sessionCount)} />
         <KpiCard label="Streak" value={`${kpis.currentStreak} days`} hint={`Longest ${kpis.longestStreak}`} />
-        <KpiCard label="Vocabulary learned" value={formatNumber(kpis.vocabularyLearned)} hint="Words attached to completed lessons" />
+        <KpiCard label="Vocabulary learned" value={formatNumber(kpis.vocabularyLearned)} hint="Words marked known in flashcards" />
         <KpiCard
-          label="Average score"
+          label="Average lesson score"
           value={formatPercent(kpis.averageLessonScore)}
           unavailable={kpis.averageLessonScore == null}
         />
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <KpiCard label="Lessons completed" value={formatNumber(kpis.lessonsCompleted)} />
+        {data.hasQuizData ? (
+          <KpiCard
+            label="Average quiz score"
+            value={formatPercent(kpis.averageQuizScore)}
+            hint={`${kpis.quizAttemptCount} attempt${kpis.quizAttemptCount === 1 ? "" : "s"}`}
+          />
+        ) : (
+          <KpiCard
+            label="Unit quizzes"
+            value="—"
+            hint="Open a unit on Learn and take the quiz at the bottom of the card."
+          />
+        )}
         <KpiCard
           label="Last 7 days"
           value={formatMinutes(kpis.weeklyMinutes)}
@@ -160,12 +172,6 @@ export function LearningDashboard({ data }: { data: LearningAnalytics }) {
         </Card>
       )}
 
-      {!data.hasQuizData && (
-        <p className="text-xs text-muted-foreground">
-          Unit quizzes and level assessments are in the database schema but not yet in the UI, so
-          quiz-attempt KPIs are hidden rather than invented.
-        </p>
-      )}
       <PrivacyNote />
     </div>
   );
