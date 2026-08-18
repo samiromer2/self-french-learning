@@ -14,10 +14,12 @@ export function OverviewDashboard({
   bundle,
   learning,
   signedIn,
+  authPending = false,
 }: {
   bundle: CanadaBundle;
   learning: LearningAnalytics | null;
   signedIn: boolean;
+  authPending?: boolean;
 }) {
   const ca = bundle.canada_latest;
   const bilingualCa = trendForGeo(bundle.bilingualism_trend, "CA");
@@ -38,7 +40,13 @@ export function OverviewDashboard({
         <h2 className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
           My learning
         </h2>
-        {signedIn && learning ? (
+        {authPending ? (
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {Array.from({ length: 5 }, (_, i) => (
+              <div key={i} className="h-24 rounded-xl bg-muted" />
+            ))}
+          </div>
+        ) : signedIn && learning ? (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             <KpiCard
               label="Learning hours"
@@ -115,9 +123,11 @@ export function OverviewDashboard({
               yKey="lessons"
               yLabel="Lessons"
               empty={
-                signedIn
-                  ? "No completed lessons yet — this chart stays empty until you finish a lesson."
-                  : "Log in to plot your lesson completions."
+                authPending
+                  ? "Loading your lessons…"
+                  : signedIn
+                    ? "No completed lessons yet — this chart stays empty until you finish a lesson."
+                    : "Log in to plot your lesson completions."
               }
             />
           </CardContent>
@@ -135,9 +145,11 @@ export function OverviewDashboard({
               yLabel="Score"
               ySuffix="%"
               empty={
-                signedIn
-                  ? "No scored lessons yet. Complete a lesson to plot scores here."
-                  : "Log in to plot your scores."
+                authPending
+                  ? "Loading your scores…"
+                  : signedIn
+                    ? "No scored lessons yet. Complete a lesson to plot scores here."
+                    : "Log in to plot your scores."
               }
             />
           </CardContent>

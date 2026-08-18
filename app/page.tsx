@@ -1,10 +1,9 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { getCurrentUser } from "@/lib/supabase/server";
 
-export default async function Home() {
-  const user = await getCurrentUser();
-
+export default function Home() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-8 px-6 text-center">
       <div className="space-y-4">
@@ -24,21 +23,39 @@ export default async function Home() {
         <Button asChild size="lg" variant="outline">
           <Link href="/analytics">French in Canada</Link>
         </Button>
-        {user ? (
-          <Button asChild size="lg">
-            <Link href="/dashboard">Go to dashboard</Link>
-          </Button>
-        ) : (
-          <>
-            <Button asChild size="lg">
-              <Link href="/signup">Get started</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/login">Log in</Link>
-            </Button>
-          </>
-        )}
+        <Suspense fallback={<HomeAuthFallback />}>
+          <HomeAuthButtons />
+        </Suspense>
       </div>
     </div>
+  );
+}
+
+function HomeAuthFallback() {
+  return (
+    <span className="inline-block h-10 w-36 rounded-md bg-muted" aria-hidden />
+  );
+}
+
+async function HomeAuthButtons() {
+  const user = await getCurrentUser();
+
+  if (user) {
+    return (
+      <Button asChild size="lg">
+        <Link href="/dashboard">Go to dashboard</Link>
+      </Button>
+    );
+  }
+
+  return (
+    <>
+      <Button asChild size="lg">
+        <Link href="/signup">Get started</Link>
+      </Button>
+      <Button asChild size="lg" variant="outline">
+        <Link href="/login">Log in</Link>
+      </Button>
+    </>
   );
 }

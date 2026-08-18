@@ -2,9 +2,23 @@ import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./env";
 
-// Refreshes the Supabase auth cookie on every request so sessions don't
-// silently expire between the JWT's short lifetime and its refresh window.
+function isPublicGet(request: NextRequest) {
+  if (request.method !== "GET") return false;
+  const path = request.nextUrl.pathname;
+  if (path === "/" || path === "/login" || path === "/signup") return true;
+  if (path.startsWith("/analytics/learning")) return false;
+  if (path === "/analytics" || path.startsWith("/analytics/")) return true;
+  return false;
+}
+
+// Refreshes the Supabase auth cookie so sessions don't silently expire.
+// Public GET pages skip the Auth round-trip so the first paint is not
+// blocked on a network hop to Supabase. Protected routes still refresh.
 export async function updateSession(request: NextRequest) {
+  if (isPublicGet(request)) {
+    return NextResponse.next({ request });
+  }
+
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {

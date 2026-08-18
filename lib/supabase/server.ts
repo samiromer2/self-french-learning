@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./env";
@@ -27,11 +28,12 @@ export async function createClient() {
 // Replacement for Auth.js's `auth()`. Uses getUser() (not getSession())
 // because it revalidates the JWT against the Supabase Auth server rather
 // than trusting an unverified decoded cookie — required for server code.
-export async function getCurrentUser(): Promise<{
+// cache() = one Auth round-trip per request, shared by header + page.
+export const getCurrentUser = cache(async (): Promise<{
   id: string;
   email: string;
   name: string | null;
-} | null> {
+} | null> => {
   const supabase = await createClient();
   const {
     data: { user },
@@ -45,4 +47,4 @@ export async function getCurrentUser(): Promise<{
     email: user.email!,
     name: (user.user_metadata?.name as string | undefined) ?? null,
   };
-}
+});
