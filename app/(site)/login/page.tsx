@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,9 +15,23 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function SignupPage() {
+// Only same-site paths may be used as a post-login destination.
+function safeNextPath(next: string | null) {
+  if (next && next.startsWith("/") && !next.startsWith("//")) return next;
+  return null;
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
+  );
+}
+
+function LoginForm() {
   const router = useRouter();
-  const [name, setName] = useState("");
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -27,26 +42,20 @@ export default function SignupPage() {
     setError(null);
     setIsSubmitting(true);
 
-    const res = await fetch("/api/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, password }),
+    const supabase = createClient();
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
     });
 
-    const body = await res.json().catch(() => ({}));
     setIsSubmitting(false);
 
-    if (!res.ok) {
-      setError(body.error ?? "Something went wrong.");
+    if (signInError) {
+      setError("Invalid email or password.");
       return;
     }
 
-    if (body.status === "created_please_login") {
-      router.push("/login");
-      return;
-    }
-
-    router.push("/dashboard");
+    router.push(safeNextPath(searchParams.get("next")) ?? "/dashboard");
     router.refresh();
   }
 
@@ -54,20 +63,11 @@ export default function SignupPage() {
     <div className="flex flex-1 items-center justify-center px-6">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle>Create an account</CardTitle>
-          <CardDescription>Start your French journey at A1.</CardDescription>
+          <CardTitle>Log in</CardTitle>
+          <CardDescription>Welcome back — continue your French practice.</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input
-                id="name"
-                autoComplete="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -84,22 +84,21 @@ export default function SignupPage() {
               <Input
                 id="password"
                 type="password"
-                autoComplete="new-password"
+                autoComplete="current-password"
                 required
-                minLength={8}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             {error && <p className="text-sm text-destructive">{error}</p>}
             <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Creating account..." : "Sign up"}
+              {isSubmitting ? "Logging in..." : "Log in"}
             </Button>
           </form>
           <p className="mt-4 text-center text-sm text-muted-foreground">
-            Already have an account?{" "}
-            <Link href="/login" className="font-medium text-foreground underline">
-              Log in
+            No account?{" "}
+            <Link href="/signup" className="font-medium text-foreground underline">
+              Sign up
             </Link>
           </p>
         </CardContent>

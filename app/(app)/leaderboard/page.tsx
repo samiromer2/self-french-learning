@@ -1,7 +1,4 @@
-import Link from "next/link";
-import { redirect } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
-import { getCurrentUser } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { cn } from "@/lib/utils";
 import {
@@ -13,8 +10,7 @@ import {
 } from "@/components/ui/card";
 
 export default async function LeaderboardPage() {
-  const currentUser = await getCurrentUser();
-  if (!currentUser) redirect("/login");
+  const currentUser = await requireUser();
 
   const top = await prisma.user.findMany({
     orderBy: { xp: "desc" },
@@ -24,14 +20,6 @@ export default async function LeaderboardPage() {
 
   return (
     <div className="mx-auto w-full max-w-2xl flex-1 space-y-6 px-6 py-12">
-      <Link
-        href="/dashboard"
-        className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-      >
-        <ArrowLeft className="size-4" />
-        Dashboard
-      </Link>
-
       <Card>
         <CardHeader>
           <CardTitle>Leaderboard</CardTitle>

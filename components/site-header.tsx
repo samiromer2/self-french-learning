@@ -3,6 +3,8 @@ import Link from "next/link";
 import { getCurrentUser } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
 
+// Header for the public (site) area and the public analytics pages. The
+// authenticated app shell has its own header (components/app-header.tsx).
 export function SiteHeader() {
   return (
     <header className="border-b bg-background/80 backdrop-blur">
@@ -12,7 +14,7 @@ export function SiteHeader() {
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           <Button asChild variant="ghost" size="sm">
-            <Link href="/analytics">Analytics</Link>
+            <Link href="/analytics">French in Canada</Link>
           </Button>
           <Suspense fallback={<HeaderAuthFallback />}>
             <HeaderAuth />
@@ -37,20 +39,9 @@ async function HeaderAuth() {
 
   if (user) {
     return (
-      <>
-        <Button asChild variant="ghost" size="sm">
-          <Link href="/learn">Learn</Link>
-        </Button>
-        <Button asChild variant="ghost" size="sm">
-          <Link href="/vocabulary">Vocabulary</Link>
-        </Button>
-        <Button asChild variant="ghost" size="sm">
-          <Link href="/scenarios">Scenarios</Link>
-        </Button>
-        <Button asChild size="sm">
-          <Link href="/dashboard">Dashboard</Link>
-        </Button>
-      </>
+      <Button asChild size="sm">
+        <Link href="/dashboard">Dashboard</Link>
+      </Button>
     );
   }
 

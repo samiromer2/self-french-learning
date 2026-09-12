@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { getCurrentUser } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -17,7 +17,7 @@ import { PatternCard } from "@/features/scenarios/pattern-card";
 import { DialogueViewer } from "@/features/scenarios/dialogue-viewer";
 import { ExercisePlayer } from "@/features/exercises/exercise-player";
 import type { LessonContent } from "@/types/exercises";
-import { SkillBadge } from "../../skill-badge";
+import { SkillBadge } from "@/components/skill-badge";
 import { LessonControls } from "./lesson-controls";
 
 export default async function LessonPage({
@@ -25,8 +25,7 @@ export default async function LessonPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  const user = await requireUser();
 
   const { id } = await params;
 
@@ -57,7 +56,7 @@ export default async function LessonPage({
   } as const;
 
   return (
-    <div className="mx-auto w-full max-w-2xl flex-1 space-y-6 px-6 py-12">
+    <div className="mx-auto w-full max-w-2xl space-y-6">
       <Link
         href={backHref}
         className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"

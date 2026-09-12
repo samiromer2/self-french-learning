@@ -5,7 +5,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { startLesson, completeLessonWithScore } from "@/app/learn/actions";
+import { startLesson, completeLessonWithScore } from "@/app/(app)/(learning)/learn/actions";
 import type {
   AudioFields,
   DictationData,

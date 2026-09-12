@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
-import { getCurrentUser } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -13,8 +11,7 @@ import {
 } from "@/components/ui/card";
 
 export default async function ScenariosPage() {
-  const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  const user = await requireUser();
 
   const scenarios = await prisma.scenario.findMany({
     orderBy: { order: "asc" },
@@ -29,15 +26,8 @@ export default async function ScenariosPage() {
   });
 
   return (
-    <div className="mx-auto w-full max-w-3xl flex-1 space-y-8 px-6 py-12">
+    <div className="space-y-8">
       <div className="space-y-2">
-        <Link
-          href="/dashboard"
-          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-        >
-          <ArrowLeft className="size-4" />
-          Dashboard
-        </Link>
         <h1 className="text-2xl font-semibold tracking-tight">
           Real-Life Scenarios
         </h1>

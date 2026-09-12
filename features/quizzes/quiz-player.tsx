@@ -5,7 +5,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { submitQuizAttempt } from "@/app/learn/quiz/actions";
+import { submitQuizAttempt } from "@/app/(app)/(learning)/learn/quiz/actions";
 import type { FillBlankData, MultipleChoiceData, SentenceOrderData } from "@/types/exercises";
 import type { QuizQuestionView } from "@/types/quizzes";
 import { MultipleChoice } from "@/features/exercises/multiple-choice";

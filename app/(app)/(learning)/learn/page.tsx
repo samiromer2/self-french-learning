@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { Trophy } from "lucide-react";
-import { getCurrentUser } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -12,11 +11,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { SkillBadge } from "./skill-badge";
+import { SkillBadge } from "@/components/skill-badge";
 
 export default async function LearnPage() {
-  const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  const user = await requireUser();
 
   const levels = await prisma.level.findMany({
     orderBy: { order: "asc" },
@@ -48,7 +46,7 @@ export default async function LearnPage() {
   });
 
   return (
-    <div className="mx-auto w-full max-w-3xl flex-1 space-y-10 px-6 py-12">
+    <div className="space-y-10">
       {levels.map((level) => {
         const lessons = level.units.flatMap((u) => u.lessons);
         const completed = lessons.filter(
