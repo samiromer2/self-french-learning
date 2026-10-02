@@ -83,6 +83,23 @@ Based on the roadmap in `French Learning Platform – Project Master Plan.pdf`.
 - [x] /scenarios page + dashboard card; stats kept separate from curriculum
 - [ ] More scenarios someday (post office, pharmacy, restaurant dinner, phone calls…)
 
+## Guest mode — try it without an account (PR #19)
+
+The login wall was turning people away, so the learning area is now public.
+
+- [x] Move the learning routes out from behind the auth gate (`app/(learn)`, no URL changes)
+- [x] Auth-aware header: Log out, or Log in / Sign up for guests
+- [x] Guests can browse the course, answer exercises, take quizzes, flip flashcards
+- [x] Nothing saved for guests — score shown, then a "create a free account" prompt
+- [x] Dashboard, leaderboard and personal analytics stay account-only
+- [x] Fixed: flashcard deck got stuck on card 1 whenever a save failed
+- [x] Fixed: exercise player had no error handling on its two save calls
+- [ ] Signed-in pass once Supabase is back (project is currently NXDOMAIN — see below)
+
+## Blocked — Supabase project is gone
+
+- [ ] Restore or recreate the Supabase project (`ahbchqpddxqtwuvbxlgz` returns NXDOMAIN; Auth + database both down, production is broken). Local dev falls back to a local Postgres via a gitignored `.env.local`.
+
 ## MVP leftovers (planned in nextplans.md → "Build plans")
 
 - [ ] Unit quizzes (Quiz tables exist since day one, unused — 6 quizzes, quiz player, XP + "Quiz Whiz" achievement)
