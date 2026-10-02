@@ -8,6 +8,8 @@ Live: [https://self-french-learning.vercel.app/](https://self-french-learning.ve
 
 ## What’s in the product
 
+a lot was added
+
 **Curriculum**
 
 | Track | Content |
