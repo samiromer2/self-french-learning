@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Trophy } from "lucide-react";
-import { requireUser } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
+import { ownedBy } from "@/lib/guest";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -19,7 +20,7 @@ export default async function QuizPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const user = await requireUser();
+  const user = await getCurrentUser();
 
   const { id } = await params;
   const quiz = await prisma.quiz.findUnique({
@@ -28,7 +29,7 @@ export default async function QuizPage({
       unit: { include: { level: true } },
       questions: { orderBy: { order: "asc" } },
       attempts: {
-        where: { userId: user.id },
+        where: ownedBy(user?.id),
         orderBy: { score: "desc" },
         take: 1,
       },
@@ -75,7 +76,11 @@ export default async function QuizPage({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <QuizPlayer quizId={quiz.id} questions={questions} />
+          <QuizPlayer
+            quizId={quiz.id}
+            questions={questions}
+            signedIn={Boolean(user)}
+          />
         </CardContent>
       </Card>
     </div>

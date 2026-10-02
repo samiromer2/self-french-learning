@@ -13,12 +13,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-// Only same-site paths may be used as a post-signup destination.
-function safeNextPath(next: string | null) {
-  if (next && next.startsWith("/") && !next.startsWith("//")) return next;
-  return null;
-}
+import { safeNextPath } from "@/lib/safe-next-path";
 
 export default function SignupPage() {
   return (

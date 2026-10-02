@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Trophy } from "lucide-react";
-import { requireUser } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
+import { ownedBy } from "@/lib/guest";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import {
@@ -12,9 +13,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { SkillBadge } from "@/components/skill-badge";
+import { SignUpPrompt } from "@/components/sign-up-prompt";
 
 export default async function LearnPage() {
-  const user = await requireUser();
+  const user = await getCurrentUser();
 
   const levels = await prisma.level.findMany({
     orderBy: { order: "asc" },
@@ -26,7 +28,7 @@ export default async function LearnPage() {
             orderBy: { order: "asc" },
             include: {
               progress: {
-                where: { userId: user.id },
+                where: ownedBy(user?.id),
               },
             },
           },
@@ -34,7 +36,7 @@ export default async function LearnPage() {
             where: { kind: "UNIT_QUIZ" },
             include: {
               attempts: {
-                where: { userId: user.id },
+                where: ownedBy(user?.id),
                 orderBy: { score: "desc" },
                 take: 1,
               },
@@ -47,6 +49,12 @@ export default async function LearnPage() {
 
   return (
     <div className="space-y-10">
+      {!user && (
+        <SignUpPrompt
+          title="You're browsing as a guest"
+          description="Open any lesson and answer the exercises — nothing is saved. Create a free account to keep your progress, XP, and streak."
+        />
+      )}
       {levels.map((level) => {
         const lessons = level.units.flatMap((u) => u.lessons);
         const completed = lessons.filter(

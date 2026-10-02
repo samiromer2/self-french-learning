@@ -20,13 +20,20 @@ export default function Home() {
       </div>
 
       <div className="flex flex-wrap justify-center gap-3">
-        <Button asChild size="lg" variant="outline">
-          <Link href="/analytics">French in Canada</Link>
+        <Button asChild size="lg">
+          <Link href="/learn">Start learning — no account needed</Link>
         </Button>
         <Suspense fallback={<HomeAuthFallback />}>
           <HomeAuthButtons />
         </Suspense>
       </div>
+
+      <p className="text-sm text-muted-foreground">
+        Try any lesson, scenario, or quiz as a guest.{" "}
+        <Link href="/analytics" className="underline underline-offset-2">
+          French in Canada
+        </Link>
+      </p>
     </div>
   );
 }
@@ -48,12 +55,14 @@ async function HomeAuthButtons() {
     );
   }
 
+  // Signing up is the secondary action now — the primary CTA lets people
+  // in without an account.
   return (
     <>
-      <Button asChild size="lg">
-        <Link href="/signup">Get started</Link>
-      </Button>
       <Button asChild size="lg" variant="outline">
+        <Link href="/signup">Sign up to save progress</Link>
+      </Button>
+      <Button asChild size="lg" variant="ghost">
         <Link href="/login">Log in</Link>
       </Button>
     </>

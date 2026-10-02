@@ -14,12 +14,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-// Only same-site paths may be used as a post-login destination.
-function safeNextPath(next: string | null) {
-  if (next && next.startsWith("/") && !next.startsWith("//")) return next;
-  return null;
-}
+import { safeNextPath } from "@/lib/safe-next-path";
 
 export default function LoginPage() {
   return (
@@ -36,6 +31,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const next = safeNextPath(searchParams.get("next"));
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -55,7 +51,7 @@ function LoginForm() {
       return;
     }
 
-    router.push(safeNextPath(searchParams.get("next")) ?? "/dashboard");
+    router.push(next ?? "/dashboard");
     router.refresh();
   }
 
@@ -64,7 +60,11 @@ function LoginForm() {
       <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle>Log in</CardTitle>
-          <CardDescription>Welcome back — continue your French practice.</CardDescription>
+          <CardDescription>
+            {next
+              ? "That page needs an account — log in to continue."
+              : "Welcome back — continue your French practice."}
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -97,8 +97,17 @@ function LoginForm() {
           </form>
           <p className="mt-4 text-center text-sm text-muted-foreground">
             No account?{" "}
-            <Link href="/signup" className="font-medium text-foreground underline">
+            <Link
+              href={next ? `/signup?next=${encodeURIComponent(next)}` : "/signup"}
+              className="font-medium text-foreground underline"
+            >
               Sign up
+            </Link>
+          </p>
+          <p className="mt-2 text-center text-sm text-muted-foreground">
+            Or{" "}
+            <Link href="/learn" className="font-medium text-foreground underline">
+              try it without an account
             </Link>
           </p>
         </CardContent>

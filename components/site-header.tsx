@@ -14,6 +14,9 @@ export function SiteHeader() {
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           <Button asChild variant="ghost" size="sm">
+            <Link href="/learn">Learn French</Link>
+          </Button>
+          <Button asChild variant="ghost" size="sm">
             <Link href="/analytics">French in Canada</Link>
           </Button>
           <Suspense fallback={<HeaderAuthFallback />}>
