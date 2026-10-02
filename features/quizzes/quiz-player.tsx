@@ -5,22 +5,25 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { submitQuizAttempt } from "@/app/(app)/(learning)/learn/quiz/actions";
+import { submitQuizAttempt } from "@/app/(learn)/learn/quiz/actions";
 import type { FillBlankData, MultipleChoiceData, SentenceOrderData } from "@/types/exercises";
 import type { QuizQuestionView } from "@/types/quizzes";
 import { MultipleChoice } from "@/features/exercises/multiple-choice";
 import { FillBlank, isFillBlankCorrect } from "@/features/exercises/fill-blank";
 import { SentenceOrder, isSentenceOrderCorrect } from "@/features/exercises/sentence-order";
 import { AudioButton } from "@/features/listening/audio-button";
+import { SignUpPrompt } from "@/components/sign-up-prompt";
 
 type Chip = { word: string; id: number };
 
 export function QuizPlayer({
   quizId,
   questions,
+  signedIn,
 }: {
   quizId: string;
   questions: QuizQuestionView[];
+  signedIn: boolean;
 }) {
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
@@ -101,7 +104,8 @@ export function QuizPlayer({
   }
 
   useEffect(() => {
-    if (!finished || savedRef.current) return;
+    // Guests are graded in the browser; there is no attempt to record.
+    if (!finished || savedRef.current || !signedIn) return;
     savedRef.current = true;
     startTransition(async () => {
       const durationMinutes =
@@ -120,10 +124,10 @@ export function QuizPlayer({
         }
       } catch {
         savedRef.current = false;
-        toast.error("Could not save this quiz. Check your connection and try again.");
+        toast.error("Could not save this quiz — your score below is still correct.");
       }
     });
-  }, [finished, answers, correctCount, elapsedMs, quizId, total]);
+  }, [finished, answers, correctCount, elapsedMs, quizId, total, signedIn]);
 
   if (finished) {
     const pct = Math.round((correctCount / total) * 100);
@@ -133,6 +137,12 @@ export function QuizPlayer({
         <p className="text-muted-foreground">
           {correctCount} out of {total} correct
         </p>
+        {!signedIn && (
+          <SignUpPrompt
+            className="text-left"
+            description={`Your ${pct}% wasn't saved. Create a free account to keep your quiz scores, earn XP, and build a streak.`}
+          />
+        )}
         <div className="flex justify-center gap-2">
           <Button asChild variant="outline">
             <Link href="/learn">Back to course</Link>

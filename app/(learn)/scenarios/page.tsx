@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { requireUser } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
+import { ownedBy } from "@/lib/guest";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -11,7 +12,7 @@ import {
 } from "@/components/ui/card";
 
 export default async function ScenariosPage() {
-  const user = await requireUser();
+  const user = await getCurrentUser();
 
   const scenarios = await prisma.scenario.findMany({
     orderBy: { order: "asc" },
@@ -19,7 +20,7 @@ export default async function ScenariosPage() {
       lessons: {
         orderBy: { order: "asc" },
         include: {
-          progress: { where: { userId: user.id } },
+          progress: { where: ownedBy(user?.id) },
         },
       },
     },

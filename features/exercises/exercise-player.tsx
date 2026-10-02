@@ -5,7 +5,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { startLesson, completeLessonWithScore } from "@/app/(app)/(learning)/learn/actions";
+import { startLesson, completeLessonWithScore } from "@/app/(learn)/learn/actions";
 import type {
   AudioFields,
   DictationData,
@@ -23,6 +23,7 @@ import { Dictation, isDictationCorrect } from "@/features/listening/dictation";
 import { AudioButton } from "@/features/listening/audio-button";
 import { SpeakingPrompt } from "@/features/speaking/speaking-prompt";
 import type { SpeakingPromptData } from "@/types/exercises";
+import { SignUpPrompt } from "@/components/sign-up-prompt";
 
 export type PlayerExercise = {
   id: string;
@@ -39,12 +40,14 @@ export function ExercisePlayer({
   initialStatus,
   passageWordCount,
   backHref = "/learn",
+  signedIn,
 }: {
   lessonId: string;
   exercises: PlayerExercise[];
   initialStatus: ProgressStatus;
   passageWordCount?: number;
   backHref?: string;
+  signedIn: boolean;
 }) {
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
@@ -68,8 +71,17 @@ export function ExercisePlayer({
 
   useEffect(() => {
     startTimeRef.current = Date.now();
-    if (initialStatus === "NOT_STARTED") {
-      startTransition(() => startLesson(lessonId));
+    // Guests are graded entirely in the browser, so there is nothing to
+    // record here — skip the write rather than letting it reject.
+    if (signedIn && initialStatus === "NOT_STARTED") {
+      startTransition(async () => {
+        try {
+          await startLesson(lessonId);
+        } catch {
+          // Non-blocking: the exercises still work, only the
+          // "in progress" marker is missing.
+        }
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -123,20 +135,24 @@ export function ExercisePlayer({
   }
 
   useEffect(() => {
-    if (!finished || savedRef.current) return;
+    if (!finished || savedRef.current || !signedIn) return;
     savedRef.current = true;
     startTransition(async () => {
       const durationMinutes =
         (Date.now() - (startTimeRef.current ?? Date.now())) / 60_000;
-      const { xpAwarded, newAchievements } = await completeLessonWithScore(
-        lessonId,
-        correctCount,
-        total,
-        durationMinutes,
-      );
-      toast.success(`Lesson completed! +${xpAwarded} XP`);
-      for (const a of newAchievements) {
-        toast(`${a.icon ?? "🏅"} Achievement unlocked: ${a.title}`);
+      try {
+        const { xpAwarded, newAchievements } = await completeLessonWithScore(
+          lessonId,
+          correctCount,
+          total,
+          durationMinutes,
+        );
+        toast.success(`Lesson completed! +${xpAwarded} XP`);
+        for (const a of newAchievements) {
+          toast(`${a.icon ?? "🏅"} Achievement unlocked: ${a.title}`);
+        }
+      } catch {
+        toast.error("Your score could not be saved. Your answers are still correct!");
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -158,6 +174,12 @@ export function ExercisePlayer({
           {correctCount} out of {total} correct
           {wpm !== null && <> · reading pace ~{wpm} words/min</>}
         </p>
+        {!signedIn && (
+          <SignUpPrompt
+            className="text-left"
+            description={`Your ${Math.round((correctCount / total) * 100)}% wasn't saved. Create a free account to keep your progress, earn XP, and build a streak.`}
+          />
+        )}
         <Button asChild>
           <Link href={backHref}>
             {backHref === "/scenarios" ? "Back to scenarios" : "Back to course"}

@@ -2,6 +2,7 @@ import { cache } from "react";
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { authPathWithNext } from "@/lib/safe-next-path";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./env";
 
 export async function createClient() {
@@ -50,12 +51,16 @@ export const getCurrentUser = cache(async (): Promise<{
   };
 });
 
-// Auth guard for pages/layouts in the (app) route group: redirects to
-// /login when signed out, otherwise returns the non-null user. Thanks to
-// the cache() above, the layout and page calling this in the same request
-// share a single Auth round-trip.
-export async function requireUser() {
+// Auth guard for the account-only pages: redirects to /login when signed
+// out, otherwise returns the non-null user. Pass `next` to send the visitor
+// back to where they were headed once they log in. Thanks to the cache()
+// above, the layout and page calling this in the same request share a
+// single Auth round-trip.
+//
+// Public pages (the whole app/(learn) area) must use getCurrentUser()
+// instead, which returns null for guests rather than redirecting.
+export async function requireUser(next?: string) {
   const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  if (!user) redirect(authPathWithNext("/login", next));
   return user;
 }

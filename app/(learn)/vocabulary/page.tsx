@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { requireUser } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
+import { ownedBy } from "@/lib/guest";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -20,7 +21,7 @@ export default async function VocabularyPage({
 }: {
   searchParams: Promise<{ mode?: string }>;
 }) {
-  const user = await requireUser();
+  const user = await getCurrentUser();
 
   const { mode } = await searchParams;
   const reviewAll = mode === "all";
@@ -31,13 +32,15 @@ export default async function VocabularyPage({
     const [entries, known] = await Promise.all([
       prisma.vocabulary.findMany({
         include: {
-          reviews: { where: { userId: user.id } },
+          reviews: { where: ownedBy(user?.id) },
         },
         orderBy: { word: "asc" },
       }),
-      prisma.userVocabulary.count({
-        where: { userId: user.id, status: "KNOWN" },
-      }),
+      user
+        ? prisma.userVocabulary.count({
+            where: { userId: user.id, status: "KNOWN" },
+          })
+        : 0,
     ]);
     knownCount = known;
     items = entries.map((entry) => ({
@@ -100,7 +103,11 @@ export default async function VocabularyPage({
           </p>
         </CardHeader>
         <CardContent>
-          <FlashcardDeck cards={deck} reviewAll={reviewAll} />
+          <FlashcardDeck
+            cards={deck}
+            reviewAll={reviewAll}
+            signedIn={Boolean(user)}
+          />
         </CardContent>
       </Card>
     </div>

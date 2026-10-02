@@ -6,7 +6,8 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { AudioButton } from "@/features/listening/audio-button";
-import { reviewVocabulary } from "@/app/(app)/(learning)/vocabulary/actions";
+import { SignUpPrompt } from "@/components/sign-up-prompt";
+import { reviewVocabulary } from "@/app/(learn)/vocabulary/actions";
 import type { VocabStatus } from "@/lib/generated/prisma/client";
 
 export type FlashcardItem = {
@@ -20,9 +21,11 @@ export type FlashcardItem = {
 export function FlashcardDeck({
   cards,
   reviewAll,
+  signedIn,
 }: {
   cards: FlashcardItem[];
   reviewAll: boolean;
+  signedIn: boolean;
 }) {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
@@ -33,19 +36,31 @@ export function FlashcardDeck({
   const card = cards[index];
   const done = total === 0 || index >= total;
 
+  function advance(status: VocabStatus, wasKnown: boolean) {
+    if (status === "KNOWN" && !wasKnown) setKnownDelta((n) => n + 1);
+    setFlipped(false);
+    setIndex((i) => i + 1);
+  }
+
   function mark(status: VocabStatus) {
     if (!card || isPending) return;
     const wasKnown = card.status === "KNOWN";
+
+    // Guests get the full deck, just nothing written down.
+    if (!signedIn) {
+      advance(status, wasKnown);
+      return;
+    }
+
     startTransition(async () => {
       try {
         const { xpAwarded } = await reviewVocabulary(card.id, status);
         if (xpAwarded > 0) toast.success(`Known · +${xpAwarded} XP`);
-        if (status === "KNOWN" && !wasKnown) setKnownDelta((n) => n + 1);
-        setFlipped(false);
-        setIndex((i) => i + 1);
       } catch {
-        toast.error("Could not save this card. Try again.");
+        toast.error("Could not save this card — moving on anyway.");
       }
+      // Outside the try: a failed save must never trap the deck on one card.
+      advance(status, wasKnown);
     });
   }
 
@@ -64,6 +79,9 @@ export function FlashcardDeck({
               ? `${knownDelta} word${knownDelta === 1 ? "" : "s"} marked known this round.`
               : "Keep going — mark a word known when it feels easy."}
         </p>
+        {!signedIn && total > 0 && (
+          <SignUpPrompt className="text-left" />
+        )}
         <div className="flex justify-center gap-2">
           {!reviewAll && (
             <Button asChild variant="outline">

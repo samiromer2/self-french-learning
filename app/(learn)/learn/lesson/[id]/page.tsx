@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { requireUser } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
+import { ownedBy } from "@/lib/guest";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -25,7 +26,7 @@ export default async function LessonPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const user = await requireUser();
+  const user = await getCurrentUser();
 
   const { id } = await params;
 
@@ -36,7 +37,7 @@ export default async function LessonPage({
       scenario: true,
       exercises: { orderBy: { order: "asc" } },
       vocabulary: true,
-      progress: { where: { userId: user.id } },
+      progress: { where: ownedBy(user?.id) },
     },
   });
 
@@ -107,6 +108,7 @@ export default async function LessonPage({
                 data: e.data,
               }))}
               initialStatus={status}
+              signedIn={Boolean(user)}
               passageWordCount={content.passage?.text.split(/\s+/).length}
               backHref={backHref}
             />
@@ -124,7 +126,11 @@ export default async function LessonPage({
                 ) : (
                   <span className="text-sm text-muted-foreground">Not started</span>
                 )}
-                <LessonControls lessonId={lesson.id} status={status} />
+                <LessonControls
+                  lessonId={lesson.id}
+                  status={status}
+                  signedIn={Boolean(user)}
+                />
               </div>
             </>
           )}
