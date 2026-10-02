@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { ArrowLeft, Trophy } from "lucide-react";
-import { getCurrentUser } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -19,8 +19,7 @@ export default async function QuizPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  const user = await requireUser();
 
   const { id } = await params;
   const quiz = await prisma.quiz.findUnique({
@@ -50,7 +49,7 @@ export default async function QuizPage({
     best == null ? null : Math.round((best.score <= 1 ? best.score * 100 : best.score));
 
   return (
-    <div className="mx-auto w-full max-w-2xl flex-1 space-y-6 px-6 py-12">
+    <div className="mx-auto w-full max-w-2xl space-y-6">
       <Link
         href="/learn"
         className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"

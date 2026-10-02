@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { AudioButton } from "@/features/listening/audio-button";
-import { reviewVocabulary } from "@/app/vocabulary/actions";
+import { reviewVocabulary } from "@/app/(app)/(learning)/vocabulary/actions";
 import type { VocabStatus } from "@/lib/generated/prisma/client";
 
 export type FlashcardItem = {

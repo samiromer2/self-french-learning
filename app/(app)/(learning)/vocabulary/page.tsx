@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
-import { getCurrentUser } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -22,8 +20,7 @@ export default async function VocabularyPage({
 }: {
   searchParams: Promise<{ mode?: string }>;
 }) {
-  const user = await getCurrentUser();
-  if (!user) redirect("/login");
+  const user = await requireUser();
 
   const { mode } = await searchParams;
   const reviewAll = mode === "all";
@@ -76,15 +73,7 @@ export default async function VocabularyPage({
   );
 
   return (
-    <div className="mx-auto w-full max-w-2xl flex-1 space-y-6 px-6 py-12">
-      <Link
-        href="/dashboard"
-        className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-      >
-        <ArrowLeft className="size-4" />
-        Dashboard
-      </Link>
-
+    <div className="mx-auto w-full max-w-2xl space-y-6">
       <Card>
         <CardHeader>
           <div className="flex flex-wrap items-center justify-between gap-3">

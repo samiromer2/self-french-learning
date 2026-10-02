@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { getCurrentUser } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/supabase/server";
 import { prisma } from "@/lib/prisma";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -11,18 +10,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { SkillBadge } from "@/app/learn/skill-badge";
+import { SkillBadge } from "@/components/skill-badge";
 import type { Skill } from "@/lib/generated/prisma/client";
-import { SignOutButton } from "./sign-out-button";
 
 const SKILLS: Skill[] = ["READING", "WRITING", "LISTENING", "SPEAKING"];
 
 export default async function DashboardPage() {
-  const authUser = await getCurrentUser();
-
-  if (!authUser) {
-    redirect("/login");
-  }
+  const authUser = await requireUser();
 
   // Curriculum stats cover unit lessons only; the scenario track (unitId
   // null) is counted separately below.
@@ -114,20 +108,9 @@ export default async function DashboardPage() {
 
   return (
     <div className="mx-auto w-full max-w-2xl flex-1 space-y-6 px-6 py-16">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold tracking-tight">
-          Welcome, {user?.name ?? authUser.name ?? authUser.email}
-        </h1>
-        <div className="flex items-center gap-2">
-          <Button asChild variant="outline" size="sm">
-            <Link href="/analytics">Analytics</Link>
-          </Button>
-          <Button asChild variant="outline" size="sm">
-            <Link href="/leaderboard">Leaderboard</Link>
-          </Button>
-          <SignOutButton />
-        </div>
-      </div>
+      <h1 className="text-2xl font-semibold tracking-tight">
+        Welcome, {user?.name ?? authUser.name ?? authUser.email}
+      </h1>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Card>

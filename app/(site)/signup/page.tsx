@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
+import { Suspense, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,8 +14,24 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function LoginPage() {
+// Only same-site paths may be used as a post-signup destination.
+function safeNextPath(next: string | null) {
+  if (next && next.startsWith("/") && !next.startsWith("//")) return next;
+  return null;
+}
+
+export default function SignupPage() {
+  return (
+    <Suspense>
+      <SignupForm />
+    </Suspense>
+  );
+}
+
+function SignupForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -27,20 +42,28 @@ export default function LoginPage() {
     setError(null);
     setIsSubmitting(true);
 
-    const supabase = createClient();
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
+    const res = await fetch("/api/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
     });
 
+    const body = await res.json().catch(() => ({}));
     setIsSubmitting(false);
 
-    if (signInError) {
-      setError("Invalid email or password.");
+    if (!res.ok) {
+      setError(body.error ?? "Something went wrong.");
       return;
     }
 
-    router.push("/dashboard");
+    const next = safeNextPath(searchParams.get("next"));
+
+    if (body.status === "created_please_login") {
+      router.push(next ? `/login?next=${encodeURIComponent(next)}` : "/login");
+      return;
+    }
+
+    router.push(next ?? "/dashboard");
     router.refresh();
   }
 
@@ -48,11 +71,20 @@ export default function LoginPage() {
     <div className="flex flex-1 items-center justify-center px-6">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle>Log in</CardTitle>
-          <CardDescription>Welcome back — continue your French practice.</CardDescription>
+          <CardTitle>Create an account</CardTitle>
+          <CardDescription>Start your French journey at A1.</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name">Name</Label>
+              <Input
+                id="name"
+                autoComplete="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -69,21 +101,22 @@ export default function LoginPage() {
               <Input
                 id="password"
                 type="password"
-                autoComplete="current-password"
+                autoComplete="new-password"
                 required
+                minLength={8}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             {error && <p className="text-sm text-destructive">{error}</p>}
             <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? "Logging in..." : "Log in"}
+              {isSubmitting ? "Creating account..." : "Sign up"}
             </Button>
           </form>
           <p className="mt-4 text-center text-sm text-muted-foreground">
-            No account?{" "}
-            <Link href="/signup" className="font-medium text-foreground underline">
-              Sign up
+            Already have an account?{" "}
+            <Link href="/login" className="font-medium text-foreground underline">
+              Log in
             </Link>
           </p>
         </CardContent>
